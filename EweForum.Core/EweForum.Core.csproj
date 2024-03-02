@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EweForum.Infrastructure\EweForum.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
