@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using EweForum.Data;
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("EweForumContextConnection") ?? throw new InvalidOperationException("Connection string 'EweForumContextConnection' not found.");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'EweForumContextConnection' not found.");
 
 builder.Services.AddDbContext<EweForumContext>(options =>
     options.UseSqlServer(connectionString));
