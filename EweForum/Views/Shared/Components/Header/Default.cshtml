@@ -1,0 +1,49 @@
+﻿@using EweForum.Infrastructure.Data.Models;
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ForumUser> SignInManager
+@inject UserManager<ForumUser> UserManager
+
+<header>
+    <ul class="nav justify-content-center header" onclick="handleNavItemClick">
+        <li class="nav-item">
+            <a class="nav-link" aria="active" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+        @if (SignInManager.IsSignedIn(User))
+        {
+
+            <li class="nav-item">
+                <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">My Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Collections</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Browse</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" >Post</a>
+            </li>
+            <li class="nav-item">
+                <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                </form>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" aria="active" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" aria="active" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" aria="active">Browse</a>
+            </li>
+        }
+    </ul>
+</header>

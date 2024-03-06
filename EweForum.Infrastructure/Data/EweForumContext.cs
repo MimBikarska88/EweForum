@@ -2,9 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
-using System.Reflection.Emit;
-using System.Reflection.Metadata;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EweForum.Data;
 
@@ -47,6 +45,7 @@ public class EweForumContext : IdentityDbContext<IdentityUser>
         .HasValue<TextPost>("text")
         .HasValue<VideoPost>("video");
 
+        builder.SeedCountries();
     }
     public DbSet<Post> Posts { get; set; }
     public DbSet<Country> Countries { get; set; }
