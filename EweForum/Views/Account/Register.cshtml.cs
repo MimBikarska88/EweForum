@@ -23,7 +23,7 @@ using Microsoft.Extensions.Logging;
 
 namespace EweForum.Areas.Identity.Pages.Account
 {
- /*   public class RegisterModel : PageModel
+    public class RegisterModel : PageModel
     {
         private readonly SignInManager<ForumUser> _signInManager;
         private readonly UserManager<ForumUser> _userManager;
@@ -158,5 +158,5 @@ namespace EweForum.Areas.Identity.Pages.Account
             }
             return (IUserEmailStore<ForumUser>)_userStore;
         }
-    } */
+    }
 }

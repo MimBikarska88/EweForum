@@ -2,6 +2,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using EweForum.Data;
 using EweForum.Infrastructure.Data.Models;
+using Microsoft.CodeAnalysis.Options;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using EweForum.Infrastructure.Data.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'EweForumContextConnection' not found.");
@@ -15,9 +18,10 @@ builder.Services.AddDefaultIdentity<ForumUser>(options =>
     options.Password.RequireDigit = false;
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireUppercase = false;
-    
-})
-    .AddEntityFrameworkStores<EweForumContext>();
+
+
+
+}).AddEntityFrameworkStores<EweForumContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

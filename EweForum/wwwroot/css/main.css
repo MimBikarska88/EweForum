@@ -33,6 +33,23 @@ main .form-input {
     width:100%;
  
 }
+main .form-select {
+    border: none;
+    outline: 2px solid pink;
+    margin: 10px;
+    border-radius: 0;
+    padding: 10px;
+    width: 100%;
+}
+main .form-select:focus {
+    border: none;
+    border-radius:0;
+    outline: 2px solid pink;
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+    box-shadow:none;
+}
 .main .text-danger {
     width:min-content;
 }
