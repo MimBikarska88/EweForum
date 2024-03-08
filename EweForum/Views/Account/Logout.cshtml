@@ -1,5 +1,22 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿
 @{
+    ViewData["Title"] = "Log out";
 }
+
+<header>
+    <h3 class="base-heading text-center">@ViewData["Title"]</h3>
+    @{
+        if (User.Identity?.IsAuthenticated ?? false)
+        {
+            <form class="form-inline" asp-controller="Account" asp-action="Logout" method="post">
+                <div class="d-block m-auto">
+                    <button type="submit" class="form-button">Click here to Logout</button>
+                </div>
+            </form>
+        }
+        else
+        {
+            <p class="custom-p">You have successfully logged out of the application.</p>
+        }
+    }
+</header>

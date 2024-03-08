@@ -2,9 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using EweForum.Data;
 using EweForum.Infrastructure.Data.Models;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using EweForum.Infrastructure.Data.Extensions;
+
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'EweForumContextConnection' not found.");
@@ -51,7 +49,7 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
-    endpoints.MapRazorPages();
+    
 });
 
 app.Run();

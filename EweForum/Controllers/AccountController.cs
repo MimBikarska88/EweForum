@@ -1,13 +1,11 @@
 ﻿using EweForum.Data;
-using EweForum.Infrastructure.Data.Extensions;
 using EweForum.Infrastructure.Data.Models;
 using EweForum.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.ObjectModel;
+
 
 namespace EweForum.Controllers
 {
@@ -45,24 +43,27 @@ namespace EweForum.Controllers
         }
        
         [HttpGet]
-        public async Task<IActionResult> Register( [FromQuery] string returnUrl = null)
+        public async Task<IActionResult> Register()
         {
 
             RegisterModel model = new RegisterModel();
-            model.Countries = await GetCountries();
-            model.ReturnUrl = returnUrl;
+            var countries = await GetCountries();
+            model.Countries = countries;
             return View("Register", model);
 
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register (RegisterModel model, string returnUrl = null)
+        public async Task<IActionResult> Register (RegisterModel model)
         {
-            returnUrl ??= Url.Content("~/");
+          
 
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
+                user.CreatedOn = DateTime.Now;
+                user.CountryId = model.CountryId;
+                user.Email = model.Input.Email;
 
                 await _userStore.SetUserNameAsync(user, model.Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, model.Input.Email, CancellationToken.None);
@@ -72,7 +73,7 @@ namespace EweForum.Controllers
                 {
                     _logger.LogInformation("User created a new account with password.");
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return LocalRedirect(returnUrl);
+                    return RedirectToAction("Index", "Home");
 
                 }
                 foreach (var error in result.Errors)
@@ -82,7 +83,9 @@ namespace EweForum.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View("Register");
+            var countries = await GetCountries();
+            model.Countries = countries;
+            return View("Register",model);
         }
 
         private ForumUser CreateUser()
@@ -108,24 +111,18 @@ namespace EweForum.Controllers
             return (IUserEmailStore<ForumUser>)_userStore;
         }
         [HttpGet]
-        public async Task<IActionResult> Login(string returnUrl = null)
+        public async Task<IActionResult> Login()
         {
-
-            returnUrl ??= Url.Content("~/");
-
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
-            LoginModel loginModel = new LoginModel();
-            loginModel.ReturnUrl = returnUrl;
-            return View("Login", loginModel);
+            LoginModel model = new();
+            return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> OnPostAsync(LoginModel model, string returnUrl = null)
+        public async Task<IActionResult> Login(LoginModel model)
         {
-            returnUrl ??= Url.Content("~/");
-
-
+           
 
             if (ModelState.IsValid)
             {
@@ -146,6 +143,14 @@ namespace EweForum.Controllers
 
             // If we got this far, something failed, redisplay form
             return RedirectToAction("Login", "Account");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Login");
+            
         }
     }
 }

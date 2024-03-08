@@ -11,34 +11,28 @@
     <div class="form-outer">
       
         <div class="form-inner">
-            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <form id="registerForm" method="post">
 
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-field" >
                   
-                    <input asp-for="Input.Email" required class="form-input" placeholder="email" autocomplete="username" aria-required="true" />
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    <input asp-for="@Model.Input.Email" required class="form-input" placeholder="email" autocomplete="username" aria-required="true" />
+                    <span asp-validation-for="@Model.Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-field">
                   
-                    <input asp-for="Input.Password"  type="password" required class="form-input" placeholder="password" autocomplete="new-password" aria-required="true" />
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    <input asp-for="@Model.Input.Password" type="password" required class="form-input" placeholder="password" autocomplete="new-password" aria-required="true" />
+                    <span asp-validation-for="@Model.Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-field">
                   
-                    <input asp-for="Input.ConfirmPassword"  class="form-input" placeholder="confirm password" type="password" required autocomplete="new-password" aria-required="true" />
-                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    <input asp-for="@Model.Input.ConfirmPassword"  class="form-input" placeholder="confirm password" type="password" required autocomplete="new-password" aria-required="true" />
+                    <span asp-validation-for="@Model.Input.ConfirmPassword" class="text-danger"></span>
                 </div>
                 <div class="form-field">
 
-                    <select asp-for="@Model.CountryId" class="form-select">
-                        <option>select your country</option>
-                        @foreach(var country in Model.Countries)
-                            {
-                              <option value="@country.Id">@country.Name</option>  
-                            }
-                         </select>
-                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    <select asp-for="@Model.CountryId" asp-items="@(new SelectList(Model.Countries,"Id","Name","BG"))" class=" form-select">   
+                    </select>
                 </div>
                 <button id="registerSubmit" type="submit" class="form-button">Register</button>
             </form>

@@ -1,9 +1,9 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace EweForum.Models
 {
-    public class InputModel
+    public class LoginInputModel
     {
         [Required]
         [EmailAddress]
@@ -15,11 +15,5 @@ namespace EweForum.Models
         [PasswordPropertyText]
 
         public string Password { get; set; } = string.Empty;
-
-        [Required]
-        [PasswordPropertyText]
-
-        public string ConfirmPassword { get; set; } = string.Empty;
-
     }
 }
