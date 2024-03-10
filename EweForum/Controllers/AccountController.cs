@@ -2,10 +2,11 @@
 using EweForum.Infrastructure.Data.Models;
 using EweForum.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
+using System.Security.Claims;
 
 namespace EweForum.Controllers
 {
@@ -18,7 +19,7 @@ namespace EweForum.Controllers
         private readonly IUserEmailStore<ForumUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
 
-        private async Task<ICollection<CountryViewModel>>GetCountries()
+        private async Task<ICollection<CountryViewModel>> GetCountries()
         {
             var result = await _context.Countries.AsNoTracking().Select(c => new CountryViewModel
             {
@@ -31,17 +32,17 @@ namespace EweForum.Controllers
                              UserManager<ForumUser> userManager,
                              IUserStore<ForumUser> userStore,
                              SignInManager<ForumUser> signInManager,
-                             ILogger<RegisterModel>logger)
+                             ILogger<RegisterModel> logger)
         {
             _context = context;
             _signInManager = signInManager;
-            _userManager = userManager; 
+            _userManager = userManager;
             _userStore = userStore;
             _emailStore = GetEmailStore();
             _logger = logger;
 
         }
-       
+
         [HttpGet]
         public async Task<IActionResult> Register()
         {
@@ -54,9 +55,9 @@ namespace EweForum.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register (RegisterModel model)
+        public async Task<IActionResult> Register(RegisterModel model)
         {
-          
+
 
             if (ModelState.IsValid)
             {
@@ -85,7 +86,7 @@ namespace EweForum.Controllers
             // If we got this far, something failed, redisplay form
             var countries = await GetCountries();
             model.Countries = countries;
-            return View("Register",model);
+            return View("Register", model);
         }
 
         private ForumUser CreateUser()
@@ -122,7 +123,7 @@ namespace EweForum.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginModel model)
         {
-           
+
 
             if (ModelState.IsValid)
             {
@@ -132,7 +133,7 @@ namespace EweForum.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return RedirectToAction("Index", "Home");   
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
@@ -145,12 +146,54 @@ namespace EweForum.Controllers
             return RedirectToAction("Login", "Account");
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Logout()
+        [HttpPost]
+        public async Task<JsonResult> Logout()
         {
-            await _signInManager.SignOutAsync();
-            return RedirectToAction("Login");
-            
+            try
+            {
+                await _signInManager.SignOutAsync();
+                _logger.LogInformation("Successfull logout");
+                return Json(new { Success = true });
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                return Json(new { Success = false });
+            }
+
+        }
+
+        private string GetUserId() => User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? string.Empty;
+        [HttpGet]
+        public async Task<IActionResult> Edit()
+        {
+            if (User.Identity == null || !User.Identity.IsAuthenticated)
+            {
+                return Unauthorized();
+            }
+            string userId = GetUserId();
+            var user = await _context.Users.OfType<ForumUser>()
+                .Include(u => u.Country)
+                .Include(u => u.CreatedTopics)
+                .Include(u => u.JoinedTopics)
+                .Include(u => u.ForumUsersFilesAttachments).ThenInclude(f => f.FileAttachment)
+                .FirstOrDefaultAsync(u => u.Id == userId);
+            if (user == null)
+            {
+                return BadRequest();
+            }
+            var model = new ForumUserEditViewModel
+            {
+                Email = user.Email,
+                ActiveSince = user.CreatedOn.ToShortDateString(),
+                AvatarPath = user.ForumUsersFilesAttachments.FirstOrDefault(fa => fa.IsCurrentAvatar)?.FileAttachment.Path,
+                PersonalInfo = user.PersonalInfo,
+                PostsNumber = user.Posts.Count(),
+                JoinedTopicsNumber = user.JoinedTopics.Count(),
+                CreatedTopicsNumber = user.CreatedTopics.Count()
+
+            };
+            return View(model);
         }
     }
 }

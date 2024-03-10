@@ -33,6 +33,23 @@ main .form-input {
     width:100%;
  
 }
+input::file-selector-button {
+    padding: 5px;
+    outline: 2px solid pink;
+    background-color: lightpink;
+    float: right
+}
+
+main .form-textarea {
+    border: 2px solid pink;
+    outline: 2px solid pink;
+    margin: 10px;
+    padding: 5px;
+    width: 100%;
+}
+main .form-textarea:focus {
+  outline: 2px solid lightpink;   
+}
 main .form-select {
     border: none;
     outline: 2px solid pink;
@@ -57,11 +74,11 @@ main .form-field :focus-within {
     font-weight:400
 }
 
-main .form-button{
-    padding:10px;
-    outline:2px solid pink;
-    background-color:lightpink;
-    float:right
+main .form-button, .modal-footer .form-button {
+    padding: 10px;
+    outline: 2px solid pink;
+    background-color: lightpink;
+    float: right
 }
 main .custom-p{
     font-weight:400;
@@ -78,4 +95,29 @@ main .form-modal {
     box-shadow: 2px 5px 16px -3px rgba(96,36,56,0.59);
     -webkit-box-shadow: 2px 5px 16px -3px rgba(96,36,56,0.59);
     -moz-box-shadow: 2px 5px 16px -3px rgba(96,36,56,0.59);
+}
+main a .edit{
+    color:darkred;
+}
+
+main .form-warning{
+    padding:10px;
+    margin:10px;
+    font-weight:500;
+    border-left:2px solid hotpink;
+    color:darkred;
+    background-color:pink;
+}
+.edit{
+    flex-direction:row
+}
+main .custom-modal {
+    width: 75%;
+    outline-color: hotpink;
+    background-color:lavender;
+    
+}
+main .custom-modal .modal-body{
+    padding:3rem;
+    margin:2rem;
 }

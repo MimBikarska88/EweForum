@@ -23,6 +23,8 @@ namespace EweForum.Infrastructure.Data.Models
         public virtual IEnumerable<Topic>CreatedTopics { get; set; } = new List<Topic>();
         public virtual IEnumerable<JoinedTopic> JoinedTopics { get; set; } = new List<JoinedTopic>();
 
+        public virtual IEnumerable<Post> Posts { get; set; } = new LinkedList<Post>();
+
         public virtual IEnumerable<Like> Likes { get; set; } = new List<Like>();
 
         public string CountryId { get; set; } = string.Empty;

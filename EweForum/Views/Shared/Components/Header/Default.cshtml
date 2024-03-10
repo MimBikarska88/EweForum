@@ -1,19 +1,15 @@
-﻿@using EweForum.Infrastructure.Data.Models;
-@using Microsoft.AspNetCore.Identity
-
-@inject SignInManager<ForumUser> SignInManager
-@inject UserManager<ForumUser> UserManager
+﻿
 
 <header>
-    <ul class="nav justify-content-center header" onclick="handleNavItemClick">
+    <ul class="nav justify-content-center header" >
         <li class="nav-item">
             <a class="nav-link" aria="active" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
         </li>
-        @if (SignInManager.IsSignedIn(User))
+        @if (User.Identity!=null && User.Identity.IsAuthenticated)
         {
 
             <li class="nav-item">
-                <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+                <a id="manage" class="nav-link text-dark edit" asp-controller="Account" asp-action="Edit">Hello!</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">My Dashboard</a>
@@ -28,7 +24,7 @@
                 <a class="nav-link" >Post</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" aria="active" id="logout" asp-controller="Account" asp-action="Logout">Logout</a>
+                <a class="nav-link text-dark" aria="active" id="logout" data-bs-toggle="modal" href="#" data-bs-target="#confirmLogout">Logout</a>
             </li>
         }
         else
@@ -45,3 +41,20 @@
         }
     </ul>
 </header>
+<div class="modal fade" id="confirmLogout" tabindex="-1"  aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                Are you sure you want to logout?
+            </div>
+            <div class="modal-footer mt-3 d-flex justify-content-center">
+                <button type="button" class="form-button" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="confirm" class="form-button" onclick="logout" >Logout</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+   
+

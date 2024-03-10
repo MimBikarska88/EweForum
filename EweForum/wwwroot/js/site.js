@@ -2,7 +2,17 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+$("#confirm").on("click", function (e) {
+    fetch("/Account/Logout", {
+        method: "post"
+    })
+        .then(res => {
+           
+                window.location.reload();
 
-const handleNavItemClick = (e) => {
-    console.log(e.target)
-}
+            
+        })
+        .catch(err => console.log(err));
+    $("#confirmLogout").hide();
+    $('.modal-backdrop').remove();
+});

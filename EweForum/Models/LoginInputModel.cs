@@ -12,7 +12,7 @@ namespace EweForum.Models
 
 
         [Required]
-        [PasswordPropertyText]
+       
 
         public string Password { get; set; } = string.Empty;
     }

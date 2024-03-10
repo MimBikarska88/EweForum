@@ -1,13 +1,30 @@
 ﻿@model Modal
-<div class="form-modal">
-	<div>
+<div id="modal" class="form-modal">
+	<div class="modal-title">
 		@Model.Title
 	</div>
-	<div>
-		<p>@Model.TextContent</p>
-	</div>
-	<div class="buttons">
-		<button class="form-button">Cancel</button>
-		<button class="form-button">Yes, I Confirm</button>
+	<div class="modal-buttons">
+		<button class="form-button" onclick="cancel">Cancel</button>
+		<button class="form-button" onclick="confirm">Yes, I Confirm</button>
 	</div>
 </div>
+@section Scripts{
+	<script>
+		const cancel = () => {
+			var modal = document.getElementById("modal");
+			modal.classList.add("hide");
+		}
+		const confirm = (url) => {
+			fetch(url {
+				method: 'POST'
+			})
+				.then(res => {
+					var modal = document.getElementById("modal");
+					modal.classList.add("hide");
+				})
+				.catch(err =>
+					window.location = '@Url.Action("BadRequest", "ErrorControllerName")';
+				)
+			}
+	</script>
+}

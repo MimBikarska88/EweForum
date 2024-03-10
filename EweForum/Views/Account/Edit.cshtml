@@ -1,0 +1,48 @@
+﻿@model ForumUserEditViewModel
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+<section >
+    <div class="form-outer edit">
+        <div class="form-inner">
+            <form>
+                @if(Model.AvatarPath == null || Model.AvatarPath.Trim() == "")
+                {
+                    <div class="form-warning">.
+                        You haven't set your profile picture yet!
+                    </div>
+                }
+                <div class="form-field">
+                    <img src=@Model.AvatarPath class="img-thumbnail">
+                </div>
+                <div class="form-field">
+                    <input asp-for="@Model.AvatarPath" class="form-input" type="file"  aria-required="true" />
+                    <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                </div>
+                <div class="form-field">
+                    <input asp-for="@Model.Email" class="form-input" placeholder="email" autocomplete="email" aria-required="true" />
+                    <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                </div>
+                <div class="form-field">
+                    <textarea asp-for="@Model.PersonalInfo" class="form-textarea" rows=6 placeholder="Some information about yourself..."  aria-required="true" >
+                    </textarea>
+                    <span asp-validation-for="@Model.PersonalInfo" class="text-danger"></span>
+                </div>
+                <div class="form-field">
+                    <button class="form-button">Update</button>
+                </div>
+            </form>
+        </div>
+        <div class="form-inner">
+            <div class="form-field">
+                <a href="#">Change your password</a>
+            </div>
+            <div class="form-field stats">
+                <div>Your topics: <span>102</span></div>
+            </div>
+            <div class="form-field stats">
+                <div>Your posts: <span>322</span></div>
+            </div>
+        </div>
+    </div>
+</section>
