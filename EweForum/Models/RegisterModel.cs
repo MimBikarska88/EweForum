@@ -30,6 +30,8 @@ namespace EweForum.Models
         public string ReturnUrl { get; set; }
     
         public string CountryId { get; set; }
+
+        public string ErrorMessage { get; set; } = string.Empty;
         public ICollection<CountryViewModel> Countries { get; set; } = new List<CountryViewModel>();
     }
 }

@@ -9,7 +9,9 @@ namespace EweForum.Models
     {
 
             public LoginInputModel Input { get; set; } = null!;
+            public string ErrorMessage { get; set; } = string.Empty;
            
+
 
     }
 }

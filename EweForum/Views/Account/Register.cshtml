@@ -11,25 +11,33 @@
     <div class="form-outer">
       
         <div class="form-inner">
+             <div class="form-field">
+                @await Component.InvokeAsync("ErrorMessage",new MessageModel{ ErrorMessage = Model.ErrorMessage})
+              </div>
             <form id="registerForm" method="post">
 
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-field" >
+                <div class="form-field text-center" >
                   
-                    <input asp-for="@Model.Input.Email" required class="form-input" placeholder="email" autocomplete="username" aria-required="true" />
+                    <input asp-for="@Model.Input.Username" required class="form-input" placeholder="username" autocomplete="username" aria-required="true" />
+                    <span asp-validation-for="@Model.Input.Username" class="text-danger"></span>
+                </div>
+                <div class="form-field text-center" >
+                  
+                    <input asp-for="@Model.Input.Email" required class="form-input" placeholder="email" autocomplete="email" aria-required="true" />
                     <span asp-validation-for="@Model.Input.Email" class="text-danger"></span>
                 </div>
-                <div class="form-field">
+                <div class="form-field text-center">
                   
                     <input asp-for="@Model.Input.Password" type="password" required class="form-input" placeholder="password" autocomplete="new-password" aria-required="true" />
-                    <span asp-validation-for="@Model.Input.Email" class="text-danger"></span>
+                    <span asp-validation-for="@Model.Input.Password" class="text-danger"></span>
                 </div>
-                <div class="form-field">
+                <div class="form-field text-center">
                   
                     <input asp-for="@Model.Input.ConfirmPassword"  class="form-input" placeholder="confirm password" type="password" required autocomplete="new-password" aria-required="true" />
                     <span asp-validation-for="@Model.Input.ConfirmPassword" class="text-danger"></span>
                 </div>
-                <div class="form-field">
+                <div class="form-field ">
 
                     <select asp-for="@Model.CountryId" asp-items="@(new SelectList(Model.Countries,"Id","Name","BG"))" class=" form-select">   
                     </select>

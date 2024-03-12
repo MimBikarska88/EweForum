@@ -70,6 +70,9 @@ main .form-select:focus {
 .main .text-danger {
     width:min-content;
 }
+.main .form-field {
+    box-sizing: border-box;
+}
 main .form-field :focus-within {
     font-weight:400
 }
@@ -104,9 +107,10 @@ main .form-warning{
     padding:10px;
     margin:10px;
     font-weight:500;
-    border-left:2px solid hotpink;
+    border-left:2px solid darkred;
     color:darkred;
     background-color:pink;
+    
 }
 .edit{
     flex-direction:row
@@ -120,4 +124,40 @@ main .custom-modal {
 main .custom-modal .modal-body{
     padding:3rem;
     margin:2rem;
+}
+main .custom-href , .custom-href :active {
+    font-size: 24px !important;
+    color: deeppink;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.form-field .stats span {
+    color: deeppink;
+    font-weight: 500;
+}
+
+main .edit .account-stats  .form-field  {
+    
+    margin-left: 25px;
+    box-sizing:border-box;
+
+}
+main .edit .account-stats .form-field div:hover {
+        border-left: 3px solid deeppink;
+        padding-left: 10px
+}
+.edit-password-form .text-danger{
+    display:block;
+    width:100%;
+    text-align:center;
+   
+}
+main .form-success {
+    padding: 10px;
+    margin: 10px;
+    font-weight: 500;
+    border-left: 2px solid darkcyan;
+    color: cyan;
+    background-color: darkcyan;
 }

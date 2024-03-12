@@ -1,0 +1,9 @@
+﻿
+
+@model MessageModel
+@if(Model.ErrorMessage!=null && Model.ErrorMessage.Trim() != "")
+{
+    <div class="form-warning">
+        @Model.ErrorMessage
+    </div>
+}

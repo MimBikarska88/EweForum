@@ -6,13 +6,12 @@ $("#confirm").on("click", function (e) {
     fetch("/Account/Logout", {
         method: "post"
     })
-        .then(res => {
-           
-                window.location.reload();
-
-            
-        })
+        .then(res => window.location = window.location.origin+"/home")
         .catch(err => console.log(err));
     $("#confirmLogout").hide();
     $('.modal-backdrop').remove();
+});
+
+$("#password-change-back-edit").on("click", function () {
+    window.location = window.location.origin + "/Account/Edit"
 });

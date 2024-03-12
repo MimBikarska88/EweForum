@@ -1,6 +1,6 @@
 namespace EweForum.Models
 {
-    public class ErrorViewModel
+    public class ErrorModel
     {
         public string? RequestId { get; set; }
 

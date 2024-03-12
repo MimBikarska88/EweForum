@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using System.Text;
 
 namespace EweForum.Controllers
 {
@@ -65,8 +66,9 @@ namespace EweForum.Controllers
                 user.CreatedOn = DateTime.Now;
                 user.CountryId = model.CountryId;
                 user.Email = model.Input.Email;
+                user.UserName = model.Input.Username;
 
-                await _userStore.SetUserNameAsync(user, model.Input.Email, CancellationToken.None);
+                await _userStore.SetUserNameAsync(user, model.Input.Username, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, model.Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, model.Input.Password);
 
@@ -77,10 +79,12 @@ namespace EweForum.Controllers
                     return RedirectToAction("Index", "Home");
 
                 }
+                StringBuilder stringBuilder = new StringBuilder();
                 foreach (var error in result.Errors)
                 {
-                    ModelState.AddModelError(string.Empty, error.Description);
+                    stringBuilder.AppendLine(error.Description);
                 }
+                model.ErrorMessage = stringBuilder.ToString();
             }
 
             // If we got this far, something failed, redisplay form
@@ -129,7 +133,7 @@ namespace EweForum.Controllers
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(model.Input.Email, model.Input.Password, true, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(model.Input.Username, model.Input.Password, true, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
@@ -137,13 +141,58 @@ namespace EweForum.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return RedirectToAction("Login", "Account");
+                    model.ErrorMessage = "Invalid login attempt.";
                 }
             }
 
-            // If we got this far, something failed, redisplay form
-            return RedirectToAction("Login", "Account");
+            return View(model);
+        }
+        [HttpGet]
+        public async Task<IActionResult> ChangePassword()
+        {
+            if(User.Identity == null || !User.Identity.IsAuthenticated)
+            {
+                return Unauthorized();
+            }
+            var user = await _userManager.GetUserAsync(User);
+            var hasPassword = await _userManager.HasPasswordAsync(user);
+            if (!hasPassword)
+            {
+                return BadRequest("No password update is possible at the moment");
+            }
+
+            return View(new ChangePasswordModel());
+        }
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(ChangePasswordModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            if(User.Identity==null || !User.Identity.IsAuthenticated)
+            {
+                return Unauthorized();
+            }
+            var user = await _userManager.GetUserAsync(User);
+            var changePasswordResult = await _userManager.ChangePasswordAsync(user,model.Input.OldPassword, model.Input.NewPassword);
+            if (!changePasswordResult.Succeeded)
+            {
+                StringBuilder stringBuilder = new StringBuilder();
+                foreach (var error in changePasswordResult.Errors)
+                {
+                    stringBuilder.AppendLine(error.Description);
+                }
+                model.ErrorMessage = stringBuilder.ToString();
+                return View(model);
+            }
+
+            await _signInManager.RefreshSignInAsync(user);
+            _logger.LogInformation("User changed their password successfully.");
+            var success = "Your password has been changed.";
+
+            return View(new ChangePasswordModel { SuccessMessage = success });
         }
 
         [HttpPost]

@@ -7,17 +7,27 @@ namespace EweForum.Models
     {
         [Required]
         [EmailAddress]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email address")]
 
         public string Email { get; set; } = string.Empty;
 
+        [Required]
+        [Display(Name = "Username")]
+        public string Username { get; set; } = string.Empty;
+
 
         [Required]
-        [PasswordPropertyText]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
 
         public string Password { get; set; } = string.Empty;
 
         [Required]
-        [PasswordPropertyText]
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirm new password")]
+        [Compare("Password", ErrorMessage = "The new password and confirmation password do not match.")]
+
 
         public string ConfirmPassword { get; set; } = string.Empty;
 

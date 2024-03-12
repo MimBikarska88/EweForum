@@ -1,0 +1,7 @@
+﻿@model MessageModel
+@if (Model.SuccessMessage != null && Model.SuccessMessage.Trim() != "")
+{
+    <div class="form-success">
+        @Model.SuccessMessage
+    </div>
+}

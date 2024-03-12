@@ -1,29 +1,36 @@
 ﻿@model LoginModel
 @{
     ViewData["Title"] = "Log in";
+    ViewData["error"] = Model.ErrorMessage;
 }
 
 <h1 class="form-heading text-center">@ViewData["Title"]</h1>
 <section id="login">
     <div class="form-outer edit">
         <div class="form-inner edit">
+             <div class="form-field">
+                @await Component.InvokeAsync("ErrorMessage",new MessageModel{ ErrorMessage = ViewData["error"].ToString()})
+              </div>
             <div>
                 <form id="account" method="post">
 
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-field">
-                        <input asp-for="@Model.Input.Email" class="form-input" placeholder="email" type="email" autocomplete="email" aria-required="true" />
-                        <span asp-validation-for="@Model.Input.Email" class="text-danger"></span>
+                    <div class="form-field text-center">
+                        <input asp-for="@Model.Input.Username" class="form-input" placeholder="username"  autocomplete="username" aria-required="true" />
+                        <span asp-validation-for="@Model.Input.Username" class="text-danger mb-0 pb-0"></span>
                     </div>
-                    <div class="form-field">
+                    <div class="form-field text-center mt-3">
                         <input asp-for="@Model.Input.Password" placeholder="password" class="form-input"  type="password" autocomplete="current-password" aria-required="true" />
                         <span asp-validation-for="@Model.Input.Password" class="text-danger"></span>
                     </div>
-                    <div>
+                    <div class="form-field">
                         <button id="login-submit" type="submit" class="form-button">Log in</button>
                     </div>
+                   
                 </form>
+              
             </div>
+          
         </div>
     </div>
 </section>
