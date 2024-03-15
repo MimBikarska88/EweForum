@@ -57,9 +57,13 @@ public class EweForumContext : IdentityDbContext<IdentityUser>
 
     public DbSet<FileAttachment>FilesAttachments { get; set; }  
 
-    public DbSet<ForumUserAttachment> Forums { get; set; }
+    public DbSet<ForumUserAttachment> ForumUsersAttachments { get; set; }
 
     public DbSet<PostReply>PostsReplies {  get; set; }  
 
     public DbSet<ReplyClosure> RepliesClosures { get; set;}
+
+    public string SuccessMessage { get; set; } = string.Empty;
+
+    public string ErrorMessage { get; set; } = string.Empty;
 }

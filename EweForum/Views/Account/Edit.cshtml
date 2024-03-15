@@ -5,24 +5,27 @@
 <section >
     <div class="form-outer edit">
         <div class="form-inner">
-            <form>
-                @if(Model.AvatarPath == null || Model.AvatarPath.Trim() == "")
+            <form enctype="multipart/form-data" asp-controller="Account" asp-action="Edit">
+                <input type="hidden" asp-for="@Model.Username"/>
+                @if(Model.AvatarName == null || Model.AvatarName.Trim() == "")
                 {
                     <div class="form-warning">.
                         You haven't set your profile picture yet!
                     </div>
+                }else{
+                    <div class="form-field">
+                        <img src="/images/@Model.AvatarName"  height="400" width="400" class="img-thumbnail" alt="@Model.AvatarName"/>
+                    </div>
                 }
                 <div class="form-field">
-                    <img src=@Model.AvatarPath class="img-thumbnail">
+                    <input asp-for="@Model.Avatar" type="file" accept="image/png, image/gif, image/jpeg" class="form-input" type="file"  aria-required="true" />
+                    <span asp-validation-for="@Model.Avatar" class="text-danger"></span>
                 </div>
                 <div class="form-field">
-                    <input asp-for="@Model.AvatarPath" class="form-input" type="file"  aria-required="true" />
+                    <input asp-for="@Model.Email" class="form-input"  type="email" aria-required="true" placeholder="email" required/>
                     <span asp-validation-for="@Model.Email" class="text-danger"></span>
                 </div>
-                <div class="form-field">
-                    <input asp-for="@Model.Email" class="form-input" placeholder="email" autocomplete="email" aria-required="true" />
-                    <span asp-validation-for="@Model.Email" class="text-danger"></span>
-                </div>
+                
                 <div class="form-field">
                     <textarea asp-for="@Model.PersonalInfo" class="form-textarea" rows=6 placeholder="Some information about yourself..."  aria-required="true" >
                     </textarea>

@@ -6,15 +6,17 @@ namespace EweForum.Models
 {
     public class ForumUserEditViewModel
     {
-        [Column(TypeName = "text")]
-        [Required(ErrorMessage = "Please, write a few things about yourself")]
+        [Required]
+        
         public string PersonalInfo { get; set; } = string.Empty;
 
-        [Column(TypeName = "text")]
-        [Required(ErrorMessage = "Please, write a few things about yourself")]
-        public string AvatarPath { get; set; } = string.Empty;
+        public IFormFile? Avatar { get; set; }
+
+        public string AvatarName { get; set; } = string.Empty;
 
         public string Email { get; set; } = string.Empty;
+
+        public string Username { get; set; } = string.Empty;
         public int PostsNumber { get; set; } 
 
         public int JoinedTopicsNumber { get; set; }

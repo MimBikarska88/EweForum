@@ -3,9 +3,13 @@ using EweForum.Infrastructure.Data.Models;
 using EweForum.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.Hosting.Internal;
+using System.Security.AccessControl;
 using System.Security.Claims;
 using System.Text;
 
@@ -19,6 +23,8 @@ namespace EweForum.Controllers
         private readonly IUserStore<ForumUser> _userStore;
         private readonly IUserEmailStore<ForumUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        
 
         private async Task<ICollection<CountryViewModel>> GetCountries()
         {
@@ -33,7 +39,8 @@ namespace EweForum.Controllers
                              UserManager<ForumUser> userManager,
                              IUserStore<ForumUser> userStore,
                              SignInManager<ForumUser> signInManager,
-                             ILogger<RegisterModel> logger)
+                             ILogger<RegisterModel> logger,
+                             IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _signInManager = signInManager;
@@ -41,6 +48,7 @@ namespace EweForum.Controllers
             _userStore = userStore;
             _emailStore = GetEmailStore();
             _logger = logger;
+            _webHostEnvironment = webHostEnvironment;
 
         }
 
@@ -231,17 +239,88 @@ namespace EweForum.Controllers
             {
                 return BadRequest();
             }
+            var avatarPath = user.ForumUsersFilesAttachments
+                .FirstOrDefault(fa => fa.IsCurrentAvatar)
+                ?.FileAttachment.Path;
+          
+            var filename = Path.GetFileName(avatarPath);
+
             var model = new ForumUserEditViewModel
             {
                 Email = user.Email,
                 ActiveSince = user.CreatedOn.ToShortDateString(),
-                AvatarPath = user.ForumUsersFilesAttachments.FirstOrDefault(fa => fa.IsCurrentAvatar)?.FileAttachment.Path,
+                AvatarName = filename,
                 PersonalInfo = user.PersonalInfo,
                 PostsNumber = user.Posts.Count(),
                 JoinedTopicsNumber = user.JoinedTopics.Count(),
-                CreatedTopicsNumber = user.CreatedTopics.Count()
+                CreatedTopicsNumber = user.CreatedTopics.Count(),
+                Username = user.UserName
 
             };
+            return View(model);
+        }
+        [HttpPost]
+        
+        public async Task<IActionResult> Edit(ForumUserEditViewModel model)
+        {
+            
+            if (!ModelState.IsValid)
+            { 
+                
+               return View(model);   
+            }
+            if(User.Identity==null || !User.Identity.IsAuthenticated) {
+                return Unauthorized();
+            }
+            var user = await _userManager.GetUserAsync(User);
+            if (user.UserName == model.Username && User.Identity.IsAuthenticated)
+            {
+               
+                user.PersonalInfo = model.PersonalInfo;
+                user.Email = model.Email;
+                if(model.Avatar != null)
+                {
+                    var currentAvatar = _context.ForumUsersAttachments
+                        .Include(fa => fa.ForumUser)
+                        .Where(fa => fa.ForumUserId == GetUserId())
+                        .OrderByDescending(fa => fa.FileAttachment.UploadedOn)
+                        .FirstOrDefault();
+                    // remove is current avatar prop
+                    var path = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                       
+                    }
+                    var fileName = string.Format(@"{0}{1}{2}", model.Avatar.FileName, DateTime.Now.Ticks, Path.GetExtension(model.Avatar.FileName));
+                    var fullPath = Path.Combine(path, fileName);
+                    using (FileStream fileStream = new (fullPath, FileMode.Create, FileAccess.ReadWrite))
+                    {
+                        await model.Avatar.CopyToAsync(fileStream);
+                    }
+                    var FileAttachment = new FileAttachment
+                    {
+                        Name = model.Avatar.Name,
+                        Path = fullPath,
+                        UploadedOn = DateTime.Now
+                    };
+
+                    await _context.ForumUsersAttachments.AddAsync(new ForumUserAttachment
+                    {
+                        IsCurrentAvatar = true,
+                        FileAttachment = FileAttachment,
+                        ForumUser = user
+                    });
+                    model.AvatarName = fileName;
+                    if (currentAvatar != null) currentAvatar.IsCurrentAvatar = false;
+                }
+                var result = await _context.SaveChangesAsync();
+                
+                return View(model);
+                    
+            }
+            
+            
             return View(model);
         }
     }
