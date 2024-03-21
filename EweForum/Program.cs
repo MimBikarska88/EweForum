@@ -4,7 +4,6 @@ using EweForum.Data;
 using EweForum.Infrastructure.Data.Models;
 using System.Data.Services.Providers;
 using System.Reflection;
-using EweForum.Core.Services.Topic;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddUserSecrets(Assembly.GetExecutingAssembly(),true);
@@ -13,8 +12,6 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<EweForumContext>(options =>
     options.UseSqlServer(connectionString));
-
-builder.Services.AddTransient<ITopicService, TopicService>();
 
 builder.Services.AddDefaultIdentity<ForumUser>(options =>
 {

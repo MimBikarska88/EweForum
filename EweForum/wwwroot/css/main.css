@@ -161,3 +161,50 @@ main .form-success {
     color: cyan;
     background-color: darkcyan;
 }
+.topics-table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    width: 100%;
+    text-align: left;
+}
+.topics-table thead {
+      background-color: pink;
+      font-weight: 300;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.topics-table th{
+    padding:1rem;
+}
+.topics-table td{
+    padding:0.5rem;
+}
+.topics-table tbody{
+    display:table-row-group;
+}
+.topics-table tbody tr {
+   background-color:white;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   margin-bottom: 10px;
+}
+
+.table-pagination{
+    align-self:flex-end;
+}
+.table-pagination button {
+        border: none;
+        color: dimgrey;
+        padding: 0.5rem;
+        background-color:white;
+        border: none;
+        outline: none;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.table-pagination button:active{
+    outline:2px solid pink;
+}
+.table-pagination .current-index-page {
+    color:white;
+    font-weight:400;
+    background-color:pink;
+}
+

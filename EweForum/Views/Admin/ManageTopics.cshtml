@@ -1,1 +1,118 @@
-﻿<h3 class="text-center">Welcome, to Admin Panel</h3>
+﻿@model PaginationModel<TopicViewModel>
+<section>
+	<h3 class="text-center p-3">Admin Panel</h3>
+    <div class="d-block">
+        <div class="row align-items-start ">
+            <div class="col-2 mt-3 text-start">
+                <div>
+                    <span>Active Users: 0</span>
+                </div>
+                <div>
+                    <span>Total Count of Users: 0</span>
+                </div>               
+                <div>
+                    <span>Active Topics: 0</span>
+                </div>
+                <div>
+                    <span>Inactive Topics: 0</span>
+                </div>
+                <div>
+                    <span>New Topics: 0</span>
+                </div>
+            </div>
+          
+                <div class="col-10 text-start">
+
+               <h5>Manage Topics</h5>
+               <a href="#"><h5>Create new</h5></a>
+               <form method="post">
+                    <div>
+                        <input id="searchTerm" class="form-input w-75" placeholder="search" /><button type="submit" class="form-button">Search</button>
+                    </div>
+                    <div>
+                        <table class="topics-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Created on</th>
+                                    <th>Modified on</th>
+                                    <th>Popularity</th>
+                                    <th>Activity</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Items)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.Title</td>
+                                        <td>@item.Description</td>
+                                        <td>@item.CreatedOn</td>
+                                        <td>@item.ModifiedOn</td>
+                                        <td class="text-center">@item.UserCount</td>
+                                        <td>
+                                            @if (item.IsActive)
+                                            {
+                                                <span color="red">Inactive</span>
+                                            }
+                                            else
+                                            {
+                                                <span color="green">Active</span>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        @if (Model.PageCount > 1)
+                        {   <input type="hidden" name="PageCount" value="@Model.PageCount"/>
+                            <input type="hidden" name="CurrentPageIndex" value="@Model.CurrentPageIndex"/>
+                            <input type="hidden" name="PageSize" value="@Model.PageSize"/>
+                            <input type="hidden" name="PageIndex" value="@Model.PageIndex"/>
+                            <div class="table-pagination">
+                                @if (Model.CurrentPageIndex != 1)
+                                {
+                                    <button type="submit" asp-route-page="1">First</button>
+                                }
+                                @if (Model.CurrentPageIndex != 1 && Model.PageCount >= Model.CurrentPageIndex)
+                                {
+                                    <button type="submit" asp-route-page="@Model.CurrentPageIndex-1">Previous</button>
+                                }
+                                @for (int i = Model.CurrentPageIndex; i <= Model.CurrentPageIndex + 5; ++i)
+                                {
+                                    if (i == Model.CurrentPageIndex)
+                                    {
+                                        <button type="submit" asp-route-page="@i" class="current-index-page">@i</button>
+                                    }
+                                    else if (i > Model.PageCount)
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        <button type="submit" asp-route-page="@i">@i</button>
+                                    }
+                                }
+                                @if (Model.CurrentPageIndex < Model.PageCount)
+                                {
+                                    <button type="submit" asp-route-page="@Model.CurrentPageIndex+1">Next</button>
+                                }
+                                @if (Model.CurrentPageIndex != 1 && Model.PageIndex != Model.PageCount)
+                                {
+                                    <button type="submit" asp-route-page="@Model.PageCount">Last</button>
+                                }
+
+                            </div>
+
+                        }
+                    </div>
+                </form>
+            </div>
+            
+          
+        </div>
+    </div>
+</section>

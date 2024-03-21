@@ -1,5 +1,5 @@
-﻿{
-  "topics": [
+﻿
+  [
     {
       "title": "Industrial Metal",
       "description": "A community for discussing all things related to machines and metal combined.",
@@ -646,6 +646,4 @@
       "description": "A community for music enthusiasts to explore the boundary-pushing sounds of Bjork, the industrial metal madness of Rammstein, and the subversive street art of Banksy, celebrating their contributions to the world of art and music.",
       "isActive": true
     }
-
   ]
-}

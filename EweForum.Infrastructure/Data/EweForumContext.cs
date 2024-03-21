@@ -47,6 +47,7 @@ public class EweForumContext : IdentityDbContext<IdentityUser>
         .HasValue<VideoPost>("video");
 
         builder.SeedCountries();
+        builder.SeedTopics();
     }
     public DbSet<Post> Posts { get; set; }
     public DbSet<Country> Countries { get; set; }

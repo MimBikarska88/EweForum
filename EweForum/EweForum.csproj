@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EweForum.Core\EweForum.Core.csproj" />
+    <ProjectReference Include="..\EweForum.Infrastructure\EweForum.Infrastructure.csproj" />
     <ProjectReference Include="..\EweForum.Utilites\EweForum.Utilites.csproj" />
   </ItemGroup>
 
