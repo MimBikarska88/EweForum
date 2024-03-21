@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>ee3e2ecb-f264-4a39-abb9-56b295700d64</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EweForum.Core\EweForum.Core.csproj" />
+    <ProjectReference Include="..\EweForum.Utilites\EweForum.Utilites.csproj" />
   </ItemGroup>
 
 </Project>

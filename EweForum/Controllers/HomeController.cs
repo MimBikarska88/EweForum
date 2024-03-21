@@ -15,6 +15,11 @@ namespace EweForum.Controllers
 
         public IActionResult Index()
         {
+            if (User.IsInRole("Admin"))
+            {
+                return RedirectToAction("ManageTopics", "Admin");
+            }
+
             return View();
         }
 

@@ -30,7 +30,7 @@ namespace EweForum.Infrastructure.Data.Models
         public string CountryId { get; set; } = string.Empty;
 
         [ForeignKey(nameof(CountryId))]
-        public Country Country { get; set; } = null!;
+        public Country? Country { get; set; } = null!;
 
 
     }

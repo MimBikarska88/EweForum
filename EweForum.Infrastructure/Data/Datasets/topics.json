@@ -1,0 +1,651 @@
+﻿{
+  "topics": [
+    {
+      "title": "Industrial Metal",
+      "description": "A community for discussing all things related to machines and metal combined.",
+      "isActive": true
+    },
+    {
+      "title": "Flamenco Enthusiasts",
+      "description": "A place for flamenco enthusiasts to share tips, tricks, and discuss their favorite gear and techniques.",
+      "isActive": true
+    },
+    {
+      "title": "Space Exploration",
+      "description": "Exploring the wonders of outer space, from celestial bodies to cutting-edge space missions.",
+      "isActive": true
+    },
+    {
+      "title": "Photography",
+      "description": "A community for photographers to share their work, techniques, and experiences.",
+      "isActive": true
+    },
+    {
+      "title": "Football Fans",
+      "description": "For passionate football fans to discuss matches, players, and strategies.",
+      "isActive": true
+    },
+    {
+      "title": "World News",
+      "description": "Keeping up with the latest global news and events.",
+      "isActive": true
+    },
+    {
+      "title": "Environmental Conservation",
+      "description": "Discussing ways to preserve and protect the environment for future generations.",
+      "isActive": true
+    },
+    {
+      "title": "Fashion Trends",
+      "description": "Exploring the latest fashion trends, styles, and industry news.",
+      "isActive": true
+    },
+    {
+      "title": "Vegan Meals",
+      "description": "Sharing recipes, tips, and techniques for delicious and nutritious vegan meals.",
+      "isActive": true
+    },
+    {
+      "title": "Literature Lovers",
+      "description": "For bookworms to discuss their favorite novels, authors, and literary themes.",
+      "isActive": true
+    },
+    {
+      "title": "Medicine and Health",
+      "description": "Discussing medical breakthroughs, health tips, and wellness strategies.",
+      "isActive": true
+    },
+    {
+      "title": "Programming Community",
+      "description": "A community for programmers to share code, ask questions, and discuss programming languages and techniques.",
+      "isActive": true
+    },
+    {
+      "title": "Fitness Freaks",
+      "description": "For fitness enthusiasts to share workout routines, diet plans, and motivation tips.",
+      "isActive": true
+    },
+    {
+      "title": "DIY Projects",
+      "description": "Sharing ideas, tips, and tutorials for do-it-yourself projects and crafts.",
+      "isActive": true
+    },
+    {
+      "title": "Animal Lovers",
+      "description": "A community for animal lovers to share cute photos, adoption stories, and pet care tips.",
+      "isActive": true
+    },
+    {
+      "title": "Political Debates",
+      "description": "Discussing political ideologies, current events, and policy issues.",
+      "isActive": true
+    },
+    {
+      "title": "Artists' Corner",
+      "description": "For artists of all mediums to share their work, techniques, and inspiration.",
+      "isActive": true
+    },
+    {
+      "title": "Travel Enthusiasts",
+      "description": "Sharing travel experiences, tips, and recommendations for exploring the world.",
+      "isActive": true
+    },
+    {
+      "title": "Film Buffs",
+      "description": "A community for cinephiles to discuss movies, directors, and cinematic techniques.",
+      "isActive": true
+    },
+    {
+      "title": "History Buffs",
+      "description": "Exploring historical events, figures, and civilizations from around the world.",
+      "isActive": true
+    },
+    {
+      "title": "Cooking Enthusiasts",
+      "description": "For home cooks and foodies to share recipes, cooking tips, and culinary adventures.",
+      "isActive": true
+    },
+    {
+      "title": "Technology Innovations",
+      "description": "Discussing the latest advancements in technology, gadgets, and digital trends.",
+      "isActive": true
+    },
+    {
+      "title": "Yoga and Meditation",
+      "description": "A community for yogis and meditation practitioners to share techniques, experiences, and wellness tips.",
+      "isActive": true
+    },
+    {
+      "title": "Science Fiction & Fantasy",
+      "description": "Exploring the realms of science fiction and fantasy literature, movies, and TV shows.",
+      "isActive": true
+    },
+    {
+      "title": "Parenting Advice",
+      "description": "A supportive community for parents to share advice, experiences, and parenting tips.",
+      "isActive": true
+    },
+    {
+      "title": "Cryptocurrency Investors",
+      "description": "Discussing cryptocurrency news, investment strategies, and blockchain technology.",
+      "isActive": true
+    },
+    {
+      "title": "Hygge",
+      "description": "Sharing ideas, tips, and inspiration for interior design and home decor.",
+      "isActive": true
+    },
+    {
+      "title": "Gardening Enthusiasts",
+      "description": "For gardeners to share tips, advice, and photos of their gardens.",
+      "isActive": true
+    },
+    {
+      "title": "Psychology Discussions",
+      "description": "Discussing psychological theories, mental health, and human behavior.",
+      "isActive": true
+    },
+    {
+      "title": "Craft Beer Enthusiasts",
+      "description": "A community for beer lovers to discuss craft beer, breweries, and tasting experiences.",
+      "isActive": true
+    },
+    {
+      "title": "Business Startups",
+      "description": "For entrepreneurs and startup enthusiasts to share advice, resources, and success stories.",
+      "isActive": true
+    },
+    {
+      "title": "Language Learning",
+      "description": "A community for language learners to practice, share resources, and seek advice.",
+      "isActive": true
+    },
+    {
+      "title": "Astrophotography",
+      "description": "Sharing photos and techniques for capturing the beauty of the night sky.",
+      "isActive": true
+    },
+    {
+      "title": "Cycling Community",
+      "description": "For cyclists to discuss bikes, routes, and cycling events.",
+      "isActive": true
+    },
+    {
+      "title": "Cooking Challenges",
+      "description": "A community for culinary enthusiasts to participate in cooking challenges and share their creations.",
+      "isActive": true
+    },
+    {
+      "title": "Parenting Support",
+      "description": "A supportive space for parents to seek advice, share experiences, and find solidarity.",
+      "isActive": true
+    },
+    {
+      "title": "Photography Critique",
+      "description": "Receiving constructive feedback and critique on photography techniques and compositions.",
+      "isActive": true
+    },
+    {
+      "title": "Climate Change Discussions",
+      "description": "Discussing the causes, impacts, and solutions to climate change.",
+      "isActive": true
+    },
+    {
+      "title": "Music Production",
+      "description": "For musicians and producers to share techniques, software recommendations, and collaborate on music projects.",
+      "isActive": true
+    },
+    {
+      "title": "Astronomy Enthusiasts",
+      "description": "Exploring the wonders of the cosmos, from stars and galaxies to black holes and nebulae.",
+      "isActive": true
+    },
+    {
+      "title": "Artificial Intelligence",
+      "description": "Discussing AI technologies, applications, and ethical implications.",
+      "isActive": true
+    },
+    {
+      "title": "Book Club",
+      "description": "A community for book lovers to discuss their current reads, share recommendations, and host virtual book clubs.",
+      "isActive": true
+    },
+    {
+      "title": "Fitness Challenges",
+      "description": "A community for setting and achieving fitness goals, sharing progress, and supporting each other's journey.",
+      "isActive": true
+    },
+    {
+      "title": "Healthy Eating",
+      "description": "Discussing nutrition, meal planning, and healthy eating habits for a balanced lifestyle.",
+      "isActive": true
+    },
+    {
+      "title": "Fashion Advice",
+      "description": "A place for fashion enthusiasts to seek advice, share styling tips, and discuss the latest trends.",
+      "isActive": true
+    },
+    {
+      "title": "Art Therapy",
+      "description": "Exploring the therapeutic benefits of art-making, creative expression, and self-discovery.",
+      "isActive": true
+    },
+    {
+      "title": "Writing Workshop",
+      "description": "A supportive space for writers to share their work, receive feedback, and improve their craft.",
+      "isActive": true
+    },
+    {
+      "title": "Virtual Reality",
+      "description": "Discussing VR technology, gaming experiences, and immersive virtual worlds.",
+      "isActive": true
+    },
+    {
+      "title": "Baking Enthusiasts",
+      "description": "For baking enthusiasts to share recipes, baking tips, and showcase their baked creations.",
+      "isActive": true
+    },
+    {
+      "title": "Fitness Motivation",
+      "description": "A community for sharing motivational quotes, success stories, and tips for staying committed to fitness goals.",
+      "isActive": true
+    },
+    {
+      "title": "Pet Adoption",
+      "description": "Connecting rescue animals with loving homes, sharing adoption stories, and promoting pet welfare.",
+      "isActive": true
+    },
+    {
+      "title": "Documentary Films",
+      "description": "Discussing thought-provoking documentaries, exploring social issues, and documentary filmmaking techniques.",
+      "isActive": true
+    },
+    {
+      "title": "DIY Home Improvement",
+      "description": "We are all the indian guy with the pool but not just at 2 am but 24/7",
+      "isActive": true
+    },
+    {
+      "title": "Entrepreneurship",
+      "description": "For aspiring and seasoned entrepreneurs to share insights, resources, and strategies for success in business.",
+      "isActive": true
+    },
+    {
+      "title": "Mindfulness Meditation",
+      "summary": "Keep your body and mind at peace",
+      "isActive": true
+    },
+    {
+      "title": "Castle Connoisseurs",
+      "description": "Exploring the world of castles, from medieval fortresses to fairytale palaces, discussing history, architecture, and legends surrounding these majestic structures.",
+      "isActive": true
+    },
+    {
+      "title": "Pastry Paradise",
+      "description": "Indulging in the world of pastries and baked goods, from flaky croissants and decadent cakes to delicate macarons and traditional pies.",
+      "isActive": true
+    },
+    {
+      "title": "Medieval Meanderings",
+      "description": "Journeying back in time to the medieval era, exploring life, culture, and warfare in the Middle Ages, from knights and castles to feudalism and chivalry.",
+      "isActive": true
+    },
+    {
+      "title": "Craft Beer Collective",
+      "description": "A collective for craft beer enthusiasts to share homebrewing recipes, brewery visits, and discussions about the art and science of beer-making.",
+      "isActive": true
+    },
+    {
+      "title": "Sweet Tooth Society",
+      "description": "A society for aficionados of sweets and desserts, from creamy gelato and rich chocolates to fruity tarts and sugary confections.",
+      "isActive": true
+    },
+    {
+      "title": "Castle Chronicles",
+      "description": "Chronicling the history and stories of castles around the world, from iconic landmarks like Edinburgh Castle to lesser-known fortifications with fascinating tales.",
+      "isActive": true
+    },
+    {
+      "title": "Brewery Brotherhood",
+      "description": "A brotherhood of beer aficionados, celebrating the camaraderie and community spirit fostered by the love of good beer and great company.",
+      "isActive": true
+    },
+    {
+      "title": "Patisserie Passion",
+      "description": "Indulging in the artistry and craftsmanship of French patisserie, from delicate éclairs and flaky mille-feuille to buttery croissants and colorful macarons.",
+      "isActive": true
+    },
+    {
+      "title": "Fantasy Fortress Fellowship",
+      "description": "A fellowship of fantasy enthusiasts exploring fictional castles from literature, movies, and games, from Hogwarts Castle to the Red Keep of King's Landing.",
+      "isActive": true
+    },
+    {
+      "title": "Swamp Metal Syndicate",
+      "description": "For fans of dark southern country music, embracing the eerie atmospheres, haunting melodies, and swampy vibes of bands like Those Poor Bastards and Sons of Perdition.",
+      "isActive": true
+    },
+    {
+      "title": "Cryptid Chronicles",
+      "description": "Delving into the world of cryptids and mythical creatures, from Bigfoot and the Loch Ness Monster to Mothman and the Chupacabra, exploring sightings, legends, and cryptozoological mysteries.",
+      "isActive": true
+    },
+    {
+      "title": "Tales from the Shadows",
+      "description": "Gathering around the virtual campfire to share and discuss spooky stories, urban legends, and chilling encounters with the unknown.",
+      "isActive": true
+    },
+    {
+      "title": "Paranormal Pursuit",
+      "description": "Exploring the realms of the paranormal, from ghost sightings and haunted locations to UFO encounters and unexplained phenomena, and sharing personal experiences and investigations.",
+      "isActive": true
+    },
+    {
+      "title": "Words of Wisdom",
+      "description": "A collection of favorite quotes from literature, philosophy, movies, and beyond, sharing timeless words of wisdom and inspiration.",
+      "isActive": true
+    },
+    {
+      "title": "Southern Gothic Society",
+      "description": "A community for fans of Southern Gothic literature and culture, discussing themes of decay, isolation, and the grotesque in works by authors like Flannery O'Connor, William Faulkner, and Cormac McCarthy.",
+      "isActive": true
+    },
+    {
+      "title": "Cryptozoology Club",
+      "description": "Dedicated to the study and exploration of cryptids and unknown animals, sharing research, eyewitness accounts, and investigations into elusive creatures.",
+      "isActive": true
+    },
+    {
+      "title": "Midnight Mysteries",
+      "description": "A gathering place for lovers of mysteries and thrillers, discussing whodunits, detective stories, and psychological suspense novels, and sharing recommendations for gripping reads.",
+      "isActive": true
+    },
+    {
+      "title": "Supernatural Seekers",
+      "description": "Embarking on a journey to uncover the mysteries of the supernatural world, from psychic phenomena and hauntings to demonic possessions and spiritual encounters.",
+      "isActive": true
+    },
+    {
+      "title": "Quotable Quotes Corner",
+      "description": "Sharing and discussing favorite quotes from literature, movies, music, and pop culture, from profound insights to witty one-liners.",
+      "isActive": true
+    },
+    {
+      "title": "Cooking Enthusiasts",
+      "description": "For home cooks and foodies to share recipes, cooking tips, and culinary adventures.",
+      "isActive": true
+    },
+    {
+      "title": "Technology Innovations",
+      "description": "Discussing the latest advancements in technology, gadgets, and digital trends.",
+      "isActive": true
+    },
+    {
+      "title": "Yoga and Meditation",
+      "description": "A community for yogis and meditation practitioners to share techniques, experiences, and wellness tips.",
+      "isActive": true
+    },
+    {
+      "title": "Anime",
+      "description": "For anime enthusiasts to discuss their favorite series, characters, and genres.",
+      "isActive": true
+    },
+    {
+      "title": "Science Fiction & Fantasy",
+      "description": "Exploring the realms of science fiction and fantasy literature, movies, and TV shows.",
+      "isActive": true
+    },
+    {
+      "title": "Parenting Advice",
+      "description": "A supportive community for parents to share advice, experiences, and parenting tips.",
+      "isActive": true
+    },
+    {
+      "title": "Cryptocurrency Investors",
+      "description": "Discussing cryptocurrency news, investment strategies, and blockchain technology.",
+      "isActive": true
+    },
+    {
+      "title": "Home Decor Inspiration",
+      "description": "Sharing ideas, tips, and inspiration for interior design and home decor.",
+      "isActive": true
+    },
+    {
+      "title": "Gardening Enthusiasts",
+      "description": "For gardeners to share tips, advice, and photos of their gardens.",
+      "isActive": true
+    },
+    {
+      "title": "Psychology Discussions",
+      "description": "Discussing psychological theories, mental health, and human behavior.",
+      "isActive": true
+    },
+    {
+      "title": "Kawaii Cafe Corner",
+      "description": "A cozy corner for kawaii enthusiasts to share their love for all things cute, from adorable characters to colorful accessories.",
+      "isActive": true
+    },
+    {
+      "title": "Sakura Blossom Society",
+      "description": "A society celebrating the beauty of cherry blossoms and Japanese culture, hosting events and discussions inspired by the ephemeral beauty of sakura season.",
+      "isActive": true
+    },
+    {
+      "title": "Mochi Madness Club",
+      "description": "Indulging in the chewy goodness of mochi treats, from traditional flavors to innovative creations, and sharing recipes and recommendations.",
+      "isActive": true
+    },
+    {
+      "title": "Neko Nook",
+      "description": "A virtual nook for cat lovers and kawaii enthusiasts, featuring cute cat memes, GIFs, and discussions about feline friends.",
+      "isActive": true
+    },
+    {
+      "title": "Harajuku Hangout",
+      "description": "A hangout spot for fans of Harajuku fashion and kawaii culture, sharing outfit ideas, shopping tips, and trends from Tokyo's vibrant street scene.",
+      "isActive": true
+    },
+    {
+      "title": "Kawaii Kitchen Adventures",
+      "description": "Embarking on culinary adventures inspired by kawaii aesthetics, from adorable bento boxes to cute character-themed desserts.",
+      "isActive": true
+    },
+    {
+      "title": "Zen Garden Zenith",
+      "description": "Finding tranquility and inspiration in Japanese gardens, exploring the principles of zen and mindfulness through nature.",
+      "isActive": true
+    },
+    {
+      "title": "Hello Kitty Hideout",
+      "description": "A hideout for Hello Kitty fans to connect and share their passion for Sanrio's beloved character, from merchandise collections to fan art.",
+      "isActive": true
+    },
+    {
+      "title": "Yume Dreamers",
+      "description": "A community of dreamers embracing the concept of yume (dream) in Japanese culture, sharing aspirations, goals, and whimsical visions.",
+      "isActive": true
+    },
+    {
+      "title": "Kawaii Crafting Club",
+      "description": "Crafting cute and kawaii creations, from plush toys to DIY accessories, and sharing crafting tips and tutorials.",
+      "isActive": true
+    },
+    {
+      "title": "Music Composition",
+      "description": "Discussing music composition techniques, songwriting tips, and musical inspiration.",
+      "isActive": true
+    },
+    {
+      "title": "Weight Loss Recipes",
+      "description": "How to lose weight and not starve (too much)",
+      "isActive": true
+    },
+    {
+      "title": "Terrible Book Discussions",
+      "description": "Engaging in discussions about books, characters, plot twists, and literary analysis that you wish you didn't read.",
+      "isActive": true
+    },
+    {
+      "title": "Fitness Challenges",
+      "description": "Participating in fitness challenges, setting goals, and tracking progress. Only for crossfitters.",
+      "isActive": true
+    },
+    {
+      "title": "Technology Trends",
+      "description": "Exploring emerging technology trends, innovations, and future predictions.",
+      "isActive": true
+    },
+    {
+      "title": "Film Analysis",
+      "description": "Analyzing films, cinematography techniques, and narrative structures.",
+      "isActive": true
+    },
+    {
+      "title": "Historical Figures",
+      "description": "Exploring the lives, achievements, and legacies of historical figures.",
+      "isActive": true
+    },
+    {
+      "title": "Creative Writing Prompts",
+      "description": "Sharing creative writing prompts, exercises, and challenges to inspire writing.",
+      "isActive": true
+    },
+    {
+      "title": "Terror Tales Tavern",
+      "description": "A tavern for horror writers to share spine-chilling stories, discuss writing techniques, and collaborate on dark and unsettling narratives.",
+      "isActive": true
+    },
+    {
+      "title": "Gothic Writers Guild",
+      "description": "A guild for writers of gothic fiction, where members delve into the shadows of the human psyche, crafting tales of terror and suspense.",
+      "isActive": true
+    },
+
+    {
+      "title": "Eldritch Echoes Ensemble",
+      "description": "An ensemble of writers and readers, all channeling eldritch echoes, where horror writers explore cosmic horrors, eldritch abominations, and the unknown terrors of the cosmos.",
+      "isActive": true
+    },
+    {
+      "title": "Witcher's Workshop",
+      "description": "A workshop for fans of The Witcher series, where enthusiasts discuss Geralt's adventures, monster hunting techniques, and the rich lore of the world created by Andrzej Sapkowski.",
+      "isActive": true
+    },
+    {
+      "title": "Dark Souls Sanctuary",
+      "description": "A sanctuary for Dark Souls fans to share their experiences, strategies, and lore interpretations from the challenging and atmospheric games in the series.",
+      "isActive": true
+    },
+    {
+      "title": "Portal Pioneers",
+      "description": "Pioneering the mind-bending puzzles and innovative gameplay of the Portal series, where fans discuss portal mechanics, companion cubes, and the enigmatic GLaDOS.",
+      "isActive": true
+    },
+    {
+      "title": "Doom Den",
+      "description": "A den for fans of the Doom series, where demon slayers gather to discuss fast-paced action, brutal weapons, and the eternal battle against the forces of Hell.",
+      "isActive": true
+    },
+    {
+      "title": "Overwatch Oasis",
+      "description": "An oasis for Overwatch players, where heroes assemble to discuss strategies, share highlight reels, and celebrate the vibrant characters and diverse maps of Blizzard's team-based shooter.",
+      "isActive": true
+    },
+    {
+      "title": "Civilization Citadel",
+      "description": "Building empires and shaping history in the Civilization series, where players discuss strategy, diplomacy, and the art of war in Sid Meier's iconic turn-based strategy game.",
+      "isActive": true
+    },
+    {
+      "title": "Stardew Valley Valley",
+      "description": "Embracing the tranquility and charm of Stardew Valley, where virtual farmers tend to crops, raise animals, and forge friendships in ConcernedApe's beloved farming simulation game.",
+      "isActive": true
+    },
+    {
+      "title": "GTA Gangland",
+      "description": "Navigating the sprawling open-world landscapes and criminal underworlds of the Grand Theft Auto series, where players discuss heists, car chases, and the chaos of life in the city.",
+      "isActive": true
+    },
+    {
+      "title": "Tech Tidbits",
+      "description": "A community for computer hardware enthusiasts to stay updated on the latest news, releases, and innovations in the world of technology, from CPUs and GPUs to storage solutions and peripherals.",
+      "isActive": true
+    },
+    {
+      "title": "Conspiracy Corner",
+      "description": "A corner for exploring conspiracy theories and alternative narratives, where members delve into mysteries, cover-ups, and unexplained phenomena, sharing theories and evidence.",
+      "isActive": true
+    },
+    {
+      "title": "Atmospheric Anomalies",
+      "description": "A space for discussing atmospheric phenomena and weather mysteries, from auroras and lightning sprites to ball lightning and mysterious cloud formations.",
+      "isActive": true
+    },
+    {
+      "title": "Hardware Haven",
+      "description": "A haven for computer hardware enthusiasts to share reviews, benchmarks, and DIY projects, discussing everything from overclocking to water cooling and RGB lighting.",
+      "isActive": true
+    },
+    {
+      "title": "Hello Kitty Hideout",
+      "description": "A hideout for Hello Kitty fans to connect and share their passion for Sanrio's beloved character, from merchandise collections to fan art.",
+      "isActive": true
+    },
+    {
+      "title": "Yume Dreamers",
+      "description": "A community of dreamers embracing the concept of yume (dream) in Japanese culture, sharing aspirations, goals, and whimsical visions.",
+      "isActive": true
+    },
+    {
+      "title": "Kawaii Crafting Club",
+      "description": "Crafting cute and kawaii creations, from plush toys to DIY accessories, and sharing crafting tips and tutorials.",
+      "isActive": true
+    },
+    {
+      "title": "Python Prodigies",
+      "description": "A community for Python enthusiasts to discuss best practices, libraries, and projects, sharing tips and tricks for mastering the versatile programming language.",
+      "isActive": true
+    },
+    {
+      "title": "JavaScript Junction",
+      "description": "A junction for JavaScript developers to explore frameworks, tooling, and emerging trends in web development, from front-end frameworks like React to server-side technologies like Node.js.",
+      "isActive": true
+    },
+    {
+      "title": "NBA",
+      "description": "A community for basketball enthusiasts to discuss slam dunks, buzzer-beaters, and mind-blowing crossovers from the hardwood court.",
+      "isActive": true
+    },
+    {
+      "title": "Soccer",
+      "description": "A gathering place for die-hard soccer fans to debate the beautiful game, from stunning goals to controversial referee decisions, and everything in between.",
+      "isActive": true
+    },
+    {
+      "title": "MMA Mania",
+      "description": "A cage for mixed martial arts enthusiasts to witness jaw-dropping knockouts, slick submissions, and adrenaline-fueled battles inside the octagon.",
+      "isActive": true
+    },
+    {
+      "title": "Banksy",
+      "description": "A space for fans of Banksy's thought-provoking and often controversial street art to admire his creations, discuss their interpretations, and share sightings of his iconic works around the world.",
+      "isActive": true
+    },
+    {
+      "title": "Bjork",
+      "description": "A celestial realm for fans of Bjork's avant-garde music to explore her eclectic discography, dissect her experimental soundscapes, and discuss the impact of her innovative approach to music-making.",
+      "isActive": true
+    },
+    {
+      "title": "Rammstein",
+      "description": "A fiery pit for fans of Rammstein's explosive music to headbang to their heavy riffs, belt out their powerful lyrics, and discuss the German band's legendary live performances.",
+      "isActive": true
+    },
+    {
+      "title": "Psychadelics in sound waves",
+      "description": "A community for music enthusiasts to explore the boundary-pushing sounds of Bjork, the industrial metal madness of Rammstein, and the subversive street art of Banksy, celebrating their contributions to the world of art and music.",
+      "isActive": true
+    }
+
+  ]
+}

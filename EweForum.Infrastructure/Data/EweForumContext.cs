@@ -17,6 +17,7 @@ public class EweForumContext : IdentityDbContext<IdentityUser>
     {
         base.OnModelCreating(builder);
 
+
         builder.Entity<Post>().HasOne(entry => entry.Topic).WithMany(entry => entry.Posts).OnDelete(DeleteBehavior.Restrict);
         
         builder.Entity<ForumUserAttachment>().HasKey(entry => new { entry.FileAttachmentId, entry.ForumUserId });

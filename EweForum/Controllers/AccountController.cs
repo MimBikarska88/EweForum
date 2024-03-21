@@ -2,14 +2,10 @@
 using EweForum.Infrastructure.Data.Models;
 using EweForum.Models;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.Extensions.Hosting.Internal;
-using System.Security.AccessControl;
+using NuGet.Packaging.Rules;
 using System.Security.Claims;
 using System.Text;
 
@@ -145,6 +141,9 @@ namespace EweForum.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+
+                    
+                    
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -152,7 +151,7 @@ namespace EweForum.Controllers
                     model.ErrorMessage = "Invalid login attempt.";
                 }
             }
-
+            
             return View(model);
         }
         [HttpGet]
