@@ -71,6 +71,7 @@ namespace EweForum.Controllers
                 user.CountryId = model.CountryId;
                 user.Email = model.Input.Email;
                 user.UserName = model.Input.Username;
+                
 
                 await _userStore.SetUserNameAsync(user, model.Input.Username, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, model.Input.Email, CancellationToken.None);
@@ -80,7 +81,8 @@ namespace EweForum.Controllers
                 {
                     _logger.LogInformation("User created a new account with password.");
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    await _userManager.AddToRoleAsync(user, "User");
+                    return RedirectToAction("Login", "Account");
 
                 }
                 StringBuilder stringBuilder = new StringBuilder();
@@ -239,7 +241,8 @@ namespace EweForum.Controllers
                 return BadRequest();
             }
             var avatarPath = user.ForumUsersFilesAttachments
-                .FirstOrDefault(fa => fa.IsCurrentAvatar)
+                .OrderByDescending(fa => fa.FileAttachment.UploadedOn)
+                .FirstOrDefault()
                 ?.FileAttachment.Path;
           
             var filename = Path.GetFileName(avatarPath);
@@ -306,12 +309,12 @@ namespace EweForum.Controllers
 
                     await _context.ForumUsersAttachments.AddAsync(new ForumUserAttachment
                     {
-                        IsCurrentAvatar = true,
+                        
                         FileAttachment = FileAttachment,
                         ForumUser = user
                     });
                     model.AvatarName = fileName;
-                    if (currentAvatar != null) currentAvatar.IsCurrentAvatar = false;
+                   
                 }
                 var result = await _context.SaveChangesAsync();
                 

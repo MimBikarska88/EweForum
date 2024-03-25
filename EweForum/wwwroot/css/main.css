@@ -208,3 +208,24 @@ main .form-success {
     background-color:pink;
 }
 
+.active{
+    color:green;
+}
+.inactive{
+    color:red;
+}
+.pagination-select {
+    border: none;
+    color: dimgrey;
+    padding: 0.5rem;
+    background-color: white;
+    border: none;
+    outline: pink;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.pagination-select option:checked{
+    background-color:pink;
+}
+.hidden-button-pagination{
+    display:none;
+}

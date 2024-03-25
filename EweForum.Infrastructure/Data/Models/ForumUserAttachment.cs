@@ -18,7 +18,6 @@ namespace EweForum.Infrastructure.Data.Models
         [ForeignKey(nameof(FileAttachmentId))]
         public FileAttachment FileAttachment { get; set; } = null!;
 
-        public bool IsCurrentAvatar { get; set; } = false;
        
 
     }

@@ -5,6 +5,7 @@ using EweForum.Models;
 using EweForum.Utilites.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -41,46 +42,80 @@ namespace EweForum.Controllers
                 Items = allTopics,
                 PageIndex = 1,
                 PageCount = topicCount / 5,
-                PageSize = 5
+                PageSize = 5,
             };
+            TempData["pageSize"] = 5;
             return View(paginationModel);
         }
 
         [HttpPost]
         public async Task<IActionResult> ManageTopics(
             PaginationModel<TopicViewModel> topics,
-            [FromQuery] string? searchTerm = null,
-            [FromQuery] SortingOrder? order = null ,
             [FromQuery] int? page = null,
-            [FromQuery] int? displayRows = null)
+            [FromQuery] int? pageSize = null)
         {
+           
+            
+            //TempData["sortingOrder"]
 
-            if (page != null)
+
+            if (page.HasValue && pageSize.HasValue)
             {
+                int previousPageSize = (int) TempData["pageSize"];
+
+                int pageToShow = previousPageSize == pageSize.Value ? page.Value : 1;
+
+                TempData["pageSize"] = pageSize.Value;
+
                 int topicCount = await _context.Topics.CountAsync();
-                int numberOfTopicsToSkip = topics.PageSize * page.Value;
-                var allTopics = await _context.Topics.Include(t => t.JoinedTopics).Skip(numberOfTopicsToSkip)
-                .Take(topics.PageSize)
-                .Select(t => new TopicViewModel
-             {
-                 Title = t.Title,
-                 Id = t.Id,
-                 CreatedOn = t.CreatedOn,
-                 ModifiedOn = t.UpdatedOn,
-                 Description = t.Description,
-                 IsActive = t.IsActive,
-                 UserCount = t.JoinedTopics.Count()
-             }).ToListAsync();
+                int numberOfTopicsToSkip = pageToShow > 1 ? pageSize.Value * (pageToShow-1) : pageSize.Value;
+                List<TopicViewModel> allTopics = null;
+                if(topics.SearchTerm != null && topics.SearchTerm!="") {
+
+                     allTopics = await _context.Topics
+                    .Include(t => t.JoinedTopics)
+                    .Where(t => t.Title.Contains(topics.SearchTerm, StringComparison.OrdinalIgnoreCase) ||
+                                t.Description.Contains(topics.SearchTerm, StringComparison.OrdinalIgnoreCase))
+                    .Skip(numberOfTopicsToSkip)
+                    .Take(pageSize.Value)
+                    .Select(t => new TopicViewModel
+                    {
+                        Title = t.Title,
+                        Id = t.Id,
+                        CreatedOn = t.CreatedOn,
+                        ModifiedOn = t.UpdatedOn,
+                        Description = t.Description,
+                        IsActive = t.IsActive,
+                        UserCount = t.JoinedTopics.Count()
+                    }).ToListAsync();
+                }
+                else
+                {
+                 allTopics =  await _context.Topics
+                    .Include(t => t.JoinedTopics)
+                    .Skip(numberOfTopicsToSkip)
+                    .Take(pageSize.Value)
+                    .Select(t => new TopicViewModel
+                    {
+                        Title = t.Title,
+                        Id = t.Id,
+                        CreatedOn = t.CreatedOn,
+                        ModifiedOn = t.UpdatedOn,
+                        Description = t.Description,
+                        IsActive = t.IsActive,
+                        UserCount = t.JoinedTopics.Count()
+                    }).ToListAsync();
+                }
+             
                 var paginationModel = new PaginationModel<TopicViewModel>
                 {
-                    CurrentPageIndex = page.Value,
+                    CurrentPageIndex = pageToShow,
                     Items = allTopics,
-                    PageIndex = page.Value,
-                    PageCount = topicCount / topics.PageSize,
-                    PageSize = topics.PageSize,
+                    PageIndex = pageToShow,
+                    PageCount = topicCount / pageSize.Value,
+                    PageSize = pageSize.Value,
+                    SearchTerm = topics.SearchTerm
                 };
-
-
 
                 return View(paginationModel);
             }

@@ -12,6 +12,16 @@ $("#confirm").on("click", function (e) {
     $('.modal-backdrop').remove();
 });
 
-$("#password-change-back-edit").on("click", function () {
+$("#password-change-back-edit").click( function () {
     window.location = window.location.origin + "/Account/Edit"
+});
+
+$("#pagination-select-rows").on('change', function (e) {
+    var form = $("#pagination-form");
+    console.log(form)
+    var selectedPageSize = $(this).val();
+    var actionUrl = form.attr("action");
+    var updatedActionUrl = actionUrl + "&pageSize=" + selectedPageSize;
+    form.attr("action", updatedActionUrl);
+    form.submit();
 });

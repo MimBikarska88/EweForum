@@ -7,7 +7,9 @@
 
         public int PageCount { get; set; } = 0;
 
-        public int PageSize { get; set; } = 0;
+        public string SearchTerm { get; set; } = null!;
+        
+        public int PageSize { get; set ; }
 
         public List<T> Items { get; set; } = new List<T>();
 
