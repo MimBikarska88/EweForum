@@ -8,6 +8,6 @@ namespace EweForum.Utilites.Enums
 {
     public enum SortingOrder
     {
-        DateAsc, DateDesc, Alphabetically, PopularityAsc, PopularityDesc
+       None = 0, DateAsc = 1, DateDesc = 2, Alphabetically = 3, PopularityAsc = 4, PopularityDesc = 5
     }
 }

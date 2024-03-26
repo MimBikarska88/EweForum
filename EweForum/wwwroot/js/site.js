@@ -16,6 +16,7 @@ $("#password-change-back-edit").click( function () {
     window.location = window.location.origin + "/Account/Edit"
 });
 
+
 $("#pagination-select-rows").on('change', function (e) {
     var form = $("#pagination-form");
     console.log(form)
@@ -25,3 +26,13 @@ $("#pagination-select-rows").on('change', function (e) {
     form.attr("action", updatedActionUrl);
     form.submit();
 });
+$("#pagination-select-order").on('change', function (e) {
+        var form = $("#pagination-form");
+        console.log(form)
+        var selectedPageSize = $("#pagination-select-rows").val();
+        var actionUrl = form.attr("action");
+        var updatedActionUrl = actionUrl + "&pageSize=" + selectedPageSize;
+        form.attr("action", updatedActionUrl);
+        form.submit();
+});
+
