@@ -9,16 +9,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-
+using System.Text;
 
 namespace EweForum.Controllers
 {
-    [Authorize(Roles ="Admin")]
-    public class AdminController : Controller
+    
+    public class TopicController : BaseController
     {
         private readonly EweForumContext _context;
 
-        public AdminController(EweForumContext context)
+        public TopicController(EweForumContext context)
         {
             _context = context;
         }
@@ -36,7 +36,8 @@ namespace EweForum.Controllers
                 ModifiedOn = t.UpdatedOn,
                 Description = t.Description,
                 IsActive = t.IsActive,
-                UserCount = t.JoinedTopics.Count()
+                UserCount = t.JoinedTopics.Count(),
+                IsCurrentUserJoined = t.JoinedTopics.Any(t => t.ForumUserId==GetUserId())
             }).ToListAsync();
             var paginationModel = new PaginationModel<TopicViewModel>
             {
@@ -45,6 +46,7 @@ namespace EweForum.Controllers
                 PageIndex = 1,
                 PageCount = topicCount / 5,
                 PageSize = 5,
+                TopicsInfo = await GetTopicInfo()
             };
             TempData["pageSize"] = 5;
             TempData["order"] = 0;
@@ -89,7 +91,15 @@ namespace EweForum.Controllers
 
                 // collect all topics
 
-                List<Topic> all = await _context.Topics.ToListAsync();
+                List<Topic> all = await _context.Topics.Include(t => t.JoinedTopics).Select(t => new Topic
+                {
+                    UpdatedOn = t.UpdatedOn,
+                    Id  = t.Id,
+                    JoinedTopics = t.JoinedTopics.ToList(),
+                    Description = t.Description,
+                    Title = t.Title,
+                    IsActive = t.IsActive,
+                }).ToListAsync();
 
                 if (model.SearchTerm != null && model.SearchTerm != "")
                 {
@@ -126,8 +136,17 @@ namespace EweForum.Controllers
                         ModifiedOn = t.UpdatedOn,
                         Description = t.Description,
                         IsActive = t.IsActive,
-                        UserCount = t.JoinedTopics.Count()
+                        UserCount = t.JoinedTopics.Count(),
+                        IsCurrentUserJoined = t.JoinedTopics.Any(t => t.ForumUserId == GetUserId())
                     }).ToList();
+                var topicsInfoModel = new TopicsInfoViewModel
+                {
+                    TopicsCount = await _context.Topics.CountAsync(),
+                    UserCount = await _context.Users.CountAsync(),
+                    InactiveTopicsCount = await _context.Topics.Where(t => !t.IsActive).CountAsync(),
+                    ActiveTopicsCount = await _context.Topics.Where(t => t.IsActive).CountAsync(),
+                    NewTopicsCount = await _context.Topics.Where(t => t.CreatedOn.Month == DateTime.Now.Month).CountAsync(),
+                };
                 var paginationModel = new PaginationModel<TopicViewModel>
                 {
                     CurrentPageIndex = pageToShow,
@@ -135,98 +154,85 @@ namespace EweForum.Controllers
                     PageIndex = pageToShow,
                     PageCount = topicCount / pageSize.Value,
                     PageSize = pageSize.Value,
-                    SearchTerm = model.SearchTerm
+                    SearchTerm = model.SearchTerm,
+                    TopicsInfo = await GetTopicInfo(),
                 };
 
                 return View(paginationModel);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                /*
-
-                int numberOfTopicsToSkip = pageToShow > 1 ? pageSize.Value * (pageToShow-1) : pageSize.Value;
-                if(Enum.IsDefined(typeof(SortingOrder), topics.Order) || Enum.TryParse(typeof(SortingOrder), topics.Order.ToString(), out var sortingOrder))
-                {
-                    return BadRequest();
-                }
-
-                if(page.Value == 1 || pageToShow==1) {
-                    numberOfTopicsToSkip = 0;
-                }
-                List<TopicViewModel> allTopics = null;
-                List<Topic> rawTopics = await _context.Topics.Include(t => t.JoinedTopics).ToListAsync();
-
-
-                if (topics.SearchTerm != null && topics.SearchTerm!="") {
-
-                    rawTopics = rawTopics
-                   .Where(t => t.Title.Contains(topics.SearchTerm, StringComparison.OrdinalIgnoreCase) ||
-                               t.Description.Contains(topics.SearchTerm, StringComparison.OrdinalIgnoreCase)).ToList();
-                    rawTopics = Sort((SortingOrder)sortingOrder, rawTopics);
-
-
-
-                    allTopics = rawTopics.Skip(numberOfTopicsToSkip)
-                    .Take(pageSize.Value)
-                    .Select(t => new TopicViewModel
-                    {
-                        Title = t.Title,
-                        Id = t.Id,
-                        CreatedOn = t.CreatedOn,
-                        ModifiedOn = t.UpdatedOn,
-                        Description = t.Description,
-                        IsActive = t.IsActive,
-                        UserCount = t.JoinedTopics.Count()
-                    }).ToListAsync();
-                }
-                else
-                {
-                 allTopics =  await _context.Topics
-                    .Include(t => t.JoinedTopics)
-                    .Skip(numberOfTopicsToSkip)
-                    .Take(pageSize.Value)
-                    .Select(t => new TopicViewModel
-                    {
-                        Title = t.Title,
-                        Id = t.Id,
-                        CreatedOn = t.CreatedOn,
-                        ModifiedOn = t.UpdatedOn,
-                        Description = t.Description,
-                        IsActive = t.IsActive,
-                        UserCount = t.JoinedTopics.Count()
-                    }).ToListAsync();
-                }
-             
-                var paginationModel = new PaginationModel<TopicViewModel>
-                {
-                    CurrentPageIndex = pageToShow,
-                    Items = allTopics,
-                    PageIndex = pageToShow,
-                    PageCount = topicCount / pageSize.Value,
-                    PageSize = pageSize.Value,
-                    SearchTerm = topics.SearchTerm
-                };
-
-                return View(paginationModel);
-            } */
 
             }
             return View(model);
 
+        }
+
+        private async Task<TopicsInfoViewModel> GetTopicInfo()
+        {
+            return new TopicsInfoViewModel
+            {
+                TopicsCount = await _context.Topics.CountAsync(),
+                UserCount = await _context.Users.CountAsync(),
+                InactiveTopicsCount = await _context.Topics.Where(t => !t.IsActive).CountAsync(),
+                ActiveTopicsCount = await _context.Topics.Where(t => t.IsActive).CountAsync(),
+                NewTopicsCount = await _context.Topics.Where(t => t.CreatedOn.Month == DateTime.Now.Month).CountAsync(),
+            };
+        }
+        [HttpGet]
+        public IActionResult Create(){
+            if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                var model = new CreateTopicViewModel();
+                model.UserId = GetUserId();
+                return View(model);
+            }
+            return Unauthorized();
+           
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateTopicViewModel model)
+        {
+            if(User.Identity == null || !User.Identity.IsAuthenticated   || !User.IsInRole("Admin"))
+            {
+                return Unauthorized();
+            }
+            
+            if(!ModelState.IsValid)
+            {
+                StringBuilder errorList = new StringBuilder();
+ 
+                foreach(var state in ModelState.Values)
+                {
+                    foreach(var error in state.Errors)
+                    {
+                        errorList.AppendLine(error.ErrorMessage.ToString());
+                    }
+                }
+                model.Message.ErrorMessage = errorList.ToString();
+                return View(model);
+            }
+            if(await _context.Topics.AnyAsync(t => t.Title == model.Title)){
+                model.Message = new MessageModel();
+                model.Message.ErrorMessage = "Please, choose a non existing name for the forum topic";
+                return View(model);
+            }
+            await _context.Topics.AddAsync(new Topic
+            {
+                Title = model.Title,
+                Description = model.Description,
+                CreatedOn = DateTime.Now,
+                UpdatedOn = DateTime.Now,
+                IsActive = false,
+                ForumUserId = GetUserId()
+            });
+
+            var success = await _context.SaveChangesAsync();
+            if (success == 0)
+            {
+                model = new CreateTopicViewModel();
+                model.Message.ErrorMessage = "Something went wrong, please try again";
+            }
+            TempData["SuccessMessage"] = "Topic created successfully!";
+            return RedirectToAction("ManageTopics");
+            
         }
         private List<Topic> Sort(SortingOrder? order,List<Topic>topics)
         {

@@ -15,5 +15,6 @@
 
         public List<T> Items { get; set; } = new List<T>();
 
+        public TopicsInfoViewModel TopicsInfo { get; set; } = null!;
     }
 }

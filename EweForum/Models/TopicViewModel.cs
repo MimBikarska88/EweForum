@@ -12,5 +12,7 @@
         public bool IsActive { get; set; }
 
         public int UserCount { get; set; }
+
+        public bool IsCurrentUserJoined { get; set; }
     }
 }

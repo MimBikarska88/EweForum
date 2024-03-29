@@ -1,5 +1,9 @@
-﻿using EweForum.Infrastructure.Data.Datasets.JsObjects;
+﻿using EweForum.Data;
+using EweForum.Infrastructure.Data.Datasets.JsObjects;
 using EweForum.Infrastructure.Data.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
 
@@ -50,6 +54,76 @@ namespace Microsoft.EntityFrameworkCore.Metadata.Builders
                 id++;
             }
             modelBuilder.Entity<Topic>().HasData(data);
+        }
+        public static async void SeedUsers(this ModelBuilder modelBuilder)
+        {
+            var json = File.ReadAllText("../EweForum.Infrastructure/Data/Datasets/users.json");
+            var users = (UserJs[])JsonConvert.DeserializeObject(json, typeof(UserJs[]));
+            var hasher = new PasswordHasher<ForumUser>();
+            foreach (var user in users)
+            {
+                List<JoinedTopic> joinedTopics = new List<JoinedTopic>();
+
+                var userModel = Activator.CreateInstance<ForumUser>();
+                userModel.Id = Guid.NewGuid().ToString();
+                userModel.UserName = user.Username;
+                userModel.NormalizedUserName = user.Username.ToLower();
+                userModel.Email = user.Email;
+                userModel.NormalizedEmail = user.Email.ToLower();
+                userModel.PasswordHash = hasher.HashPassword(userModel, user.Password);
+                userModel.CountryId = user.CountryId;
+                List<JoinedTopic>JoinedTopics = new List<JoinedTopic>();
+                foreach(var topicId in user.JoinedTopics)
+                {
+                    
+                        if(!JoinedTopics.Any(jt => jt.TopicId == topicId))
+                        {
+                            JoinedTopics.Add(new JoinedTopic
+                            {
+                                ForumUser = userModel,
+                                TopicId = topicId,
+                            });
+                        }
+                    
+                }
+                userModel.JoinedTopics = joinedTopics;
+                modelBuilder.Entity<ForumUser>().HasData(userModel);
+                modelBuilder.Entity<IdentityUserRole<string>>()
+                .HasData( new IdentityUserRole<string> {
+                    UserId = userModel.Id,
+                    RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec",
+                });
+            }
+
+        }
+        public static void SeedJoinedTopics(this ModelBuilder modelBuilder)
+        {
+            var json = File.ReadAllText("../EweForum.Infrastructure/Data/Datasets/joinedTopics.json");
+            var userJoinedTopics = (UserJoinTopicJs[])JsonConvert.DeserializeObject(json, typeof(UserJoinTopicJs[]));
+            List<JoinedTopic> joinedTopics = new List<JoinedTopic>();
+            
+            foreach(var entry in userJoinedTopics)
+            {
+                foreach(var topicId in entry.TopicsIds)
+                {
+                    if(!joinedTopics.Any(item => item.TopicId==topicId && item.ForumUserId == entry.ForumUserId)){
+                        joinedTopics.Add(new JoinedTopic{
+                            ForumUserId = entry.ForumUserId,
+                            TopicId = topicId,
+                        });
+                    }
+                   
+                }
+            }
+            foreach (var item in joinedTopics)
+            {
+                modelBuilder.Entity<JoinedTopic>().HasData(
+                       new JoinedTopic
+                       {
+                           ForumUserId = item.ForumUserId,
+                           TopicId = item.TopicId,
+                       });
+            }
         }
     }
 }

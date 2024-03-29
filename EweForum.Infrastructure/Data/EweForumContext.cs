@@ -13,10 +13,10 @@ public class EweForumContext : IdentityDbContext<IdentityUser>
     {
     }
 
-    protected override void OnModelCreating(ModelBuilder builder)
+    protected override async void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
-
+        
 
         builder.Entity<Post>().HasOne(entry => entry.Topic).WithMany(entry => entry.Posts).OnDelete(DeleteBehavior.Restrict);
         
@@ -48,6 +48,8 @@ public class EweForumContext : IdentityDbContext<IdentityUser>
 
         builder.SeedCountries();
         builder.SeedTopics();
+        builder.SeedUsers();
+        builder.SeedJoinedTopics();
     }
     public DbSet<Post> Posts { get; set; }
     public DbSet<Country> Countries { get; set; }

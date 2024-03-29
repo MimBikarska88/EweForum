@@ -10,36 +10,52 @@
     { Value = index.ToString(), Text = item }).ToList();
     ViewBag.SortingOrderList = sortingOrderList;
 
+    TempData["Message"] = TempData["SuccessMessage"];
 }
 <section>
-	<h3 class="text-center p-3">Admin Panel</h3>
+    @if (User.IsInRole("Admin"))
+    {
+        <h3 class="text-center p-3">Admin Panel</h3>
+    }
+    else
+    {
+        <h3 class="text-center p-3">Forum Topics</h3>
+        
+    }
     <div class="d-block">
+       
         <div class="row align-items-start ">
-            <div class="col-2 mt-3 text-start">
-                <div>
-                    <span>Active Users: 0</span>
+            <div class="col-2 mt-3 ">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Users: <span class="badge bg-info">@Model.TopicsInfo.UserCount</span></li>
+                        <li class="list-group-item">Active Topics: <span class="badge bg-info">@Model.TopicsInfo.ActiveTopicsCount</span></li>
+                        <li class="list-group-item">Inactive Topics: <span class="badge bg-info">@Model.TopicsInfo.InactiveTopicsCount</span></li>
+                        <li class="list-group-item">New Topics: <span class="badge bg-info">@Model.TopicsInfo.NewTopicsCount</span></li>
+                    </ul>
                 </div>
-                <div>
-                    <span>Total Count of Users: 0</span>
-                </div>               
-                <div>
-                    <span>Active Topics: 0</span>
-                </div>
-                <div>
-                    <span>Inactive Topics: 0</span>
-                </div>
-                <div>
-                    <span>New Topics: 0</span>
-                </div>
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <h5 class="card-title pb-2">Create Topic</h5>
+                            <p class="card-text">Once the topic is created, is has to be set to active mode for the forum users to be able to post anything in it.</p>
+                            <a asp-controller="Topic" asp-action="Create"><h5><span class="badge bg-primary">Create</span></h5></a>
+                        </div>
+                    </div>
+                }
             </div>
           
                 <div class="col-10 text-start">
-
-               <h5>Manage Topics</h5>
-               <a href="#"><h5>Create new</h5></a>
-                <form id="pagination-form" method="post" asp-route-page="@Model.PageIndex"    asp-controller="Admin" asp-action="ManageTopics">
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    @await Component.InvokeAsync("SuccessMessage",new MessageModel{ SuccessMessage = TempData["Message"].ToString()})
+                }
+               
+               
+                <form id="pagination-form" method="post" asp-route-page="@Model.PageIndex"    asp-controller="Topic" asp-action="ManageTopics">
                     <div>
-                    <input asp-for="@Model.SearchTerm" class="form-input w-75" type="text" value="@Model.SearchTerm" />
+                    <input asp-for="@Model.SearchTerm" class="form-input w-75" type="text" placeholder="search..." value="@Model.SearchTerm" />
                     <input asp-for="@Model.PageIndex" type="hidden" value="@Model.PageIndex"/>
          
                     
@@ -55,13 +71,21 @@
                             <table class="topics-table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th nowrap>#</th>
                                         <th>Title</th>
                                         <th>Description</th>
-                                        <th>Created on</th>
-                                        <th>Modified on</th>
+                                        <th>Created</th>
+                                        <th>Modified</th>
                                         <th>Popularity</th>
-                                        <th>Activity</th>
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <th>Activity</th>
+                                        }
+                                        @if (User.IsInRole("User"))
+                                        {
+                                            <th class="nowrap">My Activity</th>
+                                        }
+                                        <th>Actions</th>
 
                                     </tr>
                                 </thead>
@@ -75,14 +99,33 @@
                                             <td>@item.CreatedOn</td>
                                             <td>@item.ModifiedOn</td>
                                             <td class="text-center">@item.UserCount</td>
+                                            @if (User.IsInRole("Admin"))
+                                            {
+                                                <td>
+                                                    @if (item.IsActive)
+                                                    {
+                                                        <span class="badge bg-danger">Inactive</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="bg-success">Active</span>
+                                                    }
+                                                </td>
+                                               
+                                            }
+                                            @if (User.IsInRole("User"))
+                                            {
+                                                <td>
+                                                    @if (item.IsCurrentUserJoined)
+                                                    {
+                                                        <span class="green fw-bold">Joined</span>
+                                                    }
+                                                </td>
+                                            }
                                             <td>
-                                                @if (item.IsActive)
-                                                {
-                                                    <span color="red">Inactive</span>
-                                                }
-                                                else
-                                                {
-                                                    <span color="green">Active</span>
+                                                <span><a asp-route-id="@item.Id">View</a></span>
+                                                @if(User.IsInRole("Admin")){
+                                                    <span><a asp-route-id="@item.Id">Edit</a></span>
                                                 }
                                             </td>
                                         </tr>

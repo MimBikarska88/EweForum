@@ -2,6 +2,7 @@
 using EweForum.Infrastructure.Data.Models;
 using EweForum.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +12,7 @@ using System.Text;
 
 namespace EweForum.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private readonly EweForumContext _context;
         private readonly SignInManager<ForumUser> _signInManager;
@@ -49,6 +50,7 @@ namespace EweForum.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> Register()
         {
 
@@ -60,6 +62,7 @@ namespace EweForum.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Register(RegisterModel model)
         {
 
@@ -122,6 +125,7 @@ namespace EweForum.Controllers
             return (IUserEmailStore<ForumUser>)_userStore;
         }
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> Login()
         {
             // Clear the existing external cookie to ensure a clean login process
@@ -131,6 +135,7 @@ namespace EweForum.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Login(LoginModel model)
         {
 
@@ -221,7 +226,7 @@ namespace EweForum.Controllers
 
         }
 
-        private string GetUserId() => User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? string.Empty;
+       
         [HttpGet]
         public async Task<IActionResult> Edit()
         {

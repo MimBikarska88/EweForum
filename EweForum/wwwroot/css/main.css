@@ -158,8 +158,8 @@ main .form-success {
     margin: 10px;
     font-weight: 500;
     border-left: 2px solid darkcyan;
-    color: cyan;
-    background-color: darkcyan;
+    color: darkcyan;
+    background-color: lightcyan;
 }
 .topics-table {
     border-collapse: separate;
@@ -228,4 +228,15 @@ main .form-success {
 }
 .hidden-button-pagination{
     display:none;
+}
+.topics-table th {
+    word-break:keep-all
+}
+main .topics-table .red{
+    color:darkred;
+    font-weight:400;
+}
+main .topics-table .green {
+    color: green;
+    font-weight: 400;
 }
