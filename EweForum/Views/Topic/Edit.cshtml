@@ -1,0 +1,173 @@
+﻿@model EditTopicViewModel
+
+@{
+    var pageSizeList = new List<int>() { 5, 10, 20, 50, 100 }
+       .Select(item => new SelectListItem { Value = item.ToString(), Text = item.ToString() + " rows" }).ToList();
+    ViewBag.PageSizeList = pageSizeList;
+
+    var sortingOrderList = new List<string> {"None", "Username", "Email"}
+    .Select((item, index) => new SelectListItem
+            { Value = index.ToString(), Text = item }).ToList();
+    ViewBag.SortingOrderList = sortingOrderList;
+}
+
+<section>
+	<h5 class="text-center">Edit Topic</h5>
+	<div class="container">
+		<div class="d-flex">
+            <div class="col">
+                <form id="pagination-form" asp-route-page="@Model.PaginationModel.PageIndex" asp-controller="Topic" asp-action="Edit" method="post">
+                <div class="row">
+                    <div class="form-outer">
+                        <div class="form-inner">
+                           
+                            @if (Model.Message?.ErrorMessage != null)
+                            {
+                                @await Component.InvokeAsync("ErrorMessage",new MessageModel{ ErrorMessage = Model.Message.ErrorMessage})
+
+                            }
+                                <input asp-for="@Model.TopicId" type="hidden" value="@Model.TopicId" />
+
+                               
+                                <div class="form-field text-center">
+
+                                    <input asp-for="@Model.Title" required class="form-input" placeholder="title" aria-required="true" />
+                                    <span asp-validation-for="@Model.Title" class="text-danger"></span>
+                                </div>
+                                <div class="form-field text-center">
+                                    <textarea asp-for="@Model.Description" rows="5" cols="8" required class="form-textarea" placeholder="discussion summary" aria-required="true"></textarea>
+                                    <span asp-validation-for="@Model.Description" class="text-danger"></span>
+                                </div>
+                                <div class="form-field">
+                                    <span class="pl-0 ml-0 mr-3">Is Topic Active:</span>
+                                    <div class="form-check form-switch pagination-switch">
+                                        <label class="switch">
+                                            <input asp-for="@Model.IsActive" checked="@Model.IsActive" type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type="submit" class="form-button mt-3">Edit</button>
+                                </div>
+                           
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                        <section>
+                            <h5 class="text-center">Users Joined in this topic</h5>
+                            @if (Model.PaginationModel.Items.Count() == 0)
+                            {
+                                @await Component.InvokeAsync("ErrorMessage",new MessageModel{ ErrorMessage = "No users joined in this topic"})
+                            }
+                            else
+                            {
+                                <div>
+                                    
+                                    <input asp-for="@Model.PaginationModel.PageIndex" type="hidden" value="@Model.PaginationModel.PageIndex" />
+                                    @if (Model.PaginationModel.Items.Count == 0)
+                                    {
+                                        <h4>No results</h4>
+                                    }
+                                    else
+                                    {
+                                        <div>
+                                            <table class="topics-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th colspan="2">Username</th>
+                                                        <th>Personal</th>
+                                                        <th>Email</th>
+                                                        <th>Actions</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var item in Model.PaginationModel.Items)
+                                                    {
+                                                        <tr>
+                                                            <td><img class="profile-pic" src="/images/incognito1.png"/></td>
+                                                            <td>@item.Username</td>
+                                                            <td>@item.PersonalInfo</td>
+                                                            <td>@item.Email</td>
+                                                            <td class="text-center">
+                                                                <a href="">View Profile</a>
+                                                                <span class="badge bg-dark">Remove</span>
+                                                                <span>
+                                                                    @if (item.IsActive)
+                                                                    {
+                                                                        <span  class="badge bg-danger">Deactivate</span>
+                                                                    
+                                                                    }else
+                                                                    {
+                                                                        <span  class="badge bg-success">Activate</span>
+
+                                                                    }
+                                                                </span>
+                                                            </td>
+
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                            @if (Model.PaginationModel.PageCount > 1)
+                                            {
+                                                <div class="table-pagination">
+                                                    <span>Sorting: </span>
+                                                    <select asp-for="@Model.PaginationModel.Order" asp-items="@ViewBag.SortingOrderList" id="pagination-select-order-joined" class="pagination-select"></select>
+                                                    <span>Page size: </span>
+                                                    <select asp-for="@Model.PaginationModel.PageSize" asp-items="@ViewBag.PageSizeList" id="pagination-select-rows" class="pagination-select"></select>
+
+
+                                                    @if (Model.PaginationModel.CurrentPageIndex != 1)
+                                                    {
+                                                        <button type="submit" asp-route-pageSize="@Model.PaginationModel.PageSize" asp-route-page="1">First</button>
+                                                    }
+                                                    @if (Model.PaginationModel.CurrentPageIndex != 1 && Model.PaginationModel.PageCount >= Model.PaginationModel.CurrentPageIndex)
+                                                    {
+                                                        <button type="submit" asp-route-pageSize="@Model.PaginationModel.PageSize" asp-route-page="@(Model.PaginationModel.CurrentPageIndex-1)">Previous</button>
+                                                    }
+                                                    @for (int i = Model.PaginationModel.CurrentPageIndex; i <= Model.PaginationModel.CurrentPageIndex + 5; ++i)
+                                                    {
+                                                        if (i == Model.PaginationModel.CurrentPageIndex)
+                                                        {
+                                                            <button type="submit" asp-route-pageSize="@Model.PaginationModel.PageSize" asp-route-page="@i" class="current-index-page">@i</button>
+                                                        }
+                                                        else if (i > Model.PaginationModel.PageCount)
+                                                        {
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            <button type="submit" asp-route-pageSize="@Model.PaginationModel.PageSize" asp-route-page="@i">@i</button>
+                                                        }
+                                                    }
+                                                    @if (Model.PaginationModel.CurrentPageIndex < Model.PaginationModel.PageCount)
+                                                    {
+                                                        <button type="submit" asp-route-pageSize="@Model.PaginationModel.PageSize" asp-route-page="@(Model.PaginationModel.CurrentPageIndex+1)">Next</button>
+                                                    }
+                                                    @if (Model.PaginationModel.CurrentPageIndex != 1 && Model.PaginationModel.PageIndex != Model.PaginationModel.PageCount)
+                                                    {
+                                                        <button type="submit" asp-route-pageSize="@Model.PaginationModel.PageSize" asp-route-page="@Model.PaginationModel.PageCount">Last</button>
+                                                    }
+
+                                                </div>
+
+                                            }
+                                        </div>
+                                    }
+
+
+                                </div>
+                            }
+                        </section>
+                </div>
+                </form>
+                <button onclick='window.location = "@Url.Action("ManageTopics", "Topic")";' class="form-button mr-1">Go Back</button>
+            </div>
+			
+		</div>
+	</div>
+</section>

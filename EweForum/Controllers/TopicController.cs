@@ -4,11 +4,10 @@ using EweForum.Infrastructure.Data.Datasets.JsObjects;
 using EweForum.Infrastructure.Data.Models;
 using EweForum.Models;
 using EweForum.Utilites.Enums;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Drawing.Printing;
 using System.Text;
 
 namespace EweForum.Controllers
@@ -61,9 +60,6 @@ namespace EweForum.Controllers
             [FromQuery] int? pageSize = null
             )
         {
-
-
-            //TempData["sortingOrder"]
 
 
             if (page.HasValue && pageSize.HasValue)
@@ -246,6 +242,194 @@ namespace EweForum.Controllers
                 case SortingOrder.PopularityDesc: topics = topics.OrderByDescending(t => t.JoinedTopics.Count()).ToList(); break;
             }
             return topics;
+        }
+        private List<JoinedTopic>SortJoinedTopics(SortingUserOrder order, List<JoinedTopic> topics)
+        {
+            if(order == null) return topics;
+            switch (order)
+            {
+                case SortingUserOrder.OrderByUsernameAlpabetically: topics = topics.OrderBy(t => t.ForumUser.UserName).ToList(); break;
+                case SortingUserOrder.OrderByEmailAlphabetically: topics = topics.OrderBy(t => t.ForumUser.Email).ToList(); break;  
+            }
+            return topics;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit([FromQuery] int topicId)
+        {
+            TempData["pageSize"] = 5;
+            TempData["order"] = 0;
+
+      
+
+            var topic = await _context.Topics
+                .Include(t => t.JoinedTopics)
+                .ThenInclude(jt => jt.ForumUser)
+                .ThenInclude(jt => jt.ForumUsersFilesAttachments)
+                .ThenInclude(fa => fa.FileAttachment)
+                .Where(t => t.Id == topicId)
+                .Select(t => new Topic
+                {
+                    Id = t.Id,
+                    JoinedTopics = t.JoinedTopics.Select(jt => new JoinedTopic
+                    {
+                        ForumUser = jt.ForumUser,
+                    })
+                    .ToList(),
+                    Title = t.Title,
+                    Description = t.Description,
+
+                    
+                })
+                .FirstOrDefaultAsync();
+
+            
+            var editTopicModel = new EditTopicViewModel
+            {
+                UserId = GetUserId(),
+                TopicId = topicId,
+                IsActive = topic.IsActive,
+                Description = topic.Description,
+                Title = topic.Title,
+                
+            };
+            // initial page count = 5
+            var paginationModel = new PaginationModel<ShortUserEditViewModel>
+            {
+                PageCount = topic.JoinedTopics.Count() / 5,
+                PageIndex = 1,
+                CurrentPageIndex = 1,
+                PageSize = 5,
+                Items = topic.JoinedTopics.Select(jt => new ShortUserEditViewModel
+                {
+                    PersonalInfo = jt.ForumUser.PersonalInfo,
+                    UserId = jt.ForumUserId,
+                    ProfilePicturePath = jt.ForumUser
+                    .ForumUsersFilesAttachments
+                    .OrderByDescending(fa => fa.FileAttachment.UploadedOn)
+                    .FirstOrDefault()
+                    ?.FileAttachment.Name,
+                    Email = jt.ForumUser.Email,
+                    IsActive = jt.ForumUser.IsActive,
+                    Username = jt.ForumUser.UserName,
+                }).Take(5).ToList()
+            };
+
+            editTopicModel.PaginationModel = paginationModel;
+      
+
+            return View(editTopicModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(EditTopicViewModel model, [FromQuery] int? page , [FromQuery] int? pageSize)
+        {
+            if(page.HasValue && pageSize.HasValue)
+            {
+                int previousPageSize = (int)TempData["pageSize"];
+
+                int previousOrder = (int)TempData["order"];
+
+                int pageToShow = (previousPageSize == pageSize.Value
+                                   && 
+                                  previousOrder == model.PaginationModel.Order
+                                  ) ? page.Value : 1;
+
+                TempData["pageSize"] = pageSize.Value;
+                TempData["order"] = model.PaginationModel.Order;
+
+                var topic = await _context.Topics
+                .Include(t => t.JoinedTopics)
+                .ThenInclude(jt => jt.ForumUser)
+                .ThenInclude(jt => jt.ForumUsersFilesAttachments)
+                .ThenInclude(fa => fa.FileAttachment)
+                .Where(t => t.Id == model.TopicId)
+                .Select(t => new Topic
+                {
+                    Id = t.Id,
+                    JoinedTopics = t.JoinedTopics.Select(jt => new JoinedTopic
+                    {
+                        ForumUser = jt.ForumUser,
+                    }).ToList(),
+                    Title = t.Title,
+                    Description = t.Description,
+                })
+                .FirstOrDefaultAsync();
+
+                int numberOfTopicsToSkip = pageToShow > 1 ? 
+                    pageSize.Value * (pageToShow - 1) 
+                    :
+                    pageSize.Value;
+
+                if (page.Value == 1 || pageToShow == 1)
+                {
+                    numberOfTopicsToSkip = 0;
+                }
+
+                var editTopicModel = new EditTopicViewModel
+                {
+                    UserId = GetUserId(),
+                    TopicId = topic.Id,
+                    IsActive = topic.IsActive,
+                    Description = topic.Description,
+                    Title = topic.Title,
+
+                };
+                int pageCount = topic.JoinedTopics.Count() / pageSize.Value;
+                if(topic.JoinedTopics.Count() % pageSize.Value > 0)
+                {
+                    pageCount++;
+                }
+                var paginationModel = new PaginationModel<ShortUserEditViewModel>
+                {
+                    PageCount = pageCount,
+                    PageIndex = pageToShow,
+                    CurrentPageIndex = pageToShow,
+                    PageSize = pageSize.Value,
+                    
+                };
+
+                var items = topic.JoinedTopics.ToList();
+                // PROCESS SORTING
+             
+                if(Enum.IsDefined(typeof(SortingUserOrder), model.PaginationModel.Order))
+                {
+                    SortingUserOrder order = (SortingUserOrder) Enum.Parse(typeof(SortingUserOrder), model.PaginationModel.Order.ToString());
+                    items = SortJoinedTopics(order, items);
+                }
+                
+                paginationModel.Items = items
+                    .Skip(numberOfTopicsToSkip)
+                    .Take(pageSize.Value)
+                    .Select(jt => new ShortUserEditViewModel
+                    {
+                        PersonalInfo = jt.ForumUser.PersonalInfo,
+                        UserId = jt.ForumUserId,
+                        ProfilePicturePath = jt.ForumUser
+                        .ForumUsersFilesAttachments
+                        .OrderByDescending(fa => fa.FileAttachment.UploadedOn)
+                        .Select(fa => fa.FileAttachment.Name)
+                        .FirstOrDefault(), 
+                        Email = jt.ForumUser.Email,
+                        IsActive = jt.ForumUser.IsActive,
+                        Username = jt.ForumUser.UserName,
+                    }).ToList();
+
+                TempData["pageSize"] = pageSize.Value;
+                editTopicModel.PaginationModel = paginationModel;
+                return View(editTopicModel);
+
+            }
+            else
+            {
+                var topic = await _context.Topics.FindAsync(model.TopicId);
+                topic.UpdatedOn = DateTime.Now;
+                topic.Title = model.Title;
+                topic.Description = model.Description;
+                topic.IsActive = model.IsActive;
+                await _context.SaveChangesAsync();
+                
+            }
+            return RedirectToAction("Edit", new { topicId = model.TopicId });
         }
     }
 }

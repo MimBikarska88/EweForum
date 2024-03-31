@@ -36,24 +36,22 @@
                 </div>
             </form>
         </div>
-        <div class="form-inner account-stats">
-             <div class="form-field ">
-                <a class="custom-href" href="@Url.Action("ChangePassword", "Account")">Change your password</a>
+        <div class="ml-1">
+            <div class="card mb-3 mt-3 ml-3">
+                <div class="card-body">
+                    <div class="form-field ">
+                        <a class="custom-href" href="@Url.Action("ChangePassword", "Account")">Change your password</a>
+                    </div>
+                </div>
             </div>
-            <div class="form-field">
-                 <div class="stats">Active since: <span>Thu, 01 Jan 1993</span></div>
-            </div>
-            <div class="form-field ">
-                 <div class="stats">Country: <span>BG</span></div>
-            </div>
-            <div class="form-field ">
-                <div class="stats">Your topics: <span>102</span></div>
-            </div>
-            <div class="form-field  ">
-                <div class="stats">Your posts: <span>322</span></div>
-            </div>
-            <div class="form-field ">
-                <div class="stats">Contribution topics: <span>0</span></div>
+            
+            <div class="card ml-3">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Active since: <span class="badge bg-info">Thu, 01 Jan 1993</span></li>
+                    <li class="list-group-item">Country:      <span class="badge bg-info">BG</span></li>
+                    <li class="list-group-item">Topics:       <span class="badge bg-info">14</span></li>
+                    <li class="list-group-item">Posts:        <span class="badge bg-info">30</span></li>
+                </ul>
             </div>
         </div>
     </div>

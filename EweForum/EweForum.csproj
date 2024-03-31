@@ -24,4 +24,8 @@
     <ProjectReference Include="..\EweForum.Utilites\EweForum.Utilites.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Users\" />
+  </ItemGroup>
+
 </Project>

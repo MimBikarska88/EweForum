@@ -35,4 +35,12 @@ $("#pagination-select-order").on('change', function (e) {
         form.attr("action", updatedActionUrl);
         form.submit();
 });
+$("#pagination-select-order-joined").on('change', function (e) {
+    var form = $("#pagination-form");
+    var selectedPageSize = $("#pagination-select-rows").val();
+    var actionUrl = form.attr("action");
+    var updatedActionUrl = actionUrl + "&pageSize=" + selectedPageSize;
+    form.attr("action", updatedActionUrl);
+    form.submit();
+})
 

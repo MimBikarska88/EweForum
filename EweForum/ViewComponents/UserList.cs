@@ -5,7 +5,7 @@ namespace EweForum.ViewComponents
 {
     public class UserList : ViewComponent
     {
-        public IViewComponentResult Invoke(UserListModel model)
+        public IViewComponentResult Invoke(PaginationModel<ShortUserEditViewModel> model)
         {
             return View(model);
         }
