@@ -17,7 +17,8 @@
 		<div class="d-flex">
             <div class="col">
                 <form id="pagination-form" asp-route-page="@Model.PaginationModel.PageIndex" asp-controller="Topic" asp-action="Edit" method="post">
-                <div class="row">
+                    <input asp-for="@Model.TopicId" type="hidden" value="@Model.TopicId" />
+                    <div class="row">
                     <div class="form-outer">
                         <div class="form-inner">
                            
@@ -26,31 +27,34 @@
                                 @await Component.InvokeAsync("ErrorMessage",new MessageModel{ ErrorMessage = Model.Message.ErrorMessage})
 
                             }
-                                <input asp-for="@Model.TopicId" type="hidden" value="@Model.TopicId" />
-
                                
-                                <div class="form-field text-center">
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <div class="form-field text-center">
 
-                                    <input asp-for="@Model.Title" required class="form-input" placeholder="title" aria-required="true" />
-                                    <span asp-validation-for="@Model.Title" class="text-danger"></span>
-                                </div>
-                                <div class="form-field text-center">
-                                    <textarea asp-for="@Model.Description" rows="5" cols="8" required class="form-textarea" placeholder="discussion summary" aria-required="true"></textarea>
-                                    <span asp-validation-for="@Model.Description" class="text-danger"></span>
-                                </div>
-                                <div class="form-field">
-                                    <span class="pl-0 ml-0 mr-3">Is Topic Active:</span>
-                                    <div class="form-check form-switch pagination-switch">
-                                        <label class="switch">
-                                            <input asp-for="@Model.IsActive" checked="@Model.IsActive" type="checkbox">
-                                            <span class="slider round"></span>
-                                        </label>
+                                        <input asp-for="@Model.Title" required class="form-input" placeholder="title" aria-required="true" />
+                                        <span asp-validation-for="@Model.Title" class="text-danger"></span>
                                     </div>
-                                </div>
-                                <div>
-                                    <button type="submit" class="form-button mt-3">Edit</button>
-                                </div>
-                           
+                                    <div class="form-field text-center">
+                                        <textarea asp-for="@Model.Description" rows="5" cols="8" required class="form-textarea" placeholder="discussion summary" aria-required="true"></textarea>
+                                        <span asp-validation-for="@Model.Description" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-field">
+                                       
+                                            <div class="flex-column justify-content-evenly pl-3">
+                                                <div class="fw-bold ">
+                                                    <span class="checkbox-label ml-1">Is Topic Currently Active:</span>
+                                                </div>
+                                                <div>
+                                                    <input type="checkbox" asp-for="@Model.IsActive" class="form-checkbox d-inline-block" value="true">
+                                                </div>
+                                            </div>
+                                        
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="form-button mt-3">Edit</button>
+                                    </div>
+                                }                    
                         </div>
                     </div>
                     
@@ -93,21 +97,10 @@
                                                             <td>@item.PersonalInfo</td>
                                                             <td>@item.Email</td>
                                                             <td class="text-center">
-                                                                <a href="">View Profile</a>
-                                                                <span class="badge bg-dark">Remove</span>
-                                                                <span>
-                                                                    @if (item.IsActive)
-                                                                    {
-                                                                        <span  class="badge bg-danger">Deactivate</span>
-                                                                    
-                                                                    }else
-                                                                    {
-                                                                        <span  class="badge bg-success">Activate</span>
-
-                                                                    }
-                                                                </span>
+                                                                <a href="@Url.Action("ViewProfile","User", new {
+                                                                    Username = @item.Username
+                                                                })">View Profile</a>
                                                             </td>
-
                                                         </tr>
                                                     }
                                                 </tbody>

@@ -24,5 +24,7 @@ namespace EweForum.Models
         public int CreatedTopicsNumber { get; set; }
 
         public string ActiveSince { get; set; } = String.Empty;
+
+        
     }
 }

@@ -308,3 +308,30 @@ main #pagination-form .slider.round {
 main #pagination-form .slider.round:before {
         border-radius: 50%;
 }
+
+main .form-button-danger {
+    padding: 10px;
+    outline: 2px solid indianred;
+    background-color: indianred;
+    color:white;
+    float: right
+}
+
+main .form-button-success {
+    padding: 10px;
+    outline: 2px solid lightgreen;
+    background-color: lightgreen;
+    color: black;
+    float: right
+}
+main input[type=checkbox] {
+    accent-color: green;
+}
+main .form-checkbox {
+    width: 20px;
+    height: 20px;
+    margin:10px;
+}
+.main .checkbox-label {
+    padding-left:20px;
+}

@@ -43,4 +43,3 @@ $("#pagination-select-order-joined").on('change', function (e) {
     form.attr("action", updatedActionUrl);
     form.submit();
 })
-

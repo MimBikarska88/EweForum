@@ -278,6 +278,7 @@ namespace EweForum.Controllers
                     .ToList(),
                     Title = t.Title,
                     Description = t.Description,
+                    IsActive = t.IsActive
 
                     
                 })
@@ -426,6 +427,8 @@ namespace EweForum.Controllers
                 topic.Title = model.Title;
                 topic.Description = model.Description;
                 topic.IsActive = model.IsActive;
+                // temp fix - is Active is not updating
+                _context.Entry(topic).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
                 
             }

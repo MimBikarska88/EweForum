@@ -1,0 +1,54 @@
+﻿@model UserProfileViewModel
+@{
+    ViewData["Title"] = "View Profile";
+}
+<section>
+    <div class="form-outer edit mt-2">
+        <div class="form-inner">
+            <form   action="@Url.Action("SetActivity","User",Model)" method="post">
+                <div class="form-field">
+                        <img src="/images/@Model.ProfilePicturePath" height="300" width="300" class="img-thumbnail" alt="@Model.ProfilePicturePath" />
+                </div>
+                <div class="form-field">
+                    <input asp-for="@Model.Username" value="@Model.Username" class="form-input" disabled type="email"  />
+                    
+                </div>
+                <div class="form-field">
+                    <input asp-for="@Model.Email" value="@Model.Email" class="form-input" disabled type="email"  />
+                  
+                </div>
+
+                <div class="form-field">
+                    <textarea asp-for="@Model.PersonalInfo" rows="10" value="@Model.PersonalInfo" disabled class="form-textarea" >
+                    </textarea>
+                </div>
+                 @if (User.IsInRole("Admin"))
+                {
+                <div class="form-field">
+
+                        <span class="m-1 fw-bold">Is User Profile Currently Active:</span>    
+                        <input type="checkbox" asp-for="@Model.IsActive" class="form-checkbox d-inline-block" value="true">
+                        <button type="submit" class="form-button">Change User's Activity</button>
+                </div>
+                }
+            </form>
+        </div>
+        <div class="ml-1 mt-2">
+            <div class="card ml-3">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Joined on: <span class="badge bg-info">@Model.CreatedOn</span></li>
+                    <li class="list-group-item">Currently: 
+                        @if(Model.IsActive) {
+                            <span class="badge bg-success">Active</span>
+                        }else{
+                            <span class="badge bg-danger">Inactive</span>
+                        }
+                    </li>
+                    <li class="list-group-item">Country:      <span class="badge bg-info">@Model.Country</span></li>
+                    <li class="list-group-item">Topics:       <span class="badge bg-info">@Model.TopicsCount</span></li>
+                    <li class="list-group-item">Posts:        <span class="badge bg-info">@Model.PostsCount</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
