@@ -43,3 +43,31 @@ $("#pagination-select-order-joined").on('change', function (e) {
     form.attr("action", updatedActionUrl);
     form.submit();
 })
+
+$('#media,#event').hide();
+
+
+$("input[name*='PostType']").change(function () {
+    const val = $(this).val();
+    switch (val) {
+        case '0': {
+            $("#media").hide();
+            $("#event").hide();
+            $("#text").show("fade");
+         
+        } break;
+        case '1': {
+            $("#text").hide();
+            $("#media").hide();
+            $("#event").show("fade");
+            
+            
+        } break;
+        case '2': {
+            $("#text").hide();
+            $("#event").hide();
+            $("#media").show('fade');
+           
+        }
+    }
+})

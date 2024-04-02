@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EweForum.Utilites.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -25,6 +26,15 @@ namespace EweForum.Infrastructure.Data.Models
 
         public string Description { get; set; } = string.Empty;
 
+        [Column(TypeName = "text")]
+        public string Content { get; set; } = string.Empty;
+        public DateTime Start { get; set; }
+
+        public DateTime End { get; set; }
+
+        public string VideoUrl { get; set; } = string.Empty;
+
+        public PostType PostType { get; set; } 
 
         public virtual IEnumerable<PostAttachment> PostsAttachments { get; set; } = new List<PostAttachment>();
         public virtual IEnumerable<Like>Likes { get; set; } = new LinkedList<Like>();

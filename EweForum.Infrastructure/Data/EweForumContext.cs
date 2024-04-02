@@ -39,12 +39,7 @@ public class EweForumContext : IdentityDbContext<IdentityUser>
         builder.Entity<Like>().HasKey(entry => new { entry.PostId, entry.UserId });
         builder.Entity<Like>().HasOne(entry => entry.Post).WithMany(entry => entry.Likes).OnDelete(DeleteBehavior.Restrict);
         builder.Entity<Like>().HasOne(entry => entry.User).WithMany(entry => entry.Likes).OnDelete(DeleteBehavior.Restrict);
-        builder.Entity<Post>()
-        .HasDiscriminator<string>("type")
-        .HasValue<Post>("basic")
-        .HasValue<EventPost>("event")
-        .HasValue<TextPost>("text")
-        .HasValue<VideoPost>("video");
+        
 
         builder.SeedCountries();
         builder.SeedTopics();

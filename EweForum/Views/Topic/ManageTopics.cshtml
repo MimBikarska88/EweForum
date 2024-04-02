@@ -123,9 +123,10 @@
                                                 </td>
                                             }
                                             <td>
-                                                <span><a asp-route-topicId="@item.Id" asp-action="Edit" asp-controller="Topic">View</a></span>
+                                                <span><a asp-route-topicId="@item.Id" asp-action="View" asp-route-page="1" asp-controller="Topic">View</a></span>
                                                 @if(User.IsInRole("Admin")){
-                                                    <span><a asp-route-id="@item.Id">Edit</a></span>
+                                                    
+                                                    <span><a asp-route-topicId="@item.Id" asp-action="Edit" asp-controller="Topic">Edit</a></span>
                                                 }
                                             </td>
                                         </tr>

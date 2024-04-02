@@ -1,0 +1,71 @@
+﻿@model PostViewModel
+@{
+	var postTypes = new List<string> {"Text", "Upcoming Event ", "Media"};
+	ViewBag.PostTypeList = postTypes;
+}
+<section>
+	<div class="m-3 m-auto w-25">
+		@if (TempData["Error"]!=null)
+		{
+			@await Component.InvokeAsync("ErrorMessage",new MessageModel{ ErrorMessage = TempData["Error"].ToString()})
+
+		}
+	</div>
+	<div class="card mt-5 w-75 m-auto">
+		<form>
+			<div class="card-body">
+				<h4 class="text-center mt-3 mb-4">Create New Post</h4>
+				@foreach (var i in postTypes)
+				{
+					<div class="ml-2 form-check">
+						<input class="form-check-input" id="@i" type="radio" asp-for="@Model.PostType" value="@postTypes.IndexOf(i)">
+						<label class="form-check-label" >
+							@i
+						</label>
+					</div>
+				}
+
+				<div id="text">
+					<div class="form-field">
+						<input placeholder="Title" class="form-input" asp-for="@Model.Title"/>
+					</div>
+					<div class="form-field">
+						<textarea placeholder="What is this post about..." cols="8" rows="6" class="form-textarea" asp-for="@Model.Content">
+						</textarea>
+					</div>
+				</div>
+				<div id="event">
+					<label class="d-block">Event description: </label>
+					<div class="form-field">
+						<textarea placeholder="Additional information about the event..."  class="form-textarea" cols="8" rows="4" asp-for="@Model.Description">
+						</textarea>
+	
+					</div>
+					<div  class="form-field">
+						<label class="d-block">Starts in: </label>
+						<input  type="date" class="form-input" asp-for="@Model.Start" />
+					</div>
+					<div class="form-field">
+
+						<label class="d-block">Ends in: </label>
+						<input  type="date" class="form-input" asp-for="@Model.End" />
+					</div>
+				</div>
+				<div id="media" >
+					<div class="form-field"> 
+						<input class="form-input" type="url" placeholder="https://www.youtube.com/" asp-for=@Model.VideoUrl />
+					</div>
+					<div class="form-field">
+						<textarea class="form-textarea" placeholder="Additional information about the resource..." cols="8" rows="4" asp-for="@Model.Description">
+						</textarea>
+					</div>
+
+			    </div>
+			</div>
+			<div class="card-body m-3">
+				<button class="form-button mb-3">Create Post</button>
+			</div>
+		</form>
+		
+	</div>
+</section>

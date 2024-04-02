@@ -1,0 +1,43 @@
+﻿@model ViewTopicModel
+
+<section>
+        
+       <div class="card d-block w-50 m-auto mt-3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">@Model.TopicName</h5>
+                        <h6 class="card-subtitle mb-2">
+                            @if (Model.IsActive)
+                            {
+                                <span class="badge bg-success">Active</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Inactive</span>
+                            }
+                        </h6>
+                        <p class="card-text">@Model.Description</p>
+            <a href="@Url.Action("Edit","Topic",new{ topicId = Model.Id})" class="btn btn-primary regular-button blue pl-2">Go Back</a>
+            <a href="#" class="btn btn-primary regular-button blue">Refresh</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Last Update: @Model.UpdatedOn
+                    </div>
+       </div>
+     
+       <div class="d-block  text-center m-auto w-50">
+        @if (Model.Posts.Count == 0)
+        {
+            @await Component.InvokeAsync("ErrorMessage",new MessageModel{ ErrorMessage = "Currently there are no posts in this topic!"})
+            @if (Model.IsActive)
+            {
+                <a href="@Url.Action("Create","Post",new { topicId = Model.Id})" class="btn m-auto btn-primary regular-button blue pl-2">Be <strong>The First one </strong> to post something!</a>
+
+            }
+        }
+        else
+        {
+            <h4>Posts</h4>
+        }
+        </div>
+  
+</section>

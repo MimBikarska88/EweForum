@@ -434,5 +434,34 @@ namespace EweForum.Controllers
             }
             return RedirectToAction("Edit", new { topicId = model.TopicId });
         }
+
+        public async Task<IActionResult> View(int topicId, int pageIndex)
+        {
+            const int pageSize = 10;
+            var topic = await _context.Topics
+                .Include(t => t.JoinedTopics)
+                .Where(t => t.Id== topicId)
+                .Select(t =>
+                new {
+                    t.Description, t.Id, t.IsActive,
+                    t.Title, t.UpdatedOn, t.CreatedOn,
+                    HasJoined = t.JoinedTopics.Any(tj => tj.ForumUserId == GetUserId())
+                }).FirstOrDefaultAsync();
+            if (topic == null)
+            {
+                return NotFound();
+            }
+            var topicModel = new ViewTopicModel
+            {
+                Id = topicId,
+                TopicName = topic.Title,
+                Description = topic.Description,
+                IsActive = topic.IsActive,
+                CreatedOn = topic.CreatedOn.ToShortDateString(),
+                UpdatedOn = topic.UpdatedOn.ToShortDateString(),
+                HasJoined = topic.HasJoined
+            };
+            return View(topicModel);
+        }
     }
 }
