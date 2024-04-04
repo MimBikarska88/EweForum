@@ -23,6 +23,10 @@ namespace EweForum.Models
         public string VideoUrl { get; set; } = string.Empty;
 		public string VideoDescription { get; set; } = string.Empty;
 
+        public string EventTitle { get;set; } = string.Empty;
+
+        public string VideoTitle { get;set; } = string.Empty;
+
 		public int TopicId { get; set; }
 
         public string Username { get; set; } = string.Empty;

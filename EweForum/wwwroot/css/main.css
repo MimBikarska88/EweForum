@@ -343,16 +343,25 @@ main .regular-button {
     border-radius:0 !important;
     border:none !important;
 }
-    main .regular-button .pink {
+main .regular-button .pink {
         background-color: lightpink !important;
         outline: 2px solid pink;
-    }
+}
 
-    main .regular-button .blue {
+main .regular-button .blue {
         background-color: lightblue !important;
         outline: 2px solid blue;
     }
-    main .regular-button .green {
+main .regular-button .green {
         background-color: lightgreen !important;
         outline: 2px solid green;
-    }
+}
+
+main .event-date-time {
+    color: darkcyan;
+    border-radius: 3px;
+    background-color: #E6E6FA;
+    font-weight:400;
+    font-size: large;
+    padding:1rem;
+}

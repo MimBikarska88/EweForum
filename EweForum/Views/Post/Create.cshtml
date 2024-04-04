@@ -39,33 +39,38 @@
 						<input asp-for="@Model.Title" placeholder="Title"  class="form-input" />
 					</div>
 					<div class="form-field">
-						<textarea  asp-form="@Model.Content" placeholder="What is this post about..."  cols="8" rows="6" class="form-textarea" >
+						<textarea  asp-for="@Model.Content" placeholder="What is this post about..."  cols="10" rows="20" class="form-textarea" >
 						</textarea>
 					</div>
 				</div>
 				<div id="event">
+					<div class="form-field">
+						<input asp-for="@Model.EventTitle" placeholder="Event title" type="date" class="form-input" />
+					</div>
 					<label class="d-block">Event description: </label>
 					<div class="form-field">
-						<textarea  asp-for="@Model.EventDescription" placeholder="Additional information about the event..." class="form-textarea" cols="8" rows="4" >
+						<textarea  asp-for="@Model.EventDescription" placeholder="Additional information about the event..." class="form-textarea text-justify" cols="8" rows="10" >
 						</textarea>
 	
 					</div>
 					<div  class="form-field">
 						<label class="d-block">Starts in: </label>
-						<input asp-for="@Model.Start" type="date" class="form-input"   />
+						<input asp-for="@Model.Start" type="datetime" class="form-input"   />
 					</div>
 					<div class="form-field">
-
 						<label class="d-block">Ends in: </label>
-						<input asp-for="@Model.End" type="date" class="form-input" />
+						<input asp-for="@Model.End" type="datetime" class="form-input" />
 					</div>
 				</div>
 				<div id="media" >
+					<div class="form-field">
+						<input asp-for="@Model.VideoTitle" class="form-input" type="url" placeholder="https://www.youtube.com/" />
+					</div>
 					<div class="form-field"> 
 						<input asp-for="@Model.VideoUrl" class="form-input"  type="url" placeholder="https://www.youtube.com/" />
 					</div>
 					<div class="form-field">
-						<textarea  asp-for="@Model.VideoDescription" class="form-textarea"  placeholder="Additional information about the resource..." cols="8" rows="4" >
+						<textarea  asp-for="@Model.VideoDescription" class="form-textarea"  placeholder="Additional information about the resource..." cols="8" rows="10" >
 						</textarea>
 					</div>
 					<input type="hidden"  asp-for="@Model.TopicId" />

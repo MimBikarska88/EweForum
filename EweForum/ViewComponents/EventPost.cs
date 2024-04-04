@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EweForum.ViewComponents
 {
-    public class UserList : ViewComponent
+    public class EventPost : ViewComponent
     {
-        public IViewComponentResult Invoke(PaginationModel<ShortUserEditViewModel> model)
+        public IViewComponentResult Invoke(PostViewModel model)
         {
             return View(model);
         }

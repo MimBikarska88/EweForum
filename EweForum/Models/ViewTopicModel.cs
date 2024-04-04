@@ -4,8 +4,6 @@
     {
         public int Id { get; set; } 
 
-        public int PageIndex { get; set; }
-
         public bool IsActive { get; set; }
 
         public bool HasJoined { get; set; }
@@ -18,6 +16,6 @@
 
         public string Description { get; set; } = string.Empty;
 
-        public List<PostViewModel> Posts { get; set; } = new List<PostViewModel>();
+        public PaginationModel<PostViewModel> PaginationModel { get; set; } = null!;
     }
 }

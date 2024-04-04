@@ -30,6 +30,10 @@ namespace EweForum.Infrastructure.Data.Models
 
         public string EventDescription { get; set; } = string.Empty;
 
+        public string EventTitle { get; set; } = string.Empty;
+
+        public string VideoTitle { get; set; } = string.Empty;
+ 
         public string VideoDescription { get; set; } = string.Empty;
 
 

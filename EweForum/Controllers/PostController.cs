@@ -73,10 +73,14 @@ namespace EweForum.Controllers
                 
                 case PostType.Event:
                     {
+                        
 
-                        if (model.Start == "" || model.EventDescription.Trim() == "")
+                        if (model.Start == null || model.Start == "" 
+                            ||  model.EventDescription== null 
+                            || model.EventDescription.Trim() == ""
+                            || model.EventTitle == null || model.EventTitle.Trim()=="")
                         {
-                            stringBuilder.AppendLine("You must provide start date,(optional) date and description for your event!");
+                            stringBuilder.AppendLine("You must provide Title, Start date,(optional) End date and Description for your event!");
                         }
                         if(model.Start!= "" && DateTime.TryParse(model.Start, out var start))
                         {
@@ -86,15 +90,18 @@ namespace EweForum.Controllers
                         {
 							stringBuilder.AppendLine("Start date is not in correct format");
 						}
-                        
-                        if(model.End != "" && DateTime.TryParse(model.End,out var end))
+                        if(model.End!=null && model.End != "")
                         {
-                            post.End = end;
+                            if (model.End != null && model.End != "" && DateTime.TryParse(model.End, out var end))
+                            {
+                                post.End = end;
+                            }
+                            else
+                            {
+                                stringBuilder.AppendLine("End date is not in correct format");
+                            }
                         }
-                        else
-                        {
-							stringBuilder.AppendLine("Start date is not in correct format");
-						}
+                       
                         if(stringBuilder.Length > 0)
                         {
                             TempData["Error"] = stringBuilder.ToString();
@@ -112,11 +119,15 @@ namespace EweForum.Controllers
 
                 case PostType.Media:
                 {
-                        if(model.VideoUrl.Trim() == "")
+                        if(model.VideoTitle==null || model.VideoTitle.Trim() == "")
+                        {
+                            stringBuilder.AppendLine("Title for the video is missing");
+                        }
+                        if(model.VideoUrl == null || model.VideoUrl.Trim() == "")
                         {
                             stringBuilder.AppendLine("URL is missing.");
                         }
-                        if (model.VideoDescription.Trim() == "")
+                        if (model.VideoDescription == null || model.VideoDescription.Trim() == "")
                         {
 							stringBuilder.AppendLine("Description is missing.");
 						}

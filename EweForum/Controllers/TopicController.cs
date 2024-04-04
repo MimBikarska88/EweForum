@@ -435,11 +435,12 @@ namespace EweForum.Controllers
             return RedirectToAction("Edit", new { topicId = model.TopicId });
         }
 
-        public async Task<IActionResult> View(int topicId, int pageIndex)
+        [HttpGet]
+        public async Task<IActionResult> View([FromQuery] int topicId,[FromQuery] int page)
         {
-            const int pageSize = 10;
+            const int pageSize = 5;
             int pagesToSkip = 0;
-            if(pageIndex == 1)
+            if(page == 1)
             {
                 pagesToSkip = 0;
             }
@@ -447,7 +448,14 @@ namespace EweForum.Controllers
             {
                 pagesToSkip *= (pageSize - 1);
             }
+            int totalAmountOfPosts = await _context.Posts
+                .Where(p => p.TopicId == topicId)
+                .CountAsync();
 
+            int  remainingPages = totalAmountOfPosts / pageSize;
+            if(totalAmountOfPosts % pageSize > 0) {
+                remainingPages++;
+            }
             var topic = await _context.Topics
                 .Include(t => t.JoinedTopics)
                 .Where(t => t.Id== topicId)
@@ -471,18 +479,27 @@ namespace EweForum.Controllers
                 CreatedOn = topic.CreatedOn.ToShortDateString(),
                 UpdatedOn = topic.UpdatedOn.ToShortDateString(),
                 HasJoined = topic.HasJoined,
-                Posts = topic.Posts.Select(p => new PostViewModel
+                PaginationModel = new PaginationModel<PostViewModel>
                 {
-                    Title = p.Title,
-                    PostType = (int) p.PostType,
-                    Content = p.Content,
-                    Start = p.Start.ToShortDateString(),
-                    End = p.End.ToShortDateString(),
-                    VideoDescription = p.VideoDescription,
-                    EventDescription = p.EventDescription,
-                    VideoUrl = p.VideoUrl,
-                }).ToList()
-            };
+                    PageSize = 5,
+                    CurrentPageIndex = page,
+                    PageCount = remainingPages,
+                    
+                    Items = topic.Posts.Select(p => new PostViewModel
+                    {
+                        Title = p.Title,
+                        PostType = (int)p.PostType,
+                        Content = p.Content,
+                        Start = p.Start.ToShortDateString(),
+                        End = p.End.ToShortDateString(),
+                        VideoDescription = p.VideoDescription,
+                        EventDescription = p.EventDescription,
+                        EventTitle = p.EventTitle,
+                        VideoTitle = p.VideoTitle,
+                        VideoUrl = p.VideoUrl,
+                    }).ToList()
+                }
+                };
             return View(topicModel);
         }
     }

@@ -16,8 +16,8 @@
                             }
                         </h6>
                         <p class="card-text">@Model.Description</p>
-            <a href="@Url.Action("Edit","Topic",new{ topicId = Model.Id})" class="btn btn-primary regular-button blue pl-2">Go Back</a>
-            <a href="#" class="btn btn-primary regular-button blue">Refresh</a>
+                                    <a href="@Url.Action("Edit","Topic",new{ topicId = Model.Id})" class="btn btn-primary regular-button blue pl-2">Go Back</a>
+                                    <a href="#" class="btn btn-primary regular-button blue">Refresh</a>
                     </div>
                     <div class="card-footer text-muted">
                         Last Update: @Model.UpdatedOn
@@ -25,7 +25,7 @@
        </div>
      
        <div class="d-block  text-center m-auto w-50">
-        @if (Model.Posts.Count == 0)
+        @if (Model.PaginationModel.Items.Count == 0)
         {
             @await Component.InvokeAsync("ErrorMessage",new MessageModel{ ErrorMessage = "Currently there are no posts in this topic!"})
             @if (Model.IsActive)
@@ -36,8 +36,66 @@
         }
         else
         {
-            <h4>Posts</h4>
+            <h4 class="mt-4 mb-4">Posts</h4>
+            <div class="card p-3 w-50 d-block m-auto text-center">
+                <div class="card-body">
+                   <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="@Url.Action("Create","Post",new { topicId = Model.Id})"><bold><h6>Post what is on your mind here</h6></bold></a>
+                </div>
+            </div>
+            <div class="d-flex mt-5 justify-content-center">
+                <div class="flex-column">
+                    @foreach (var post in Model.PaginationModel.Items)
+                    {
+                        switch (post.PostType)
+                        {
+                            case 0: @await Component.InvokeAsync("ArticlePost",post);
+                                break;
+                            case 1:
+                                @await Component.InvokeAsync("EventPost",post);
+                                break;
+                            case 2:
+                                @await Component.InvokeAsync("VideoPost",post);
+                                break;
+
+                        }
+                    }
+                    
+                    <div class="pagination-form table-pagination">
+                        @if (Model.PaginationModel.CurrentPageIndex != 1)
+                        {
+                            <button type="submit" asp-route-page="1">First</button>
+                        }
+                        @if (Model.PaginationModel.CurrentPageIndex != 1 && Model.PaginationModel.PageCount >= Model.PaginationModel.CurrentPageIndex)
+                        {
+                            <button type="submit" asp-route-page="@(Model.PaginationModel.CurrentPageIndex-1)">Previous</button>
+                        }
+                        @for (int i = Model.PaginationModel.CurrentPageIndex; i <= Model.PaginationModel.CurrentPageIndex + 5; ++i)
+                        {
+                            if (i == Model.PaginationModel.CurrentPageIndex)
+                            {
+                                <button type="submit" asp-route-page="@i" class="current-index-page">@i</button>
+                            }
+                            else if (i > Model.PaginationModel.PageCount)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                <button type="submit" asp-route-page="@i">@i</button>
+                            }
+                        }
+                        @if (Model.PaginationModel.CurrentPageIndex < Model.PaginationModel.PageCount)
+                        {
+                            <button type="submit" asp-route-pageSize="Model.PaginationModel.PageSize" asp-route-page="@(Model.PaginationModel.CurrentPageIndex+1)">Next</button>
+                        }
+                        @if (Model.PaginationModel.CurrentPageIndex != 1 && Model.PaginationModel.PageIndex != Model.PaginationModel.PageCount)
+                        {
+                            <button type="submit" asp-route-page="@Model.PaginationModel.PageCount">Last</button>
+                        }
+                    </div>
+                </div>
+               
+             </div>
         }
         </div>
-  
 </section>

@@ -1,0 +1,20 @@
+﻿@model PostViewModel
+<div>
+    <div class="card" style="width: 48rem;">
+        <div class="card-body">
+            <h5 class="card-title mb-3">@Model.VideoTitle</h5>
+            <h6><a class="link-offset-3" href="@Model.VideoUrl">@Model.VideoUrl </a></h6>
+            <div>
+                <p class="card-text mt-3 text-justify">@Model.VideoDescription</p>
+            </div>
+
+           
+                <iframe class="embed-responsive-item m-2" width="640" height="360" src="@Model.VideoUrl"></iframe>
+           
+                    
+        </div>
+    </div>
+    <div class="mt-1 mb-4 d-none text-lg-center rounded-3" style="width: 23rem; background-color:pink; border:2px solid #DB7093">
+        <strong style="color:black">Likes</strong>
+    </div>
+</div>
