@@ -13,6 +13,10 @@ namespace EweForum.Infrastructure.Data.Models
     {
         public int Id { get; set; }
 
+        public DateTime CreatedOn { get; set; }
+
+        public DateTime ModifiedOn { get; set; }
+
         public string ForumUserId { get; set; } = string.Empty;
 
         [ForeignKey(nameof(ForumUserId))]
@@ -24,7 +28,10 @@ namespace EweForum.Infrastructure.Data.Models
 
         public string Title { get; set; } = string.Empty;
 
-        public string Description { get; set; } = string.Empty;
+        public string EventDescription { get; set; } = string.Empty;
+
+        public string VideoDescription { get; set; } = string.Empty;
+
 
         [Column(TypeName = "text")]
         public string Content { get; set; } = string.Empty;

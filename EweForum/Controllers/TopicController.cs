@@ -438,6 +438,16 @@ namespace EweForum.Controllers
         public async Task<IActionResult> View(int topicId, int pageIndex)
         {
             const int pageSize = 10;
+            int pagesToSkip = 0;
+            if(pageIndex == 1)
+            {
+                pagesToSkip = 0;
+            }
+            else
+            {
+                pagesToSkip *= (pageSize - 1);
+            }
+
             var topic = await _context.Topics
                 .Include(t => t.JoinedTopics)
                 .Where(t => t.Id== topicId)
@@ -445,6 +455,7 @@ namespace EweForum.Controllers
                 new {
                     t.Description, t.Id, t.IsActive,
                     t.Title, t.UpdatedOn, t.CreatedOn,
+                    Posts = t.Posts.OrderByDescending(p => p.CreatedOn).Skip(pagesToSkip).Take(pageSize).ToList(),
                     HasJoined = t.JoinedTopics.Any(tj => tj.ForumUserId == GetUserId())
                 }).FirstOrDefaultAsync();
             if (topic == null)
@@ -459,7 +470,18 @@ namespace EweForum.Controllers
                 IsActive = topic.IsActive,
                 CreatedOn = topic.CreatedOn.ToShortDateString(),
                 UpdatedOn = topic.UpdatedOn.ToShortDateString(),
-                HasJoined = topic.HasJoined
+                HasJoined = topic.HasJoined,
+                Posts = topic.Posts.Select(p => new PostViewModel
+                {
+                    Title = p.Title,
+                    PostType = (int) p.PostType,
+                    Content = p.Content,
+                    Start = p.Start.ToShortDateString(),
+                    End = p.End.ToShortDateString(),
+                    VideoDescription = p.VideoDescription,
+                    EventDescription = p.EventDescription,
+                    VideoUrl = p.VideoUrl,
+                }).ToList()
             };
             return View(topicModel);
         }

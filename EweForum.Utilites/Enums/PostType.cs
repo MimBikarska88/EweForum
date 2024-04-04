@@ -9,6 +9,6 @@ namespace EweForum.Utilites.Enums
     public enum PostType
     {
         // media is url
-        Text = 0, Media = 1, Event = 2
-    }
+        Text = 0,  Event = 1, Media = 2
+	}
 }
