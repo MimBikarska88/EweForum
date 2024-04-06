@@ -13,6 +13,13 @@ namespace EweForum.Controllers
         {
             _logger = logger;
         }
+        [AllowAnonymous]
+        [Route("/Error/{statusCode}")]
+        public IActionResult Error(int statusCode)
+        {
+            return View(statusCode);
+
+        }
 
         [AllowAnonymous]
         public IActionResult Index()

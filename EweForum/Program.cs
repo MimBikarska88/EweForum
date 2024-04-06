@@ -62,4 +62,5 @@ app.UseEndpoints(endpoints =>
     
 });
 
+app.UseStatusCodePagesWithRedirects("/Error/{0}");
 await app.RunAsync();

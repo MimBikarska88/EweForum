@@ -446,7 +446,7 @@ namespace EweForum.Controllers
             }
             else
             {
-                pagesToSkip *= (pageSize - 1);
+                pagesToSkip = (pageSize - 1);
             }
             int totalAmountOfPosts = await _context.Posts
                 .Where(p => p.TopicId == topicId)
@@ -463,7 +463,7 @@ namespace EweForum.Controllers
                 new {
                     t.Description, t.Id, t.IsActive,
                     t.Title, t.UpdatedOn, t.CreatedOn,
-                    Posts = t.Posts.OrderByDescending(p => p.CreatedOn).Skip(pagesToSkip).Take(pageSize).ToList(),
+                    Posts = t.Posts.OrderByDescending(p => p.CreatedOn).Skip(pagesToSkip).Take(pageSize).OrderByDescending(p => p.CreatedOn).ToList(),
                     HasJoined = t.JoinedTopics.Any(tj => tj.ForumUserId == GetUserId())
                 }).FirstOrDefaultAsync();
             if (topic == null)
@@ -485,13 +485,13 @@ namespace EweForum.Controllers
                     CurrentPageIndex = page,
                     PageCount = remainingPages,
                     
-                    Items = topic.Posts.Select(p => new PostViewModel
+                    Items = topic.Posts.OrderByDescending(t => t.CreatedOn).Select(p => new PostViewModel
                     {
                         Title = p.Title,
                         PostType = (int)p.PostType,
                         Content = p.Content,
                         Start = p.Start.ToShortDateString(),
-                        End = p.End.ToShortDateString(),
+                        End = p.End.Year==1 ? "": p.End.ToShortDateString(),
                         VideoDescription = p.VideoDescription,
                         EventDescription = p.EventDescription,
                         EventTitle = p.EventTitle,

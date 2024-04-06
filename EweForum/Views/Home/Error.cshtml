@@ -1,0 +1,21 @@
+﻿@model int
+
+<div class="text-center m-auto">
+	<div class="pt-5" style="font-size:48px">
+		@Model
+	</div>
+	<div class="mt-4" style="font-size:32px">
+		@if (Model == 404)
+		{
+			<p>Page not found!</p>
+		}
+		@if(Model == 500)
+		{
+			<p>Something went wrong. Please, contact admin!</p>
+		}
+		@if(Model == 401)
+		{
+			<p>Not Authorized!</p>
+		}
+	</div>
+</div>

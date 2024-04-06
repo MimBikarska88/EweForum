@@ -45,7 +45,7 @@
 				</div>
 				<div id="event">
 					<div class="form-field">
-						<input asp-for="@Model.EventTitle" placeholder="Event title" type="date" class="form-input" />
+						<input asp-for="@Model.EventTitle" placeholder="Event title" t class="form-input" />
 					</div>
 					<label class="d-block">Event description: </label>
 					<div class="form-field">
@@ -55,11 +55,11 @@
 					</div>
 					<div  class="form-field">
 						<label class="d-block">Starts in: </label>
-						<input asp-for="@Model.Start" type="datetime" class="form-input"   />
+						<input asp-for="@Model.Start" type="datetime-local" class="form-input"   />
 					</div>
 					<div class="form-field">
 						<label class="d-block">Ends in: </label>
-						<input asp-for="@Model.End" type="datetime" class="form-input" />
+						<input asp-for="@Model.End" type="datetime-local" class="form-input" />
 					</div>
 				</div>
 				<div id="media" >

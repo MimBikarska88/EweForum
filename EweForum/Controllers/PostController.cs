@@ -147,10 +147,16 @@ namespace EweForum.Controllers
 					}
                     break;
             }
-            
+            post.CreatedOn = DateTime.Now;
+            post.ModifiedOn = DateTime.Now;
             _context.Posts.Add(post);
             await _context.SaveChangesAsync();
             return RedirectToAction("View", "Topic", new { topicId = model.TopicId });
+        }
+        [HttpDelete]
+        public async Task<IActionResult> View([FromQuery] int postId)
+        {
+            return null;
         }
     }
 }

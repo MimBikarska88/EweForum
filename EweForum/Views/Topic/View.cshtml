@@ -61,37 +61,50 @@
                     }
                     
                     <div class="pagination-form table-pagination">
-                        @if (Model.PaginationModel.CurrentPageIndex != 1)
-                        {
-                            <button type="submit" asp-route-page="1">First</button>
-                        }
-                        @if (Model.PaginationModel.CurrentPageIndex != 1 && Model.PaginationModel.PageCount >= Model.PaginationModel.CurrentPageIndex)
-                        {
-                            <button type="submit" asp-route-page="@(Model.PaginationModel.CurrentPageIndex-1)">Previous</button>
-                        }
-                        @for (int i = Model.PaginationModel.CurrentPageIndex; i <= Model.PaginationModel.CurrentPageIndex + 5; ++i)
-                        {
-                            if (i == Model.PaginationModel.CurrentPageIndex)
+                      
+                            @if (Model.PaginationModel.CurrentPageIndex != 1)
                             {
-                                <button type="submit" asp-route-page="@i" class="current-index-page">@i</button>
+                                <a  href="@Url.Action("View","Topic", new {topicId = Model.Id, page = 1})">
+                                    <button >First</button>
+                                </a>
                             }
-                            else if (i > Model.PaginationModel.PageCount)
+                            @if (Model.PaginationModel.CurrentPageIndex != 1 && Model.PaginationModel.PageCount >= Model.PaginationModel.CurrentPageIndex)
                             {
-                                break;
+                            <a  href="@Url.Action("View","Topic", new {topicId = Model.Id, page = Model.PaginationModel.CurrentPageIndex-1})">
+                                <button>Previous</button>
+                            </a>
                             }
-                            else
+                            @for (int i = Model.PaginationModel.CurrentPageIndex; i <= Model.PaginationModel.CurrentPageIndex + 5; ++i)
                             {
-                                <button type="submit" asp-route-page="@i">@i</button>
+                                if (i == Model.PaginationModel.CurrentPageIndex)
+                                {
+                                    <a  href="@Url.Action("View","Topic", new {topicId = Model.Id, page = i})">
+                                    <button  class="current-index-page">@i</button>
+                                    </a>
+                                }
+                                else if (i > Model.PaginationModel.PageCount)
+                                {
+                                    break;
+                                }
+                                else
+                                {
+                                <a  href="@Url.Action("View","Topic", new {topicId = Model.Id, page = i})"><button>@i</button></a>
+                                }
                             }
-                        }
-                        @if (Model.PaginationModel.CurrentPageIndex < Model.PaginationModel.PageCount)
-                        {
-                            <button type="submit" asp-route-pageSize="Model.PaginationModel.PageSize" asp-route-page="@(Model.PaginationModel.CurrentPageIndex+1)">Next</button>
-                        }
-                        @if (Model.PaginationModel.CurrentPageIndex != 1 && Model.PaginationModel.PageIndex != Model.PaginationModel.PageCount)
-                        {
-                            <button type="submit" asp-route-page="@Model.PaginationModel.PageCount">Last</button>
-                        }
+                            @if (Model.PaginationModel.CurrentPageIndex < Model.PaginationModel.PageCount)
+                            {
+                            <a  href="@Url.Action("View","Topic", new {topicId = Model.Id, page = Model.PaginationModel.CurrentPageIndex+1})">
+                                     <button>Next</button>
+                            </a>
+                            }
+                            @if (Model.PaginationModel.CurrentPageIndex != 1 && Model.PaginationModel.PageIndex != Model.PaginationModel.PageCount)
+                            {
+                            <a  href="@Url.Action("View","Topic", new {topicId = Model.Id, page = Model.PaginationModel.PageCount})">
+                                     <button>Last</button>
+                            </a>
+                            }
+                       
+                     
                     </div>
                 </div>
                
