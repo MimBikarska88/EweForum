@@ -1,8 +1,20 @@
-﻿@model PostViewModel
+﻿@model ViewPostModelDetails
 <div>
     <div class="card mt-3 mb-3" style="width: 48rem;">
         <div class="card-body">
             <h5 class="card-title mb-3">@Model.EventTitle</h5>
+            @if (!Model.ShowDetailsButton)
+            {
+                    <h6 class="card-subtitle mb-2 text-muted float-left">Posted by @Model.Username</h6>
+                    <h6 class="card-subtitle mb-3 text-muted float-left">
+                        Posted On: @Model.CreatedOn
+                        @if (Model.IsNew)
+                        {
+                            <span class="badge bg-dark">NEW</span>
+                        }
+                    </h6>
+
+            }
             <div>
                 <p class="card-text mt-3 text-justify">@Model.EventDescription</p>
             </div>
@@ -21,6 +33,15 @@
                 }
 
             </div>
+           
+            @if (Model.ShowDetailsButton)
+            {
+                <div>
+                    <a href="@Url.Action("View","Post",new {postId = Model.Id})"><button class="form-button float-right">View Details</button></a>
+                </div>
+            }
+           
+           
         </div>
     </div>
     <div class="mt-1 mb-4 d-none text-lg-center rounded-3" style="width: 23rem; background-color:pink; border:2px solid #DB7093">

@@ -5,7 +5,7 @@ namespace EweForum.ViewComponents
 {
     public class ArticlePost : ViewComponent
     {
-        public IViewComponentResult Invoke(PostViewModel model)
+        public IViewComponentResult Invoke(ViewPostModelDetails model)
         {
             return View(model);
         }

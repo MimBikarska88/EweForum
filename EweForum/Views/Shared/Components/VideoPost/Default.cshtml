@@ -1,16 +1,32 @@
-﻿@model PostViewModel
+﻿@model ViewPostModelDetails
 <div>
     <div class="card" style="width: 48rem;">
         <div class="card-body">
             <h5 class="card-title mb-3">@Model.VideoTitle</h5>
+            @if (!Model.ShowDetailsButton)
+            {
+                
+                    <h6 class="card-subtitle mb-2 text-muted float-left">Posted by @Model.Username</h6>
+                    <h6 class="card-subtitle mb-3 text-muted float-left">
+                        Posted On: @Model.CreatedOn
+                        @if (Model.IsNew)
+                        {
+                            <span class="badge bg-dark">NEW</span>
+                        }
+                    </h6>
+
+            }
             <h6><a class="link-offset-3" href="@Model.VideoUrl">@Model.VideoUrl </a></h6>
             <div>
                 <p class="card-text mt-3 text-justify">@Model.VideoDescription</p>
             </div>
-
-           
-                <iframe class="embed-responsive-item m-2" width="640" height="360" src="@Model.VideoUrl"></iframe>
-           
+            <iframe class="embed-responsive-item m-2" width="640" height="360" src="@Model.VideoUrl"></iframe>
+            @if (Model.ShowDetailsButton)
+            {
+                <div>
+                    <a href="@Url.Action("View","Post",new {postId = Model.Id})"><button class="form-button float-right">View Details</button></a>
+                </div>
+            }
                     
         </div>
     </div>

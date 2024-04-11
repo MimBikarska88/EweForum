@@ -71,3 +71,13 @@ $("input[name*='PostType']").change(function () {
         }
     }
 })
+$('.child').hide();
+$('.parent').on('click', function (e) {
+    
+    $(this).closest('.card').find('.child').toggle('fade');
+
+    const parents = document.querySelectorAll(".parent");
+    console.log(parents);
+   
+   
+})

@@ -22,6 +22,8 @@ namespace EweForum.Infrastructure.Data.Models
         public int ChildId { get; set; }
         [ForeignKey(nameof(ChildId))]
         public PostReply Child { get; set; } = null!;
+
+        public int Depth { get; set; } 
         
     }
 }

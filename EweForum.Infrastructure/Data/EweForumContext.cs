@@ -32,9 +32,19 @@ public class EweForumContext : IdentityDbContext<IdentityUser>
         builder.Entity<PostAttachment>().HasOne(entry => entry.Post).WithMany(entry => entry.PostsAttachments).OnDelete(DeleteBehavior.Restrict);
         builder.Entity<PostAttachment>().HasOne(entry => entry.FileAttachment).WithMany(entry => entry.PostsAttachments);
         
-        builder.Entity<PostReply>().HasOne(entry => entry.Post).WithMany(entry => entry.PostsReplies).OnDelete(DeleteBehavior.Restrict);
-        builder.Entity<ReplyClosure>().HasOne(entry => entry.Parent).WithMany(entry => entry.Children).OnDelete(DeleteBehavior.Restrict);
-        builder.Entity<ReplyClosure>().HasOne(entry => entry.Child).WithMany(entry => entry.Parents).OnDelete(DeleteBehavior.Restrict);
+        builder.Entity<PostReply>().HasOne(entry => entry.Post)
+            .WithMany(entry => entry.PostsReplies)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder.Entity<ReplyClosure>()
+            .HasOne(entry => entry.Parent)
+            .WithMany(entry => entry.Children)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder.Entity<ReplyClosure>()
+            .HasOne(entry => entry.Child)
+            .WithMany(entry => entry.Parents)
+            .OnDelete(DeleteBehavior.Restrict);
         
         builder.Entity<Like>().HasKey(entry => new { entry.PostId, entry.UserId });
         builder.Entity<Like>().HasOne(entry => entry.Post).WithMany(entry => entry.Likes).OnDelete(DeleteBehavior.Restrict);

@@ -47,10 +47,10 @@ namespace EweForum.Infrastructure.Data.Models
 
         public PostType PostType { get; set; } 
 
-        public virtual IEnumerable<PostAttachment> PostsAttachments { get; set; } = new List<PostAttachment>();
-        public virtual IEnumerable<Like>Likes { get; set; } = new LinkedList<Like>();
+        public virtual List<PostAttachment> PostsAttachments { get; set; } = new List<PostAttachment>();
+        public virtual List<Like>Likes { get; set; } = new List<Like>();
 
-        public virtual IEnumerable<PostReply> PostsReplies { get; set; }  = new LinkedList<PostReply>();
+        public virtual List<PostReply> PostsReplies { get; set; }  = new List<PostReply>();
 
 
     }

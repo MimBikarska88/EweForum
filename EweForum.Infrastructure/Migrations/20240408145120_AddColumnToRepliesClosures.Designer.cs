@@ -4,6 +4,7 @@ using EweForum.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EweForum.Infrastructure.Migrations
 {
     [DbContext(typeof(EweForumContext))]
-    partial class EweForumContextModelSnapshot : ModelSnapshot
+    [Migration("20240408145120_AddColumnToRepliesClosures")]
+    partial class AddColumnToRepliesClosures
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -7513,1292 +7515,1292 @@ namespace EweForum.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5194),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5317),
                             Description = "A community for discussing all things related to machines and metal combined.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Industrial Metal",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5148)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5275)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5209),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5330),
                             Description = "A place for flamenco enthusiasts to share tips, tricks, and discuss their favorite gear and techniques.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Flamenco Enthusiasts",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5205)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5327)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5218),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5336),
                             Description = "Exploring the wonders of outer space, from celestial bodies to cutting-edge space missions.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Space Exploration",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5215)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5334)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5227),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5342),
                             Description = "A community for photographers to share their work, techniques, and experiences.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Photography",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5223)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5340)
                         },
                         new
                         {
                             Id = 5,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5236),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5348),
                             Description = "For passionate football fans to discuss matches, players, and strategies.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Football Fans",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5232)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5346)
                         },
                         new
                         {
                             Id = 6,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5247),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5356),
                             Description = "Keeping up with the latest global news and events.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "World News",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5243)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5354)
                         },
                         new
                         {
                             Id = 7,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5255),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5362),
                             Description = "Discussing ways to preserve and protect the environment for future generations.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Environmental Conservation",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5252)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5360)
                         },
                         new
                         {
                             Id = 8,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5264),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5368),
                             Description = "Exploring the latest fashion trends, styles, and industry news.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Fashion Trends",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5260)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5366)
                         },
                         new
                         {
                             Id = 9,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5273),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5415),
                             Description = "Sharing recipes, tips, and techniques for delicious and nutritious vegan meals.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Vegan Meals",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5269)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5411)
                         },
                         new
                         {
                             Id = 10,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5283),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5423),
                             Description = "For bookworms to discuss their favorite novels, authors, and literary themes.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Literature Lovers",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5280)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5420)
                         },
                         new
                         {
                             Id = 11,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5292),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5429),
                             Description = "Discussing medical breakthroughs, health tips, and wellness strategies.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Medicine and Health",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5289)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5426)
                         },
                         new
                         {
                             Id = 12,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5300),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5435),
                             Description = "A community for programmers to share code, ask questions, and discuss programming languages and techniques.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Programming Community",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5297)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5433)
                         },
                         new
                         {
                             Id = 13,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5309),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5441),
                             Description = "For fitness enthusiasts to share workout routines, diet plans, and motivation tips.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Fitness Freaks",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5305)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5439)
                         },
                         new
                         {
                             Id = 14,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5317),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5447),
                             Description = "Sharing ideas, tips, and tutorials for do-it-yourself projects and crafts.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "DIY Projects",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5314)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5445)
                         },
                         new
                         {
                             Id = 15,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5326),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5453),
                             Description = "A community for animal lovers to share cute photos, adoption stories, and pet care tips.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Animal Lovers",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5322)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5451)
                         },
                         new
                         {
                             Id = 16,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5336),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5459),
                             Description = "Discussing political ideologies, current events, and policy issues.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Political Debates",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5332)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5457)
                         },
                         new
                         {
                             Id = 17,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5345),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5465),
                             Description = "For artists of all mediums to share their work, techniques, and inspiration.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Artists' Corner",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5341)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5463)
                         },
                         new
                         {
                             Id = 18,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5355),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5473),
                             Description = "Sharing travel experiences, tips, and recommendations for exploring the world.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Travel Enthusiasts",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5352)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5470)
                         },
                         new
                         {
                             Id = 19,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5364),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5479),
                             Description = "A community for cinephiles to discuss movies, directors, and cinematic techniques.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Film Buffs",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5361)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5477)
                         },
                         new
                         {
                             Id = 20,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5373),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5485),
                             Description = "Exploring historical events, figures, and civilizations from around the world.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "History Buffs",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5369)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5483)
                         },
                         new
                         {
                             Id = 21,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5382),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5491),
                             Description = "For home cooks and foodies to share recipes, cooking tips, and culinary adventures.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Cooking Enthusiasts",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5378)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5489)
                         },
                         new
                         {
                             Id = 22,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5391),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5497),
                             Description = "Discussing the latest advancements in technology, gadgets, and digital trends.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Technology Innovations",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5387)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5495)
                         },
                         new
                         {
                             Id = 23,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5399),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5504),
                             Description = "A community for yogis and meditation practitioners to share techniques, experiences, and wellness tips.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Yoga and Meditation",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5396)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5501)
                         },
                         new
                         {
                             Id = 24,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5408),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5510),
                             Description = "Exploring the realms of science fiction and fantasy literature, movies, and TV shows.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Science Fiction & Fantasy",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5404)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5507)
                         },
                         new
                         {
                             Id = 25,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5417),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5516),
                             Description = "A supportive community for parents to share advice, experiences, and parenting tips.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Parenting Advice",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5413)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5513)
                         },
                         new
                         {
                             Id = 26,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5426),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5522),
                             Description = "Discussing cryptocurrency news, investment strategies, and blockchain technology.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Cryptocurrency Investors",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5422)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5519)
                         },
                         new
                         {
                             Id = 27,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5434),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5528),
                             Description = "Sharing ideas, tips, and inspiration for interior design and home decor.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Hygge",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5430)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5525)
                         },
                         new
                         {
                             Id = 28,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5443),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5534),
                             Description = "For gardeners to share tips, advice, and photos of their gardens.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Gardening Enthusiasts",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5439)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5531)
                         },
                         new
                         {
                             Id = 29,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5452),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5540),
                             Description = "Discussing psychological theories, mental health, and human behavior.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Psychology Discussions",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5448)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5537)
                         },
                         new
                         {
                             Id = 30,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5461),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5546),
                             Description = "A community for beer lovers to discuss craft beer, breweries, and tasting experiences.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Craft Beer Enthusiasts",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5457)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5543)
                         },
                         new
                         {
                             Id = 31,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5470),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5552),
                             Description = "For entrepreneurs and startup enthusiasts to share advice, resources, and success stories.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Business Startups",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5466)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5549)
                         },
                         new
                         {
                             Id = 32,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5479),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5558),
                             Description = "A community for language learners to practice, share resources, and seek advice.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Language Learning",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5475)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5556)
                         },
                         new
                         {
                             Id = 33,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5488),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5564),
                             Description = "Sharing photos and techniques for capturing the beauty of the night sky.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Astrophotography",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5484)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5562)
                         },
                         new
                         {
                             Id = 34,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5498),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5572),
                             Description = "For cyclists to discuss bikes, routes, and cycling events.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Cycling Community",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5495)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5569)
                         },
                         new
                         {
                             Id = 35,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5507),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5578),
                             Description = "A community for culinary enthusiasts to participate in cooking challenges and share their creations.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Cooking Challenges",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5503)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5575)
                         },
                         new
                         {
                             Id = 36,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5516),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5584),
                             Description = "A supportive space for parents to seek advice, share experiences, and find solidarity.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Parenting Support",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5512)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5581)
                         },
                         new
                         {
                             Id = 37,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5524),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5590),
                             Description = "Receiving constructive feedback and critique on photography techniques and compositions.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Photography Critique",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5520)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5588)
                         },
                         new
                         {
                             Id = 38,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5533),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5596),
                             Description = "Discussing the causes, impacts, and solutions to climate change.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Climate Change Discussions",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5529)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5594)
                         },
                         new
                         {
                             Id = 39,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5542),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5602),
                             Description = "For musicians and producers to share techniques, software recommendations, and collaborate on music projects.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Music Production",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5538)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5600)
                         },
                         new
                         {
                             Id = 40,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5550),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5608),
                             Description = "Exploring the wonders of the cosmos, from stars and galaxies to black holes and nebulae.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Astronomy Enthusiasts",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5547)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5606)
                         },
                         new
                         {
                             Id = 41,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5570),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5614),
                             Description = "Discussing AI technologies, applications, and ethical implications.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Artificial Intelligence",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5566)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5612)
                         },
                         new
                         {
                             Id = 42,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5580),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5620),
                             Description = "A community for book lovers to discuss their current reads, share recommendations, and host virtual book clubs.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Book Club",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5576)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5618)
                         },
                         new
                         {
                             Id = 43,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5588),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5627),
                             Description = "A community for setting and achieving fitness goals, sharing progress, and supporting each other's journey.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Fitness Challenges",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5585)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5624)
                         },
                         new
                         {
                             Id = 44,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5597),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5633),
                             Description = "Discussing nutrition, meal planning, and healthy eating habits for a balanced lifestyle.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Healthy Eating",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5593)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5630)
                         },
                         new
                         {
                             Id = 45,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5605),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5639),
                             Description = "A place for fashion enthusiasts to seek advice, share styling tips, and discuss the latest trends.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Fashion Advice",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5602)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5636)
                         },
                         new
                         {
                             Id = 46,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5614),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5645),
                             Description = "Exploring the therapeutic benefits of art-making, creative expression, and self-discovery.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Art Therapy",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5611)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5642)
                         },
                         new
                         {
                             Id = 47,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5623),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5651),
                             Description = "A supportive space for writers to share their work, receive feedback, and improve their craft.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Writing Workshop",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5619)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5648)
                         },
                         new
                         {
                             Id = 48,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5632),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5657),
                             Description = "Discussing VR technology, gaming experiences, and immersive virtual worlds.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Virtual Reality",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5628)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5654)
                         },
                         new
                         {
                             Id = 49,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5641),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5663),
                             Description = "For baking enthusiasts to share recipes, baking tips, and showcase their baked creations.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Baking Enthusiasts",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5637)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5660)
                         },
                         new
                         {
                             Id = 50,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5649),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5669),
                             Description = "A community for sharing motivational quotes, success stories, and tips for staying committed to fitness goals.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Fitness Motivation",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5645)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5667)
                         },
                         new
                         {
                             Id = 51,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5658),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5675),
                             Description = "Connecting rescue animals with loving homes, sharing adoption stories, and promoting pet welfare.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Pet Adoption",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5654)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5673)
                         },
                         new
                         {
                             Id = 52,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5666),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5681),
                             Description = "Discussing thought-provoking documentaries, exploring social issues, and documentary filmmaking techniques.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Documentary Films",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5663)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5679)
                         },
                         new
                         {
                             Id = 53,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5675),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5687),
                             Description = "We are all the indian guy with the pool but not just at 2 am but 24/7",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "DIY Home Improvement",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5671)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5685)
                         },
                         new
                         {
                             Id = 54,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5683),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5723),
                             Description = "For aspiring and seasoned entrepreneurs to share insights, resources, and strategies for success in business.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Entrepreneurship",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5680)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5720)
                         },
                         new
                         {
                             Id = 55,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5692),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5729),
                             Description = "",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Mindfulness Meditation",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5688)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5727)
                         },
                         new
                         {
                             Id = 56,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5701),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5735),
                             Description = "Exploring the world of castles, from medieval fortresses to fairytale palaces, discussing history, architecture, and legends surrounding these majestic structures.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Castle Connoisseurs",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5697)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5732)
                         },
                         new
                         {
                             Id = 57,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5709),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5741),
                             Description = "Indulging in the world of pastries and baked goods, from flaky croissants and decadent cakes to delicate macarons and traditional pies.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Pastry Paradise",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5706)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5739)
                         },
                         new
                         {
                             Id = 58,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5718),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5747),
                             Description = "Journeying back in time to the medieval era, exploring life, culture, and warfare in the Middle Ages, from knights and castles to feudalism and chivalry.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Medieval Meanderings",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5714)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5745)
                         },
                         new
                         {
                             Id = 59,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5727),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5753),
                             Description = "A collective for craft beer enthusiasts to share homebrewing recipes, brewery visits, and discussions about the art and science of beer-making.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Craft Beer Collective",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5723)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5751)
                         },
                         new
                         {
                             Id = 60,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5735),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5759),
                             Description = "A society for aficionados of sweets and desserts, from creamy gelato and rich chocolates to fruity tarts and sugary confections.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Sweet Tooth Society",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5732)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5757)
                         },
                         new
                         {
                             Id = 61,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5744),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5765),
                             Description = "Chronicling the history and stories of castles around the world, from iconic landmarks like Edinburgh Castle to lesser-known fortifications with fascinating tales.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Castle Chronicles",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5740)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5763)
                         },
                         new
                         {
                             Id = 62,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5752),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5771),
                             Description = "A brotherhood of beer aficionados, celebrating the camaraderie and community spirit fostered by the love of good beer and great company.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Brewery Brotherhood",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5748)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5769)
                         },
                         new
                         {
                             Id = 63,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5761),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5777),
                             Description = "Indulging in the artistry and craftsmanship of French patisserie, from delicate éclairs and flaky mille-feuille to buttery croissants and colorful macarons.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Patisserie Passion",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5757)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5775)
                         },
                         new
                         {
                             Id = 64,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5769),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5783),
                             Description = "A fellowship of fantasy enthusiasts exploring fictional castles from literature, movies, and games, from Hogwarts Castle to the Red Keep of King's Landing.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Fantasy Fortress Fellowship",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5766)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5781)
                         },
                         new
                         {
                             Id = 65,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5777),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5790),
                             Description = "For fans of dark southern country music, embracing the eerie atmospheres, haunting melodies, and swampy vibes of bands like Those Poor Bastards and Sons of Perdition.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Swamp Metal Syndicate",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5774)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5787)
                         },
                         new
                         {
                             Id = 66,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5789),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5797),
                             Description = "Delving into the world of cryptids and mythical creatures, from Bigfoot and the Loch Ness Monster to Mothman and the Chupacabra, exploring sightings, legends, and cryptozoological mysteries.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Cryptid Chronicles",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5785)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5795)
                         },
                         new
                         {
                             Id = 67,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5798),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5804),
                             Description = "Gathering around the virtual campfire to share and discuss spooky stories, urban legends, and chilling encounters with the unknown.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Tales from the Shadows",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5794)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5801)
                         },
                         new
                         {
                             Id = 68,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5807),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5810),
                             Description = "Exploring the realms of the paranormal, from ghost sightings and haunted locations to UFO encounters and unexplained phenomena, and sharing personal experiences and investigations.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Paranormal Pursuit",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5803)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5807)
                         },
                         new
                         {
                             Id = 69,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5816),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5816),
                             Description = "A collection of favorite quotes from literature, philosophy, movies, and beyond, sharing timeless words of wisdom and inspiration.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Words of Wisdom",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5812)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5813)
                         },
                         new
                         {
                             Id = 70,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5825),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5822),
                             Description = "A community for fans of Southern Gothic literature and culture, discussing themes of decay, isolation, and the grotesque in works by authors like Flannery O'Connor, William Faulkner, and Cormac McCarthy.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Southern Gothic Society",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5821)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5819)
                         },
                         new
                         {
                             Id = 71,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5833),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5828),
                             Description = "Dedicated to the study and exploration of cryptids and unknown animals, sharing research, eyewitness accounts, and investigations into elusive creatures.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Cryptozoology Club",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5830)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5825)
                         },
                         new
                         {
                             Id = 72,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5842),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5834),
                             Description = "A gathering place for lovers of mysteries and thrillers, discussing whodunits, detective stories, and psychological suspense novels, and sharing recommendations for gripping reads.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Midnight Mysteries",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5838)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5831)
                         },
                         new
                         {
                             Id = 73,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5851),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5840),
                             Description = "Embarking on a journey to uncover the mysteries of the supernatural world, from psychic phenomena and hauntings to demonic possessions and spiritual encounters.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Supernatural Seekers",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5847)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5837)
                         },
                         new
                         {
                             Id = 74,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5860),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5846),
                             Description = "Sharing and discussing favorite quotes from literature, movies, music, and pop culture, from profound insights to witty one-liners.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Quotable Quotes Corner",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5856)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5844)
                         },
                         new
                         {
                             Id = 75,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5869),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5852),
                             Description = "For home cooks and foodies to share recipes, cooking tips, and culinary adventures.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Cooking Enthusiasts",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5865)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5850)
                         },
                         new
                         {
                             Id = 76,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5878),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5858),
                             Description = "Discussing the latest advancements in technology, gadgets, and digital trends.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Technology Innovations",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5874)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5856)
                         },
                         new
                         {
                             Id = 77,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5886),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5864),
                             Description = "A community for yogis and meditation practitioners to share techniques, experiences, and wellness tips.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Yoga and Meditation",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5883)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5862)
                         },
                         new
                         {
                             Id = 78,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5895),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5870),
                             Description = "For anime enthusiasts to discuss their favorite series, characters, and genres.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Anime",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5891)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5868)
                         },
                         new
                         {
                             Id = 79,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5904),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5876),
                             Description = "Exploring the realms of science fiction and fantasy literature, movies, and TV shows.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Science Fiction & Fantasy",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5900)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5874)
                         },
                         new
                         {
                             Id = 80,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5913),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5882),
                             Description = "A supportive community for parents to share advice, experiences, and parenting tips.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Parenting Advice",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5909)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5880)
                         },
                         new
                         {
                             Id = 81,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5922),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5888),
                             Description = "Discussing cryptocurrency news, investment strategies, and blockchain technology.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Cryptocurrency Investors",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5918)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5886)
                         },
                         new
                         {
                             Id = 82,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5931),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5895),
                             Description = "Sharing ideas, tips, and inspiration for interior design and home decor.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Home Decor Inspiration",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5927)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5892)
                         },
                         new
                         {
                             Id = 83,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5940),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5901),
                             Description = "For gardeners to share tips, advice, and photos of their gardens.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Gardening Enthusiasts",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5936)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5898)
                         },
                         new
                         {
                             Id = 84,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5949),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5907),
                             Description = "Discussing psychological theories, mental health, and human behavior.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Psychology Discussions",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5945)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5904)
                         },
                         new
                         {
                             Id = 85,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5966),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5913),
                             Description = "A cozy corner for kawaii enthusiasts to share their love for all things cute, from adorable characters to colorful accessories.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Kawaii Cafe Corner",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5962)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5910)
                         },
                         new
                         {
                             Id = 86,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5975),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5919),
                             Description = "A society celebrating the beauty of cherry blossoms and Japanese culture, hosting events and discussions inspired by the ephemeral beauty of sakura season.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Sakura Blossom Society",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5971)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5916)
                         },
                         new
                         {
                             Id = 87,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5983),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5925),
                             Description = "Indulging in the chewy goodness of mochi treats, from traditional flavors to innovative creations, and sharing recipes and recommendations.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Mochi Madness Club",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5980)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5923)
                         },
                         new
                         {
                             Id = 88,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5992),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5931),
                             Description = "A virtual nook for cat lovers and kawaii enthusiasts, featuring cute cat memes, GIFs, and discussions about feline friends.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Neko Nook",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5988)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5929)
                         },
                         new
                         {
                             Id = 89,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6001),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5937),
                             Description = "A hangout spot for fans of Harajuku fashion and kawaii culture, sharing outfit ideas, shopping tips, and trends from Tokyo's vibrant street scene.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Harajuku Hangout",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(5997)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5935)
                         },
                         new
                         {
                             Id = 90,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6009),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5943),
                             Description = "Embarking on culinary adventures inspired by kawaii aesthetics, from adorable bento boxes to cute character-themed desserts.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Kawaii Kitchen Adventures",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6006)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5941)
                         },
                         new
                         {
                             Id = 91,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6017),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5949),
                             Description = "Finding tranquility and inspiration in Japanese gardens, exploring the principles of zen and mindfulness through nature.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Zen Garden Zenith",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6014)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5947)
                         },
                         new
                         {
                             Id = 92,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6026),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5955),
                             Description = "A hideout for Hello Kitty fans to connect and share their passion for Sanrio's beloved character, from merchandise collections to fan art.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Hello Kitty Hideout",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6022)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5953)
                         },
                         new
                         {
                             Id = 93,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6034),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5961),
                             Description = "A community of dreamers embracing the concept of yume (dream) in Japanese culture, sharing aspirations, goals, and whimsical visions.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Yume Dreamers",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6031)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5959)
                         },
                         new
                         {
                             Id = 94,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6043),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5967),
                             Description = "Crafting cute and kawaii creations, from plush toys to DIY accessories, and sharing crafting tips and tutorials.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Kawaii Crafting Club",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6039)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5965)
                         },
                         new
                         {
                             Id = 95,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6051),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5974),
                             Description = "Discussing music composition techniques, songwriting tips, and musical inspiration.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Music Composition",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6047)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5971)
                         },
                         new
                         {
                             Id = 96,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6060),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5980),
                             Description = "How to lose weight and not starve (too much)",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Weight Loss Recipes",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6057)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5977)
                         },
                         new
                         {
                             Id = 97,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6069),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5986),
                             Description = "Engaging in discussions about books, characters, plot twists, and literary analysis that you wish you didn't read.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Terrible Book Discussions",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6065)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5983)
                         },
                         new
                         {
                             Id = 98,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6077),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5992),
                             Description = "Participating in fitness challenges, setting goals, and tracking progress. Only for crossfitters.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Fitness Challenges",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6074)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(5989)
                         },
                         new
                         {
                             Id = 99,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6086),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6028),
                             Description = "Exploring emerging technology trends, innovations, and future predictions.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Technology Trends",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6082)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6025)
                         },
                         new
                         {
                             Id = 100,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6094),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6034),
                             Description = "Analyzing films, cinematography techniques, and narrative structures.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Film Analysis",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6090)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6031)
                         },
                         new
                         {
                             Id = 101,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6103),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6040),
                             Description = "Exploring the lives, achievements, and legacies of historical figures.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Historical Figures",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6099)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6038)
                         },
                         new
                         {
                             Id = 102,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6111),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6046),
                             Description = "Sharing creative writing prompts, exercises, and challenges to inspire writing.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Creative Writing Prompts",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6108)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6044)
                         },
                         new
                         {
                             Id = 103,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6120),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6052),
                             Description = "A tavern for horror writers to share spine-chilling stories, discuss writing techniques, and collaborate on dark and unsettling narratives.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Terror Tales Tavern",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6116)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6050)
                         },
                         new
                         {
                             Id = 104,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6129),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6058),
                             Description = "A guild for writers of gothic fiction, where members delve into the shadows of the human psyche, crafting tales of terror and suspense.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Gothic Writers Guild",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6125)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6056)
                         },
                         new
                         {
                             Id = 105,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6137),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6064),
                             Description = "An ensemble of writers and readers, all channeling eldritch echoes, where horror writers explore cosmic horrors, eldritch abominations, and the unknown terrors of the cosmos.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Eldritch Echoes Ensemble",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6134)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6062)
                         },
                         new
                         {
                             Id = 106,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6146),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6070),
                             Description = "A workshop for fans of The Witcher series, where enthusiasts discuss Geralt's adventures, monster hunting techniques, and the rich lore of the world created by Andrzej Sapkowski.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Witcher's Workshop",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6142)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6068)
                         },
                         new
                         {
                             Id = 107,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6154),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6077),
                             Description = "A sanctuary for Dark Souls fans to share their experiences, strategies, and lore interpretations from the challenging and atmospheric games in the series.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Dark Souls Sanctuary",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6151)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6074)
                         },
                         new
                         {
                             Id = 108,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6163),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6083),
                             Description = "Pioneering the mind-bending puzzles and innovative gameplay of the Portal series, where fans discuss portal mechanics, companion cubes, and the enigmatic GLaDOS.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Portal Pioneers",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6159)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6080)
                         },
                         new
                         {
                             Id = 109,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6172),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6089),
                             Description = "A den for fans of the Doom series, where demon slayers gather to discuss fast-paced action, brutal weapons, and the eternal battle against the forces of Hell.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Doom Den",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6169)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6086)
                         },
                         new
                         {
                             Id = 110,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6181),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6095),
                             Description = "An oasis for Overwatch players, where heroes assemble to discuss strategies, share highlight reels, and celebrate the vibrant characters and diverse maps of Blizzard's team-based shooter.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Overwatch Oasis",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6178)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6092)
                         },
                         new
                         {
                             Id = 111,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6190),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6101),
                             Description = "Building empires and shaping history in the Civilization series, where players discuss strategy, diplomacy, and the art of war in Sid Meier's iconic turn-based strategy game.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Civilization Citadel",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6186)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6098)
                         },
                         new
                         {
                             Id = 112,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6199),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6107),
                             Description = "Embracing the tranquility and charm of Stardew Valley, where virtual farmers tend to crops, raise animals, and forge friendships in ConcernedApe's beloved farming simulation game.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Stardew Valley Valley",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6195)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6105)
                         },
                         new
                         {
                             Id = 113,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6208),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6113),
                             Description = "Navigating the sprawling open-world landscapes and criminal underworlds of the Grand Theft Auto series, where players discuss heists, car chases, and the chaos of life in the city.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "GTA Gangland",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6204)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6111)
                         },
                         new
                         {
                             Id = 114,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6216),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6119),
                             Description = "A community for computer hardware enthusiasts to stay updated on the latest news, releases, and innovations in the world of technology, from CPUs and GPUs to storage solutions and peripherals.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Tech Tidbits",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6213)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6117)
                         },
                         new
                         {
                             Id = 115,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6225),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6125),
                             Description = "A corner for exploring conspiracy theories and alternative narratives, where members delve into mysteries, cover-ups, and unexplained phenomena, sharing theories and evidence.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Conspiracy Corner",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6221)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6123)
                         },
                         new
                         {
                             Id = 116,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6234),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6131),
                             Description = "A space for discussing atmospheric phenomena and weather mysteries, from auroras and lightning sprites to ball lightning and mysterious cloud formations.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Atmospheric Anomalies",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6230)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6129)
                         },
                         new
                         {
                             Id = 117,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6242),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6137),
                             Description = "A haven for computer hardware enthusiasts to share reviews, benchmarks, and DIY projects, discussing everything from overclocking to water cooling and RGB lighting.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Hardware Haven",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6239)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6135)
                         },
                         new
                         {
                             Id = 118,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6251),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6143),
                             Description = "A hideout for Hello Kitty fans to connect and share their passion for Sanrio's beloved character, from merchandise collections to fan art.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Hello Kitty Hideout",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6247)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6141)
                         },
                         new
                         {
                             Id = 119,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6259),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6149),
                             Description = "A community of dreamers embracing the concept of yume (dream) in Japanese culture, sharing aspirations, goals, and whimsical visions.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Yume Dreamers",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6256)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6147)
                         },
                         new
                         {
                             Id = 120,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6268),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6156),
                             Description = "Crafting cute and kawaii creations, from plush toys to DIY accessories, and sharing crafting tips and tutorials.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Kawaii Crafting Club",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6264)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6153)
                         },
                         new
                         {
                             Id = 121,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6276),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6162),
                             Description = "A community for Python enthusiasts to discuss best practices, libraries, and projects, sharing tips and tricks for mastering the versatile programming language.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Python Prodigies",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6273)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6159)
                         },
                         new
                         {
                             Id = 122,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6284),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6168),
                             Description = "A junction for JavaScript developers to explore frameworks, tooling, and emerging trends in web development, from front-end frameworks like React to server-side technologies like Node.js.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "JavaScript Junction",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6280)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6165)
                         },
                         new
                         {
                             Id = 123,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6292),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6174),
                             Description = "A community for basketball enthusiasts to discuss slam dunks, buzzer-beaters, and mind-blowing crossovers from the hardwood court.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "NBA",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6289)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6171)
                         },
                         new
                         {
                             Id = 124,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6301),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6180),
                             Description = "A gathering place for die-hard soccer fans to debate the beautiful game, from stunning goals to controversial referee decisions, and everything in between.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Soccer",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6297)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6177)
                         },
                         new
                         {
                             Id = 125,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6309),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6186),
                             Description = "A cage for mixed martial arts enthusiasts to witness jaw-dropping knockouts, slick submissions, and adrenaline-fueled battles inside the octagon.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "MMA Mania",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6305)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6184)
                         },
                         new
                         {
                             Id = 126,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6317),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6192),
                             Description = "A space for fans of Banksy's thought-provoking and often controversial street art to admire his creations, discuss their interpretations, and share sightings of his iconic works around the world.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Banksy",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6314)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6190)
                         },
                         new
                         {
                             Id = 127,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6326),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6198),
                             Description = "A celestial realm for fans of Bjork's avant-garde music to explore her eclectic discography, dissect her experimental soundscapes, and discuss the impact of her innovative approach to music-making.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Bjork",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6322)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6196)
                         },
                         new
                         {
                             Id = 128,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6334),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6204),
                             Description = "A fiery pit for fans of Rammstein's explosive music to headbang to their heavy riffs, belt out their powerful lyrics, and discuss the German band's legendary live performances.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Rammstein",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6331)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6202)
                         },
                         new
                         {
                             Id = 129,
-                            CreatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6343),
+                            CreatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6210),
                             Description = "A community for music enthusiasts to explore the boundary-pushing sounds of Bjork, the industrial metal madness of Rammstein, and the subversive street art of Banksy, celebrating their contributions to the world of art and music.",
                             ForumUserId = "23bf5fc9-cefd-45d3-8f2b-82e34b675c40",
                             IsActive = true,
                             Title = "Psychadelics in sound waves",
-                            UpdatedOn = new DateTime(2024, 4, 11, 18, 30, 48, 258, DateTimeKind.Local).AddTicks(6339)
+                            UpdatedOn = new DateTime(2024, 4, 8, 17, 51, 15, 344, DateTimeKind.Local).AddTicks(6208)
                         });
                 });
 
@@ -8991,147 +8993,147 @@ namespace EweForum.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "f88e1fc0-d986-4ae2-a8d9-64466e48a28a",
+                            UserId = "3b74ac70-76ad-4fcc-8f0d-57d42ad9988b",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "28eadcae-82b2-4f93-a913-681d08bda0e3",
+                            UserId = "d0fd3693-33e8-4f91-ae22-afb2360924e0",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "963f5ffa-db63-4406-93cb-b2da1a2ea77c",
+                            UserId = "f9a910e1-04ba-485e-8b85-a2338fe6102a",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "e1a7605a-f072-45c7-8cfe-b940ef4d0150",
+                            UserId = "5ee7b053-1da6-49b4-8459-bfec9367c439",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "0dbcc7d7-538a-41d2-83fc-8ccc6d24455b",
+                            UserId = "ab821368-e496-4935-9573-45b2e74603e5",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "72dc95df-8142-4be4-bcff-52795e91eda0",
+                            UserId = "566fa69e-aeca-4b73-8295-a46cc9432580",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "9107a6e7-14b1-4ca4-b3e9-870a3e050977",
+                            UserId = "bd673627-c7cf-4c7e-a1f5-765beaf412a8",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "b956f73b-67f9-48c2-b29c-01d64db78978",
+                            UserId = "eeee70cc-6706-4cbc-974d-07754c1694a5",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "38bb4d34-7425-4551-a32e-b483c7828ed3",
+                            UserId = "457937e6-880f-4f8a-974f-f393573b581c",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "0ab892b8-81c8-4fd8-af5a-9a1352a18aa4",
+                            UserId = "ad155936-0e48-4b22-b994-07249cfb462c",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "782ba26d-b38b-40f2-8e4e-2c1c8f159a5e",
+                            UserId = "e8bb0e0f-ce9a-4235-ab9e-c9207c5fa27f",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "a453ecc9-5211-47ba-a379-b4c7649529c5",
+                            UserId = "625127c4-a50a-4fc5-9c94-5a820795fbc3",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "d9382433-0554-45d7-b9f9-81c2d808ea00",
+                            UserId = "200c53d0-7999-4d53-8d1e-919ca71a1f6a",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "289b60cc-bcfa-4fbc-99da-eb01697d6420",
+                            UserId = "9820fe62-9e85-42d9-a8c9-467d36033e26",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "78fff13a-f05f-42f0-bf2d-79ee0c29ef3b",
+                            UserId = "5641e88a-2904-4e16-97de-36838fc8537b",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "c3fb7c35-1c7b-4c73-87db-39fae257a54e",
+                            UserId = "9f3125f1-99cf-4ff7-bd0a-f8b1ae66b2fd",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "f7aabea9-7af5-4a80-a500-f16481f540b7",
+                            UserId = "d46b6198-56fb-462b-a5b4-89e38cee26dc",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "2524a079-46ee-4920-a980-a4c2220c507c",
+                            UserId = "44cc9879-2fbc-4075-acc0-a7cee5f1b4ec",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "5eed2ca9-bcde-4640-abb1-b9f362064c45",
+                            UserId = "d76e3216-246a-4ff4-a496-2e7cf4b51a6a",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "567a02c1-2246-468a-bc39-1e863660d5cb",
+                            UserId = "3b632f09-edeb-4ad1-b1b1-01a54b5d6c86",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "fd99cc30-4a6b-4ee9-b7d4-b6a34c341b1e",
+                            UserId = "6f4443df-98cf-4cab-baa9-fafc7d39022c",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "fe3315aa-11a9-4272-8600-549080fbba51",
+                            UserId = "47fcb50a-342e-43b6-84de-12eed7424552",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "7e424e82-622f-4a21-8f33-9f1cdae9a2ae",
+                            UserId = "30822e5b-2561-4e9f-8ee0-4dbda826b4f1",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "da81cf45-2f9c-49e9-b28a-9d67b18315ae",
+                            UserId = "4996f395-2b90-4a0c-99c2-8bc140c0ef42",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "eca69be4-b5e0-4c31-9d9c-2b47ade2de01",
+                            UserId = "fed57b8e-ac1c-438d-9c84-5ba66e112da8",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "25a34fb6-0951-4f2e-a81b-30bf05b2f5f4",
+                            UserId = "4afecb3d-7432-46df-9eea-962638f882db",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "10b8de9f-b8bb-4354-91f5-910d61279d65",
+                            UserId = "1117f5b8-db0e-4bc9-9ab1-53538c4edc49",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "fb39bd1e-f28b-4b5a-968a-b6fd901457d7",
+                            UserId = "c08c1a0f-8c64-4cbf-ae30-329fefae2d5b",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         },
                         new
                         {
-                            UserId = "49eeef55-bfcc-4b9b-b12e-d4d503789ad2",
+                            UserId = "8b771dd3-c530-4c3a-8471-b6e4f11b2a7d",
                             RoleId = "1bda777f-d458-4ae6-b89a-e1f019149bec"
                         });
                 });
@@ -9185,17 +9187,17 @@ namespace EweForum.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f88e1fc0-d986-4ae2-a8d9-64466e48a28a",
+                            Id = "3b74ac70-76ad-4fcc-8f0d-57d42ad9988b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "108af08f-99b4-437e-86d3-c7efe1dd96e7",
+                            ConcurrencyStamp = "bf0b33f5-3ed1-4002-bfeb-10e10f2a34fa",
                             Email = "dynamicDolphin17@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "dynamicdolphin17@gmail.com",
                             NormalizedUserName = "dynamicdolphin17",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPzhaypzNaO08zr9AQ+wn3qFB+nl98JeiTXM+xaqbcRBmfVrj9ndZSLtj2k/k52GlA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAY4tPi+UVkqR2aGd9UcfqMjh8LcwO/DfABrAb7K/5ryleqlQeKPyRgBdyvATKS50A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "91aa391c-8855-465a-9dd1-166b859eb53e",
+                            SecurityStamp = "606d1d8b-e8e4-4f28-9146-90634247be74",
                             TwoFactorEnabled = false,
                             UserName = "dynamicDolphin17",
                             CountryId = "US",
@@ -9206,17 +9208,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "28eadcae-82b2-4f93-a913-681d08bda0e3",
+                            Id = "d0fd3693-33e8-4f91-ae22-afb2360924e0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2cd4a5f1-c28b-4d07-8326-723d35616ebf",
+                            ConcurrencyStamp = "1008cef5-d3c8-4d70-8b2e-cfb39f1ceddf",
                             Email = "coolUser23@yahoo.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "cooluser23@yahoo.com",
                             NormalizedUserName = "cooluser23",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJHpa+EFI6yLsK5N2CeMWcxjq+FfpuwEfTMV7J3j7Oky9J9pioqVndCtskna7t3gZg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAzFiHr1GR5po91+oHJrUxBC1Pp//Ll7RTIQ79FLvq2m29UHIE/y4qR23kHRi3840w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2af9843b-ebb9-47db-82e4-7d12212a2165",
+                            SecurityStamp = "7bb4eb59-ec79-409b-b6d2-8558963063f9",
                             TwoFactorEnabled = false,
                             UserName = "coolUser23",
                             CountryId = "CA",
@@ -9227,17 +9229,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "963f5ffa-db63-4406-93cb-b2da1a2ea77c",
+                            Id = "f9a910e1-04ba-485e-8b85-a2338fe6102a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "83f8d409-5c72-45ef-9661-6c00fbb8cc17",
+                            ConcurrencyStamp = "a85e92a7-8863-4d99-8efa-07d2c31e9328",
                             Email = "cleverCoder99@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "clevercoder99@gmail.com",
                             NormalizedUserName = "clevercoder99",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEPBTSYZyQSQcr+5sE7bBRgs7q0WEYvXRTYqCvzbU/rIPeDbJDsdDEaRFaX9GS3rVA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECUXos6W1IZYV6q3AUYHIAkOcR3z8NTPoRjVfS1Nk8Z9GeTCuof432jKimsh5Bp7VQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "16fb150a-69dc-499a-b5cb-a5e30fa2bee4",
+                            SecurityStamp = "0f25f30e-230f-48d3-8641-1df8718fe8a0",
                             TwoFactorEnabled = false,
                             UserName = "cleverCoder99",
                             CountryId = "GB",
@@ -9248,17 +9250,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "e1a7605a-f072-45c7-8cfe-b940ef4d0150",
+                            Id = "5ee7b053-1da6-49b4-8459-bfec9367c439",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "441f5f89-d256-4ace-96ee-be21b1aa6261",
+                            ConcurrencyStamp = "3d15f0bf-1b86-48a6-b2df-b9a134409dee",
                             Email = "awesomeSauce88@hotmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "awesomesauce88@hotmail.com",
                             NormalizedUserName = "awesomesauce88",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKJdsH+37yNRUZNj+mzUHCb8JmZIcKy9sN1Bn4XKVqrSPxpSBySFiomsyPgIsWSXDQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEP/5DXtLzVIu2qFiap6l2Ekv27YjXw5XNrxAujUGakLp25AHv3PKax9qUlKTpH4WEw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b943385b-a16d-4a39-bf71-8bb8bd147640",
+                            SecurityStamp = "7607e961-bf53-427e-ae26-6b78b96b4a54",
                             TwoFactorEnabled = false,
                             UserName = "awesomeSauce88",
                             CountryId = "AU",
@@ -9269,17 +9271,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "0dbcc7d7-538a-41d2-83fc-8ccc6d24455b",
+                            Id = "ab821368-e496-4935-9573-45b2e74603e5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5e1aa278-99c6-47cd-ba8b-8f498f1e82e0",
+                            ConcurrencyStamp = "c5b2edf4-a7ad-42a7-960d-7ee1fda3f09e",
                             Email = "happyGoLucky42@example.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "happygolucky42@example.com",
                             NormalizedUserName = "happygolucky42",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJiLjDlIqKmznNhG2RJihpIBbdkaZoJ0JzpmoApV64cBNKIrOk9g2DXkTtB9D1JqvQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECJRDW9rCiBdNmodgIcLg0FloxydgEKfXOv40G5OeAEcUETjwvNdy0LQLvdl4EQCSw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f59d73a0-d049-46f5-bc81-f21f523a1494",
+                            SecurityStamp = "a6422513-88b6-4d22-a098-789fc34e6859",
                             TwoFactorEnabled = false,
                             UserName = "happyGoLucky42",
                             CountryId = "DE",
@@ -9290,17 +9292,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "72dc95df-8142-4be4-bcff-52795e91eda0",
+                            Id = "566fa69e-aeca-4b73-8295-a46cc9432580",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0cec7496-4148-4b1c-aba7-377e6aaccf4d",
+                            ConcurrencyStamp = "6b29733d-dd2f-4872-9cae-19b088f414c2",
                             Email = "cherrymoncheri@example.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "cherrymoncheri@example.com",
                             NormalizedUserName = "craftyninja77",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOIlllRdNqS+zWmJ5Np/prR1oVNo5bYOs50MFFyhb7DFYiqBopQHfDq6t75yqknTdg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELAUY+skulSbhBPz04GgV833GIgf/2o4UrjbKQ1V+gyiRyGbDCD38q8QAVzZW+oPmA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "62bb6ddc-be0b-4a39-a87e-e9184cca316b",
+                            SecurityStamp = "2f7da888-7b2c-4361-8950-23f0393baafc",
                             TwoFactorEnabled = false,
                             UserName = "craftyNinja77",
                             CountryId = "FR",
@@ -9311,17 +9313,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "9107a6e7-14b1-4ca4-b3e9-870a3e050977",
+                            Id = "bd673627-c7cf-4c7e-a1f5-765beaf412a8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a64cea62-cdf4-49df-bd2c-a28f2dce4861",
+                            ConcurrencyStamp = "e4f55739-13d8-40c1-9a02-eba2047f51bd",
                             Email = "dreamyArtist21@example.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "dreamyartist21@example.com",
                             NormalizedUserName = "turbogamer55",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDFmCJ3gLhMTexaTk8z0LDH8IhbwOhByt/GAvfbsK8jF6TFfLCmPohOin+S33Oa6gg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKDsNacDwm+GrudFwEtUZLLfZG+8tHWInZEI5edhdxsWHLD64jbsjxWKr7VU0aG+eQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d72eeead-2261-468a-bbb3-9c11793a9701",
+                            SecurityStamp = "62ea3bd4-4b1c-4a44-8e84-393553c07790",
                             TwoFactorEnabled = false,
                             UserName = "TURBOGamer55",
                             CountryId = "JP",
@@ -9332,17 +9334,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "b956f73b-67f9-48c2-b29c-01d64db78978",
+                            Id = "eeee70cc-6706-4cbc-974d-07754c1694a5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e12f203a-2279-4a4c-9451-d2e61df5c72b",
+                            ConcurrencyStamp = "f21deb94-686e-498a-b82e-81a10cd47c48",
                             Email = "dreamy_girl_23835@example.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "dreamy_girl_23835@example.com",
                             NormalizedUserName = "dreamyartist21",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOm5FgtlMjWjwNXY01OrIcPQv4MoUfptFcW70bKfH3pbUuQ4oFdXKgI4wzwJYFDBmA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMusaX7c+8br4sWyjMYKi9iQ4uZmK96DqHzuhcqnZjHl3tRiQo+qLR0JA4KiZvdifw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6e85beee-82b6-4eed-9217-b1435b3ba823",
+                            SecurityStamp = "b1c1077d-6ed0-4576-bff7-6aaade8c7a12",
                             TwoFactorEnabled = false,
                             UserName = "DreamyArtist21",
                             CountryId = "IT",
@@ -9353,17 +9355,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "38bb4d34-7425-4551-a32e-b483c7828ed3",
+                            Id = "457937e6-880f-4f8a-974f-f393573b581c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e9d02aa9-ef73-41af-b177-dc6118415a88",
+                            ConcurrencyStamp = "6de0e75e-e676-4086-a458-5a15b93ea32e",
                             Email = "blake_james@example.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "blake_james@example.com",
                             NormalizedUserName = "mysticalmeadow",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDuXVltGllJMCSe1P+IMVCtFakVDdFZWkTWAhfgv5xjBPo4Z3fKtTQ7MPAmYW3K3cw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEB+B8BB+wLeBDPXIn/btpNQLoRpZc48/ObxIQNSGw11IlUvxySGhhRkpA4+j9hbMBQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "27ace0a0-c97d-4158-917f-4be93a8b068e",
+                            SecurityStamp = "f921d5df-ea23-43da-b3aa-839a0a14d9e1",
                             TwoFactorEnabled = false,
                             UserName = "MysticalMeadow",
                             CountryId = "RU",
@@ -9374,17 +9376,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "0ab892b8-81c8-4fd8-af5a-9a1352a18aa4",
+                            Id = "ad155936-0e48-4b22-b994-07249cfb462c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7b02eea7-39c3-40d6-8066-ae18781e2520",
+                            ConcurrencyStamp = "c40af216-20f0-4278-8dac-afb53adb907c",
                             Email = "alexis_bladel_rughs@example.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "alexis_bladel_rughs@example.com",
                             NormalizedUserName = "enchantededen",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJ1Sgi5HrFg5CLVExItE4CThhujFmi6bgHOFoV0Mo/VQ1ThZU+3Z5759LpylAS2uGA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBPWvOKCrwhfGPz8AIxmIfbofg/EJXqZ32nD142EtJ7Tk4kgOEWmh0ujFgsM/2OWbw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5dbea211-d409-45bb-9f45-44cbf1da8a5b",
+                            SecurityStamp = "00a5354a-9420-49ac-9d5f-3fbdfd5aef03",
                             TwoFactorEnabled = false,
                             UserName = "EnchantedEden",
                             CountryId = "BR",
@@ -9395,17 +9397,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "782ba26d-b38b-40f2-8e4e-2c1c8f159a5e",
+                            Id = "e8bb0e0f-ce9a-4235-ab9e-c9207c5fa27f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b8cf3f38-9d6e-4ac1-8b89-9b0b241b46dc",
+                            ConcurrencyStamp = "b8b301cc-d8d4-4e9f-9b65-0769171e8de2",
                             Email = "marny_brahms@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "marny_brahms@gmail.com",
                             NormalizedUserName = "cosmiccascade",
-                            PasswordHash = "AQAAAAEAACcQAAAAEF/hz3KfOSUpsG7JUhbntXBjowZllc6FZBOcYLpbsdRf8448GNliKImFljKTvqZPEQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAsDETq0i4Qz2G/qWLaWZWT04+8hp090/adQA9oyzq9IZ851tMrhPfi/cxSdV0TIFw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "df4c6f34-5810-4535-84ce-0a0c764ecb01",
+                            SecurityStamp = "3ea45b27-9586-42ff-8e58-2e00d5216033",
                             TwoFactorEnabled = false,
                             UserName = "CosmicCascade",
                             CountryId = "US",
@@ -9416,17 +9418,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "a453ecc9-5211-47ba-a379-b4c7649529c5",
+                            Id = "625127c4-a50a-4fc5-9c94-5a820795fbc3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f343665b-a434-4a43-970a-5cd62d254ad6",
+                            ConcurrencyStamp = "2fb52263-f7fe-4586-b39e-26ce912fe050",
                             Email = "victor_ulster@yahoo.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "victor_ulster@yahoo.com",
                             NormalizedUserName = "vectorvortex",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEPrkTfE90Erc1QVVut4xC3TGTBmDxZN4dX7YzIHDYTLjRBH+PyrN+0Z6/dWPXDHFw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGTCvFtmsMsv0yLpCJh3hFt2IUOz8fmKykTVsNbskSej5AcoQTr68e/Bjw+7RM0FTQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ce7a5637-d9d7-4802-b502-54b51951e968",
+                            SecurityStamp = "1c8cf754-0175-49c2-8c86-eda0ab6ef3b9",
                             TwoFactorEnabled = false,
                             UserName = "VectorVortex",
                             CountryId = "CA",
@@ -9437,17 +9439,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "d9382433-0554-45d7-b9f9-81c2d808ea00",
+                            Id = "200c53d0-7999-4d53-8d1e-919ca71a1f6a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7261ea52-8764-4e3d-b3f0-3d70dec655a9",
+                            ConcurrencyStamp = "96eff1b2-6080-4dd2-baf3-4ed4af5aab14",
                             Email = "maddie49_54_3587@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "maddie49_54_3587@gmail.com",
                             NormalizedUserName = "fusionfalcon",
-                            PasswordHash = "AQAAAAEAACcQAAAAELmk2pRLrbZRORNdRZ/G6IbAs/RnGQrPpbW18Y/Z/1kqUQyYZCuor74Noqq8m7ahWg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHZKpyPFmP4pM4IfEoW+hcGnhL0O5Z29PnALq8smUA4ynza41IYj+88aYn1Tu8GrTA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "dfe65e5a-65c5-473a-92b5-cec7cea986b5",
+                            SecurityStamp = "1fd5d25a-8e11-48a5-844b-ca145b370284",
                             TwoFactorEnabled = false,
                             UserName = "FusionFalcon",
                             CountryId = "GB",
@@ -9458,17 +9460,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "289b60cc-bcfa-4fbc-99da-eb01697d6420",
+                            Id = "9820fe62-9e85-42d9-a8c9-467d36033e26",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "60bf11cf-6dc5-4da7-a777-a53aa30ea749",
+                            ConcurrencyStamp = "ea9f66fe-c048-4552-85d9-58212e86e7f0",
                             Email = "blinkblink88@hotmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "blinkblink88@hotmail.com",
                             NormalizedUserName = "vanguardvale",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFCGU7g51DPsWuk1O5oK8cluwsadg3ioL+qprTX5XG43i5BPlur3dcrUIPJuMEl6tw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMQvdtvE3Zw3OuXEsYBWQ+nxXy7DK0sgayra0oLvd4YnzUemsP/DS8+BlyDFZsBW7g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7f581a35-adfc-4f13-b842-62259ecbde40",
+                            SecurityStamp = "e8b05ff3-06c4-4254-bb62-1352135a0615",
                             TwoFactorEnabled = false,
                             UserName = "VanguardVale",
                             CountryId = "AU",
@@ -9479,17 +9481,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "78fff13a-f05f-42f0-bf2d-79ee0c29ef3b",
+                            Id = "5641e88a-2904-4e16-97de-36838fc8537b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f69d12dc-690a-480b-a63b-9e5c6d6b0165",
+                            ConcurrencyStamp = "246f42de-b7b5-427a-8091-4eccf2388cb3",
                             Email = "quail_rjf93@pluto_mail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "quail_rjf93@pluto_mail.com",
                             NormalizedUserName = "quantumquill",
-                            PasswordHash = "AQAAAAEAACcQAAAAECYyESnTeJPQAeQOO7FqmH9uSZHUuue+IUC7kguLfbmgrN4AB+W09zbAlsPVzI/MQQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDxRcdleTvuf7h6kIyzKxL9oABuVaYKsXn6ulvjtW/pS74mQpGyTby5sr/eB676x1w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0ae685a0-c200-42e8-809d-5fc91388b117",
+                            SecurityStamp = "082727e3-c709-47a8-8717-226b055abfe6",
                             TwoFactorEnabled = false,
                             UserName = "QuantumQuill",
                             CountryId = "DE",
@@ -9500,17 +9502,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "c3fb7c35-1c7b-4c73-87db-39fae257a54e",
+                            Id = "9f3125f1-99cf-4ff7-bd0a-f8b1ae66b2fd",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "028e2ce2-ca60-410d-bae4-77151387083e",
+                            ConcurrencyStamp = "a9a74950-7df3-4950-bfab-f6301cbcbf54",
                             Email = "EclipseEmber@yahoo.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "eclipseember@yahoo.com",
                             NormalizedUserName = "elysiumblimp",
-                            PasswordHash = "AQAAAAEAACcQAAAAEM6reQ4TgfAhcBeLO7/+9M/wZAaBOqbV0xsNfN85QU6OKdbkBgNJMgrwqimpBnc13w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEE+h+F17RHNxzS5zr2m0P0ScqZoyRCUGu2bxU/tcSVnq3OsTUpZoBILlnYtky/JpMg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d642fc73-282d-478f-aec4-58ee51c2041c",
+                            SecurityStamp = "30935b9f-3f78-4721-8f6c-1f3498e1ffa6",
                             TwoFactorEnabled = false,
                             UserName = "ElysiumBlimp",
                             CountryId = "FR",
@@ -9521,17 +9523,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "f7aabea9-7af5-4a80-a500-f16481f540b7",
+                            Id = "d46b6198-56fb-462b-a5b4-89e38cee26dc",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c423c27f-ca05-4038-b04d-490e76e3528b",
+                            ConcurrencyStamp = "bed2e5a4-5efb-44ff-8da7-68e617df5dfd",
                             Email = "arthur_yikes@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "arthur_yikes@gmail.com",
                             NormalizedUserName = "archie99",
-                            PasswordHash = "AQAAAAEAACcQAAAAELCf5n9lGCnHEApf0n0YWP0KsTvsX0D9Dybh838vD8jqTdeJxnvd7Hp0BTH0rvW4mA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENLZV8Xz5HMSXnSwwyYY4LJ3to+dmZwQ5DKpvWMfq+NmNXzbHec4BPVB2OIfcSWppQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e05dd8e1-f9a6-4e12-bb5d-e813adef389c",
+                            SecurityStamp = "a7931046-c918-457d-b430-214af71ff16f",
                             TwoFactorEnabled = false,
                             UserName = "Archie99",
                             CountryId = "JP",
@@ -9542,17 +9544,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "2524a079-46ee-4920-a980-a4c2220c507c",
+                            Id = "44cc9879-2fbc-4075-acc0-a7cee5f1b4ec",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ed1b0019-4c85-4b8e-a320-e3e74bea1021",
+                            ConcurrencyStamp = "a0ada305-9a04-4ed3-aac1-7908af434b55",
                             Email = "kim_lee_ayohasa@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "kim_lee_ayohasa@gmail.com",
                             NormalizedUserName = "kim",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHq9rSnE+o5oElXlHIrvVHFw+B0n+936RN+DT9ltztARxpH2MXEZXJemri2sEeLh5Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIx2PPQPOO+94srNc/gBvDhw4MDjDrnjnf3q/vvVIfHLhvxqx/iwAVPCc1LAcEzvlQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3abe9db0-4fee-47a5-92e9-ad486d5283be",
+                            SecurityStamp = "abce86bd-93f9-412e-ba02-5efc4c45d0d3",
                             TwoFactorEnabled = false,
                             UserName = "Kim",
                             CountryId = "JP",
@@ -9563,17 +9565,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "5eed2ca9-bcde-4640-abb1-b9f362064c45",
+                            Id = "d76e3216-246a-4ff4-a496-2e7cf4b51a6a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7b6086e6-9267-4a25-b37e-e5860b18d202",
+                            ConcurrencyStamp = "fddfe665-a401-402e-af13-68e6bfb35e1b",
                             Email = "korean_language_center@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "korean_language_center@gmail.com",
                             NormalizedUserName = "sehee kim",
-                            PasswordHash = "AQAAAAEAACcQAAAAELJhbJ0fVevCdwgOGyt9XxV515GTnDWH2DMpd4abR0Wz0qzuq+V2L2PvZru/qzqR1g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEN+sFpJPdoJYwgeDq7dTJUM5QsEiBJjfBmNXrNvhoMmIO/7RNSWMgHGYeoc5o+xbMg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b0ad2dd0-6b3b-460b-966d-7cc72da2ab84",
+                            SecurityStamp = "04dd5ca0-439d-4ca9-9adb-1412ed1ec428",
                             TwoFactorEnabled = false,
                             UserName = "Sehee Kim",
                             CountryId = "KR",
@@ -9584,17 +9586,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "567a02c1-2246-468a-bc39-1e863660d5cb",
+                            Id = "3b632f09-edeb-4ad1-b1b1-01a54b5d6c86",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6aec4808-2a22-49b1-aa08-e27cae87c927",
+                            ConcurrencyStamp = "dbc9645d-1e86-4e73-8df7-3529c9ccf9df",
                             Email = "andreas_michaelson@yahoo.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "andreas_michaelson@yahoo.com",
                             NormalizedUserName = "michaelson",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKA5WaIwCEj7aQEVL3HI7HCZIGcVXSBRhq/3OilxTfl/EQqPTJb0hYSOFYMH2VqE/w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMGkIYe9iseOOxmkdM8X3b8DZkhZl2nDXVZKeMewoslnXHJIwgpIqRBx75/VdKER6g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "febf31ac-2014-419d-b556-e7e3c57836f4",
+                            SecurityStamp = "ff9db7f6-a916-4af7-a795-7dd3062b59a8",
                             TwoFactorEnabled = false,
                             UserName = "Michaelson",
                             CountryId = "BR",
@@ -9605,17 +9607,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "fd99cc30-4a6b-4ee9-b7d4-b6a34c341b1e",
+                            Id = "6f4443df-98cf-4cab-baa9-fafc7d39022c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ef275302-66d9-41be-b96a-ef4d47e5b579",
+                            ConcurrencyStamp = "fb9c760f-b4a6-46f4-a6aa-a579e4db226c",
                             Email = "JackOutdoorAdventurer@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "jackoutdooradventurer@gmail.com",
                             NormalizedUserName = "jax",
-                            PasswordHash = "AQAAAAEAACcQAAAAENXGeXg5GR26EwIgYxD4UHL9rEJkut3RHLuMKmh8r30ntoM3PKdggKCMtLuTRKXqZQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELI0HqTZ8A4UspoZfPNp3LxPcjEpxv5pmcihe2/kDUtG/+vgUxNbycSA6MN0BgYRNg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5c014274-31ee-4890-b731-bb8e48693b2a",
+                            SecurityStamp = "d8c8d4f6-c8e9-405b-897c-ddd77a449edb",
                             TwoFactorEnabled = false,
                             UserName = "Jax",
                             CountryId = "US",
@@ -9626,17 +9628,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "fe3315aa-11a9-4272-8600-549080fbba51",
+                            Id = "47fcb50a-342e-43b6-84de-12eed7424552",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7fdcc4d9-363b-45dd-88b2-9ff9690934b6",
+                            ConcurrencyStamp = "756099e7-519e-4035-bcac-d48bdce527a2",
                             Email = "katz_cakes@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "katz_cakes@gmail.com",
                             NormalizedUserName = "cocoagurl",
-                            PasswordHash = "AQAAAAEAACcQAAAAELvyn72vIJmWj/Bh+N+AP1jiioPVnwDaQTkwa9cW/72LW9R5t4s03Q/Woqt8j3XqgA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHF1so8Ut2b9bvwzMEndN072y07M9assIhB4kGPM/xDV2kztP7FG+hRqVOXkQu8Xmg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c976638d-fbc1-4c21-98d4-b8eeb41471e1",
+                            SecurityStamp = "913bd4f5-12da-4532-9fbe-303158be1edf",
                             TwoFactorEnabled = false,
                             UserName = "CocoaGurl",
                             CountryId = "CA",
@@ -9647,17 +9649,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "7e424e82-622f-4a21-8f33-9f1cdae9a2ae",
+                            Id = "30822e5b-2561-4e9f-8ee0-4dbda826b4f1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "950315c6-1e3f-4f00-81c6-d65b1e7873fb",
+                            ConcurrencyStamp = "32e0c9a7-6c00-4d12-8f08-ba78c9647458",
                             Email = "lyric_freak_delRey@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "lyric_freak_delrey@gmail.com",
                             NormalizedUserName = "lea seydoux",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOB7ukG65/q+ov0IxpisIfrcGjZDa9mRSyUxJwFhX4aaNNmdwN9UwgxsfaHlRBYHMA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOpG0FXrhPCUt8mdnNAU6BJtGg24qgHXqlXnxjf3Bzaw/ebUxmpgLpieXHJARqIQng==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b4372ac8-b2de-46db-9727-ec6e6c729db2",
+                            SecurityStamp = "de319f83-d5eb-40dc-83c5-00e74831a320",
                             TwoFactorEnabled = false,
                             UserName = "Lea Seydoux",
                             CountryId = "GB",
@@ -9668,17 +9670,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "da81cf45-2f9c-49e9-b28a-9d67b18315ae",
+                            Id = "4996f395-2b90-4a0c-99c2-8bc140c0ef42",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "38a4d475-cedf-4995-909c-c83e7f259d11",
+                            ConcurrencyStamp = "05fc7976-051c-4165-8308-5bfa6318b843",
                             Email = "lacrimus_maximus@hotmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "lacrimus_maximus@hotmail.com",
                             NormalizedUserName = "lzzy83",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKvvUF5XKDqM2ll04EBOojSeZYWSjQhamdTvWsAGtWASPuKuy1l+NVpk5kW4J9zuAQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHKGtqeD84yrlER0aPrEATgvlQErZbceVvw259t8Emy9mUWNjnFIiAVBRdci7Ry0qQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4aa15281-d33d-4eb0-a05e-2c15d543fecd",
+                            SecurityStamp = "edf47e24-a21e-402c-9f4e-b2e2b1b6c06e",
                             TwoFactorEnabled = false,
                             UserName = "Lzzy83",
                             CountryId = "AU",
@@ -9689,17 +9691,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "eca69be4-b5e0-4c31-9d9c-2b47ade2de01",
+                            Id = "fed57b8e-ac1c-438d-9c84-5ba66e112da8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5f774fb6-0e4e-4dfd-a391-22395ad296de",
+                            ConcurrencyStamp = "c6b53632-f9c8-4406-8faa-3eee1cd2cb0a",
                             Email = "henrik_jakobsen@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "henrik_jakobsen@gmail.com",
                             NormalizedUserName = "henrik",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKzqa3H6iQtl3U3/Zuu5o/fR/AWXIa88kbMP5UUE2JhYeRz/PFYRazPXOXQbCNPLzg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFfp+g4/mFmxZgY7fc3ZPxaacqAkuyU6n9Nh/+har/fYHcAOq7rOQUG4l9LOK4vt8A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "66691713-2a63-4cd6-b709-77155ea0c4b3",
+                            SecurityStamp = "5adf85a3-42c8-4415-8992-1136998f905f",
                             TwoFactorEnabled = false,
                             UserName = "Henrik",
                             CountryId = "DE",
@@ -9710,17 +9712,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "25a34fb6-0951-4f2e-a81b-30bf05b2f5f4",
+                            Id = "4afecb3d-7432-46df-9eea-962638f882db",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "baa6e638-1bdf-4992-a00a-f3d670b28d38",
+                            ConcurrencyStamp = "32530241-cf4c-4ed7-874c-ec1d1920a594",
                             Email = "sally_su@yahoo.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "sally_su@yahoo.com",
                             NormalizedUserName = "selenne levoux",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFg7WJyAuHhFWYvFxAP15nOQsITDJqSFuFKyRpUKGuVBTRL9dlJBKNjRaSVPiiXPKA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKmSu0zvjWMm6aMAgmmjJtBamNVPUwbQCrPDXIrzcVVpsjQjwhCQz7k3WsUBsFthCQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3208bbda-3ec5-4d76-9fcc-cab5f3231831",
+                            SecurityStamp = "fff75de5-9a6d-4986-925e-c671e4871d1d",
                             TwoFactorEnabled = false,
                             UserName = "Selenne Levoux",
                             CountryId = "FR",
@@ -9731,17 +9733,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "10b8de9f-b8bb-4354-91f5-910d61279d65",
+                            Id = "1117f5b8-db0e-4bc9-9ab1-53538c4edc49",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3677e895-c5e7-416f-9899-581b4cd3a32e",
+                            ConcurrencyStamp = "1677bc90-ae79-488f-ae57-c46f5060cd11",
                             Email = "尺の丂乇乃ﾚののﾶ丂@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "尺の丂乇乃ﾚののﾶ丂@gmail.com",
                             NormalizedUserName = "heylin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDtRXl6vFvHyPk8buLcxoOo/wRk/V5vE7oOwxx0kUUAkJ/Q/PQHwxdDkxZ2tu6G0sQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGe73N2sBqJ7YlTjEOHWa9lTGeYkMWtu4QIHdPxVT6eT+HK+6EH+nDLbqAn0fL4aIg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d2644d3d-2ee4-41c9-bca0-33076b520a23",
+                            SecurityStamp = "f24f2abf-d8d1-493e-bdc8-0074e6f2ff59",
                             TwoFactorEnabled = false,
                             UserName = "HeyLin",
                             CountryId = "JP",
@@ -9752,17 +9754,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "fb39bd1e-f28b-4b5a-968a-b6fd901457d7",
+                            Id = "c08c1a0f-8c64-4cbf-ae30-329fefae2d5b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "dc530d46-2cbb-44a4-93ee-caa3761da8ba",
+                            ConcurrencyStamp = "993c37c7-da60-4471-b19c-9f248b00b04b",
                             Email = "kiki_woods@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "kiki_woods@gmail.com",
                             NormalizedUserName = "kiki",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEWVXCsE5i6Fhx74+AKqKb2krel5iZSWsgDKEar1wJjYeITcLto98mPc6Ky0zRgqQg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECjdRQ1TKMx5CifG2atqD5RINEO6XL9NK45+JLQ142x2YC+W42keZRDPHXBAaEWTsA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "362d98b3-088c-4da7-bf8f-de02339d12c0",
+                            SecurityStamp = "de360af0-f2b0-4b79-86f8-b0e1e9a1d1a9",
                             TwoFactorEnabled = false,
                             UserName = "Kiki",
                             CountryId = "PL",
@@ -9773,17 +9775,17 @@ namespace EweForum.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "49eeef55-bfcc-4b9b-b12e-d4d503789ad2",
+                            Id = "8b771dd3-c530-4c3a-8471-b6e4f11b2a7d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e1895b5a-f571-485a-872b-886ec3259183",
+                            ConcurrencyStamp = "e865d2b3-1a3d-4b3a-82ed-93f90d916dda",
                             Email = "black_swan@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "black_swan@gmail.com",
                             NormalizedUserName = "rapunzel",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJb+WOp7g2VzMlyJ8h05LwfA1G5UY5REaYJG6/R8yYEi7fB0wmHqpOrYJvTiTOqpuA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFXZ8fww4VSN04YL0rx4cw5assFK8t4cNeeIlF2Vkmb1kLMh1QhVC62b18GzP1sveg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "26479fb4-4e5d-44d5-8bab-a706e2680107",
+                            SecurityStamp = "48b91071-2b28-40bc-b6d9-257d8a645ad7",
                             TwoFactorEnabled = false,
                             UserName = "Rapunzel",
                             CountryId = "BG",

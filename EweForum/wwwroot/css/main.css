@@ -365,3 +365,7 @@ main .event-date-time {
     font-size: large;
     padding:1rem;
 }
+main .pagination-form  a {
+    text-decoration: none!important;
+    
+}

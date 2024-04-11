@@ -1,0 +1,12 @@
+﻿@model ReplyViewModel
+<form asp-action="AddReplyToPost" asp-controller="Post">
+        <div class="w-50 align-self-end">
+            <h6>Write a comment</h6>
+            <div>
+                <input type="hidden" asp-for="@Model.PostId" />
+                <input type="hidden" asp-for="@Model.UserId" />
+                <textarea id="new-comment" asp-for="@Model.Content" class="form-textarea" rows="6" cols="6"></textarea>
+                <button type="submit" id="add-comment-button" class="form-button">Add comment</button>
+            </div>
+        </div>
+</form>

@@ -1,0 +1,8 @@
+﻿@model ReplyToCommentViewModel
+<form asp-action="AddReplyToComment" asp-controller="Post">
+            <input type="hidden"  asp-for="@Model.PostId"/>
+            <input type="hidden" asp-for="@Model.ParentId" />
+            <input type="hidden" asp-for="@Model.Depth"/>
+            <textarea class="form-textarea" asp-for="@Model.Content" rows="5"></textarea>
+            <button type="submit" class="form-button">Reply</button>
+</form>

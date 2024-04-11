@@ -463,7 +463,10 @@ namespace EweForum.Controllers
                 new {
                     t.Description, t.Id, t.IsActive,
                     t.Title, t.UpdatedOn, t.CreatedOn,
-                    Posts = t.Posts.OrderByDescending(p => p.CreatedOn).Skip(pagesToSkip).Take(pageSize).OrderByDescending(p => p.CreatedOn).ToList(),
+                    Posts = t.Posts
+                    .OrderByDescending(p => p.CreatedOn)
+                    .Skip(pagesToSkip).Take(pageSize)
+                    .OrderByDescending(p => p.CreatedOn).ToList(),
                     HasJoined = t.JoinedTopics.Any(tj => tj.ForumUserId == GetUserId())
                 }).FirstOrDefaultAsync();
             if (topic == null)
@@ -479,24 +482,25 @@ namespace EweForum.Controllers
                 CreatedOn = topic.CreatedOn.ToShortDateString(),
                 UpdatedOn = topic.UpdatedOn.ToShortDateString(),
                 HasJoined = topic.HasJoined,
-                PaginationModel = new PaginationModel<PostViewModel>
+                PaginationModel = new PaginationModel<ViewPostModelDetails>
                 {
                     PageSize = 5,
                     CurrentPageIndex = page,
                     PageCount = remainingPages,
                     
-                    Items = topic.Posts.OrderByDescending(t => t.CreatedOn).Select(p => new PostViewModel
+                    Items = topic.Posts.OrderByDescending(t => t.CreatedOn).Select(p => new ViewPostModelDetails
                     {
                         Title = p.Title,
                         PostType = (int)p.PostType,
                         Content = p.Content,
                         Start = p.Start.ToShortDateString(),
-                        End = p.End.Year==1 ? "": p.End.ToShortDateString(),
+                        End = p.End.Year == 1 ? "": p.End.ToShortDateString(),
                         VideoDescription = p.VideoDescription,
                         EventDescription = p.EventDescription,
                         EventTitle = p.EventTitle,
                         VideoTitle = p.VideoTitle,
                         VideoUrl = p.VideoUrl,
+                        Id = p.Id
                     }).ToList()
                 }
                 };
