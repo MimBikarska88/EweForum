@@ -28,58 +28,93 @@
         @if (Model.PaginationModel.Items.Count == 0)
         {
             @await Component.InvokeAsync("ErrorMessage",new MessageModel{ ErrorMessage = "Currently there are no posts in this topic!"})
-            @if (Model.IsActive)
+            @if (Model.IsActive && Model.HasJoined)
             {
                 <a href="@Url.Action("Create","Post",new { topicId = Model.Id})" class="btn m-auto btn-primary regular-button blue pl-2">Be <strong>The First one </strong> to post something!</a>
 
+            }
+            @if (!Model.HasJoined)
+            {
+                <div class="text-center m-3">
+                    <a href='@Url.Action("Join","Topic", new { topicId = Model.Id})' class="btn btn-outline-success rounded-0">Click to Join </a>
+                </div>
+            }
+            @if (Model.HasJoined)
+            {
+                <div class="text-center m-3">
+                    <a href='@Url.Action("Leave","Topic", new { topicId = Model.Id})' class="btn btn-outline-danger rounded-0">Click to Leave </a>
+                </div>
             }
         }
         else
         {
             <h4 class="mt-4 mb-4">Posts</h4>
-            <div class="card p-3 w-50 d-block m-auto text-center">
-                <div class="card-body">
-                   <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="@Url.Action("Create","Post",new { topicId = Model.Id})"><bold><h6>Post what is on your mind here</h6></bold></a>
+            
+                @if (User.IsInRole("Admin") || Model.HasJoined)
+                {
+                <div class="card p-3 w-50 d-block m-auto text-center">
+                    <div class="card-body">
+                        <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="@Url.Action("Create","Post",new { topicId = Model.Id})"><bold><h6>Post what is on your mind here</h6></bold></a>
+                    </div>
                 </div>
-            </div>
-            <div class="d-flex mt-5 justify-content-center">
-                <div class="flex-column">
-                    @foreach (var post in Model.PaginationModel.Items)
-                    {
-                        switch (post.PostType)
+                }
+                @if (!Model.HasJoined)
+                {
+                    <div class="text-center m-3">
+                        <a href='@Url.Action("Join","Topic", new { topicId = Model.Id})' class="btn btn-outline-success rounded-0">Click to Join </a>
+                    </div>
+                }
+                @if (Model.HasJoined)
+                {
+                    <div class="text-center m-3">
+                        <a href='@Url.Action("Leave","Topic", new { topicId = Model.Id})' class="btn btn-outline-danger rounded-0">Click to Leave </a>
+                    </div>
+                }
+                
+            @if(User.IsInRole("Admin") || Model.HasJoined)
+            {
+                <div class="d-flex mt-5 justify-content-center">
+                    <div class="flex-column">
+                        @foreach (var post in Model.PaginationModel.Items)
                         {
-                            case 0: @await Component.InvokeAsync("ArticlePost",post);
-                                break;
-                            case 1:
-                                @await Component.InvokeAsync("EventPost",post);
-                                break;
-                            case 2:
-                                @await Component.InvokeAsync("VideoPost",post);
-                                break;
+                            switch (post.PostType)
+                            {
+                                case 0:
+                                    @await Component.InvokeAsync("ArticlePost",post)
+                                    ;
+                                    break;
+                                case 1:
+                                    @await Component.InvokeAsync("EventPost",post)
+                                    ;
+                                    break;
+                                case 2:
+                                    @await Component.InvokeAsync("VideoPost",post)
+                                    ;
+                                    break;
 
+                            }
                         }
-                    }
-                    
-                    <div class="pagination-form table-pagination">
-                      
+
+                        <div class="pagination-form table-pagination">
+
                             @if (Model.PaginationModel.CurrentPageIndex != 1)
                             {
-                                <a  href="@Url.Action("View","Topic", new {topicId = Model.Id, page = 1})">
-                                    <button >First</button>
+                                <a href="@Url.Action("View","Topic", new {topicId = Model.Id, page = 1})">
+                                    <button>First</button>
                                 </a>
                             }
                             @if (Model.PaginationModel.CurrentPageIndex != 1 && Model.PaginationModel.PageCount >= Model.PaginationModel.CurrentPageIndex)
                             {
-                            <a  href="@Url.Action("View","Topic", new {topicId = Model.Id, page = Model.PaginationModel.CurrentPageIndex-1})">
-                                <button>Previous</button>
-                            </a>
+                                <a href="@Url.Action("View","Topic", new {topicId = Model.Id, page = Model.PaginationModel.CurrentPageIndex-1})">
+                                    <button>Previous</button>
+                                </a>
                             }
                             @for (int i = Model.PaginationModel.CurrentPageIndex; i <= Model.PaginationModel.CurrentPageIndex + 5; ++i)
                             {
                                 if (i == Model.PaginationModel.CurrentPageIndex)
                                 {
-                                    <a  href="@Url.Action("View","Topic", new {topicId = Model.Id, page = i})">
-                                    <button  class="current-index-page">@i</button>
+                                    <a href="@Url.Action("View","Topic", new {topicId = Model.Id, page = i})">
+                                        <button class="current-index-page">@i</button>
                                     </a>
                                 }
                                 else if (i > Model.PaginationModel.PageCount)
@@ -88,27 +123,29 @@
                                 }
                                 else
                                 {
-                                <a  href="@Url.Action("View","Topic", new {topicId = Model.Id, page = i})"><button>@i</button></a>
+                                    <a href="@Url.Action("View","Topic", new {topicId = Model.Id, page = i})"><button>@i</button></a>
                                 }
                             }
                             @if (Model.PaginationModel.CurrentPageIndex < Model.PaginationModel.PageCount)
                             {
-                            <a  href="@Url.Action("View","Topic", new {topicId = Model.Id, page = Model.PaginationModel.CurrentPageIndex+1})">
-                                     <button>Next</button>
-                            </a>
+                                <a href="@Url.Action("View","Topic", new {topicId = Model.Id, page = Model.PaginationModel.CurrentPageIndex+1})">
+                                    <button>Next</button>
+                                </a>
                             }
                             @if (Model.PaginationModel.CurrentPageIndex != 1 && Model.PaginationModel.PageIndex != Model.PaginationModel.PageCount)
                             {
-                            <a  href="@Url.Action("View","Topic", new {topicId = Model.Id, page = Model.PaginationModel.PageCount})">
-                                     <button>Last</button>
-                            </a>
+                                <a href="@Url.Action("View","Topic", new {topicId = Model.Id, page = Model.PaginationModel.PageCount})">
+                                    <button>Last</button>
+                                </a>
                             }
-                       
-                     
+
+
+                        </div>
                     </div>
+
                 </div>
-               
-             </div>
+            }
+            
         }
         </div>
 </section>

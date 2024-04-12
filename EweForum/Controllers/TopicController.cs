@@ -506,5 +506,122 @@ namespace EweForum.Controllers
                 };
             return View(topicModel);
         }
+
+        [HttpGet]
+        public async Task<IActionResult>Join(int topicId)
+        {
+            if(await _context.Topics.FindAsync(topicId) == null)
+            {
+                return NotFound();
+            }
+            await _context.JoinedTopic.AddAsync(new JoinedTopic
+            {
+                ForumUserId = GetUserId(),
+                TopicId = topicId
+            });
+
+            var result = await _context.SaveChangesAsync();
+            if (result > 0)
+            {
+                return RedirectToAction("View", "Topic", new
+                {
+                    topicId = topicId,
+                    page = 1,
+                });
+
+            }
+            else
+            {
+                return BadRequest();
+            }
+            
+
+        }
+        [HttpGet]
+        public async Task<IActionResult> Leave(int topicId)
+        {
+            if (await _context.Topics.FindAsync(topicId) == null)
+            {
+                return NotFound();
+            }
+            var userId = GetUserId();
+            JoinedTopic topic = await _context.JoinedTopic.Where(jt => jt.ForumUserId == userId && jt.TopicId == topicId).FirstOrDefaultAsync();
+             _context.JoinedTopic.Remove(topic);
+
+            var result = await _context.SaveChangesAsync();
+            if (result > 0)
+            {
+                return RedirectToAction("View", "Topic", new
+                {
+                    topicId = topicId,
+                    page = 1,
+                });
+
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+
+        }
+        [HttpGet]
+        public async Task<IActionResult> BrowseFeed([FromQuery] int page = 1)
+        {
+            const int pageSize = 5;
+            int pagesToSkip = 0;
+            if (page == 1)
+            {
+                pagesToSkip = 0;
+            }
+            else
+            {
+                pagesToSkip = (pageSize - 1);
+            }
+            int totalAmountOfPosts = await _context.JoinedTopic
+                .Include(jt => jt.Topic)
+                .ThenInclude(t => t.Posts)
+                .Where(jt => jt.ForumUserId.Equals(GetUserId()))
+                .SelectMany(jt => jt.Topic.Posts).CountAsync();
+
+
+            int remainingPages = totalAmountOfPosts / pageSize;
+            if (totalAmountOfPosts % pageSize > 0)
+            {
+                remainingPages++;
+            }
+
+            var allPosts = await _context.JoinedTopic
+               .Include(jt => jt.Topic)
+               .ThenInclude(t => t.Posts)
+               .Where(jt => jt.ForumUserId.Equals(GetUserId()))
+               .SelectMany(jt => jt.Topic.Posts)
+               .Skip(pagesToSkip)
+               .Take(5)
+               .ToListAsync();
+
+
+            PaginationModel<ViewPostModelDetails> pagination = new PaginationModel<ViewPostModelDetails>()
+            {
+                PageSize = 5,
+                CurrentPageIndex = page,
+                PageCount = remainingPages,
+            };
+            pagination.Items = allPosts.Select(p => new ViewPostModelDetails {
+                Title = p.Title,
+                PostType = (int)p.PostType,
+                Content = p.Content,
+                Start = p.Start.ToShortDateString(),
+                End = p.End.Year == 1 ? "" : p.End.ToShortDateString(),
+                VideoDescription = p.VideoDescription,
+                EventDescription = p.EventDescription,
+                EventTitle = p.EventTitle,
+                VideoTitle = p.VideoTitle,
+                VideoUrl = p.VideoUrl,
+                Id = p.Id,
+                TopicId = p.TopicId
+            }).ToList(); 
+            return View(pagination);
+        }
     }
 }

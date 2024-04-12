@@ -72,6 +72,8 @@ public class EweForumContext : IdentityDbContext<IdentityUser>
 
     public DbSet<ReplyClosure> RepliesClosures { get; set;}
 
+    public DbSet<JoinedTopic> JoinedTopic { get; set; }
+
     public string SuccessMessage { get; set; } = string.Empty;
 
     public string ErrorMessage { get; set; } = string.Empty;

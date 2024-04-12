@@ -259,7 +259,18 @@ namespace EweForum.Controllers
 
         public async Task<IActionResult> AddReplyToComment(ReplyToCommentViewModel replyViewModel)
         {
-            PostReply parent = await _context.PostsReplies.FindAsync(replyViewModel.ParentId);
+            PostReply parent = await _context.PostsReplies
+                .Include(p => p.ForumUser)
+                .Select(p =>
+                new PostReply
+                {
+                    CreatedOn = p.CreatedOn,
+                    Id = p.Id,
+                    Content = p.Content,
+                    Children = p.Children,
+                    Parents = p.Parents,
+                    ForumUser = p.ForumUser,
+                }).FirstOrDefaultAsync();
             if (parent == null)
             {
                 return BadRequest();
@@ -275,15 +286,18 @@ namespace EweForum.Controllers
             };
             postReply.Parents.Add(new ReplyClosure
             {
-                Parent = parent,
+                
                 ParentId = replyViewModel.ParentId,
                 Depth = replyViewModel.Depth,
             });
             await _context.PostsReplies.AddAsync(postReply);
             await _context.SaveChangesAsync();
-            return RedirectToAction("View", "Post", new
+            return RedirectToAction("ViewReply", "Post", new
             {
-                postId = replyViewModel.PostId
+                postId = replyViewModel.PostId,
+                parentId = replyViewModel.ParentId,
+                depth = replyViewModel.Depth,
+
             });
         }
 
@@ -335,5 +349,10 @@ namespace EweForum.Controllers
 
             return View(replies);
         }
+        
+        
+       
+        
+        
     }
 }

@@ -1,0 +1,89 @@
+﻿@model PaginationModel<ViewPostModelDetails>
+<section>
+  
+    <div class="d-block  text-center m-auto w-50">
+        <h4>My Feed</h4>
+        @if (Model.Items.Count == 0)
+        {
+            @await Component.InvokeAsync("ErrorMessage",new MessageModel{ ErrorMessage = "Currently there are no posts in this feed!"})
+        }
+        else
+        {
+            <h4 class="mt-4 mb-4">Posts</h4>
+            
+                <div class="d-flex mt-5 justify-content-center">
+                    <div class="flex-column">
+                        @foreach (var post in Model.Items)
+                        {
+                            switch (post.PostType)
+                            {
+                                case 0:
+                                    @await Component.InvokeAsync("ArticlePost",post)
+                                    ;
+                                    break;
+                                case 1:
+                                    @await Component.InvokeAsync("EventPost",post)
+                                    ;
+                                    break;
+                                case 2:
+                                    @await Component.InvokeAsync("VideoPost",post)
+                                    ;
+                                    break;
+
+                            }
+                        }
+
+                        <div class="pagination-form table-pagination">
+
+                            @if (Model.CurrentPageIndex != 1)
+                            {
+                            <a href="@Url.Action("BrowseFeed","Topic", new { page = 1})">
+                                    <button>First</button>
+                            </a>
+                            }
+                            @if (Model.CurrentPageIndex != 1 && Model.PageCount >= Model.CurrentPageIndex)
+                            {
+                                <a href="@Url.Action("BrowseFeed","Topic", new {page = Model.CurrentPageIndex-1})">
+                                    <button>Previous</button>
+                                </a>
+                            }
+                            @for (int i = Model.CurrentPageIndex; i <= Model.CurrentPageIndex + 5; ++i)
+                            {
+                                if (i == Model.CurrentPageIndex)
+                                {
+                                    <a href="@Url.Action("BrowseFeed","Topic", new {page = i})">
+                                        <button class="current-index-page">@i</button>
+                                    </a>
+                                }
+                                else if (i > Model.PageCount)
+                                {
+                                    break;
+                                }
+                                else
+                                {
+                                <a href="@Url.Action("BrowseFeed","Topic", new { page = i})"><button>@i</button></a>
+                                }
+                            }
+                            @if (Model.CurrentPageIndex < Model.PageCount)
+                            {
+                            <a href="@Url.Action("BrowseFeed","Topic", new { page = Model.CurrentPageIndex+1})">
+                                    <button>Next</button>
+                                </a>
+                            }
+                            @if (Model.CurrentPageIndex != 1 && Model.PageIndex != Model.PageCount)
+                            {
+                            <a href="@Url.Action("BrowseFeed","Topic", new {page = Model.PageCount})">
+                                    <button>Last</button>
+                                </a>
+                            }
+
+
+                        </div>
+                    </div>
+
+                </div>
+            
+
+        }
+    </div>
+</section>

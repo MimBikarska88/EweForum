@@ -30,7 +30,7 @@
                         <a class="nav-link" asp-action="ManageTopics" asp-controller="Topic">All Topics</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">Browse Feed</a>
+                        <a class="nav-link" href="@Url.Action("BrowseFeed","Topic", new {page = 1})">Browse Feed</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link">Post</a>
