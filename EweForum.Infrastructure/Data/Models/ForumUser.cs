@@ -27,6 +27,8 @@ namespace EweForum.Infrastructure.Data.Models
 
         public virtual IEnumerable<Like> Likes { get; set; } = new List<Like>();
 
+        public virtual IEnumerable<PostReply> PostsReplies { get; set; } = new List<PostReply>();
+
         public string CountryId { get; set; } = string.Empty;
 
         [ForeignKey(nameof(CountryId))]

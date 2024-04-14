@@ -8,8 +8,13 @@ namespace EweForum.Utilites.Enums
 {
     public enum SortingUserOrder
     {
-        OrderByUsernameAlpabetically = 1,
-        OrderByEmailAlphabetically = 2,
-        
+        None = 0,
+        OrderByUsernameAlpabetically = 1, // asc
+        OrderByEmailAlphabetically = 2, // asc
+        OrderByPosts = 3, // asc
+        OrderByJoinedGroups = 4, // asc
+        OrderByCommentsCount = 5, //asc
+
+
     }
 }

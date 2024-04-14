@@ -18,6 +18,7 @@
             </li>
             @if (User.Identity != null && User.Identity.IsAuthenticated)
             {
+               
                 @if (User.IsInRole("User"))
                 {
                     <li class="nav-item">
@@ -39,13 +40,12 @@
                 if (@User.IsInRole("Admin"))
                 {
                     <li class="nav-item">
-                        <a id="manage" class="nav-link text-dark edit" asp-controller="Account" asp-action="ManageAdminPanel">Hello, @User.Identity.Name!</a>
+                        <a class="nav-link" href="@Url.Action("ManageTopics","Topic")">Manage Topics</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">Manage Topics</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">Manage Forum Users</a>
+                        <a class="nav-link" href="@Url.Action("ManageUsers","User", new {
+                            page = 1, pageSize = 5, searchTerm = string.Empty, sort = 0
+                        })">Manage Forum Users</a>
                     </li>
                 }
                 <li class="nav-item">
