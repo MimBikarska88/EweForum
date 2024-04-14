@@ -305,6 +305,7 @@ namespace EweForum.Controllers
         public async Task<IActionResult> ViewReply(int postId, int parentId, int depth)
         {
             ModelState.Clear();
+            
             var commentWithReplies = await _context.PostsReplies
                 .Include(r => r.Children)
                 .ThenInclude(c => c.Child)
@@ -312,6 +313,7 @@ namespace EweForum.Controllers
                 .Where(p => p.Id == parentId)
                 .Select(p => new
                 {
+                    p.CreatedOn, p.Content, p.ForumUser.UserName,
                     PostId = p.PostId,
                     Id = p.Id,
                     Children = p.Children
@@ -328,7 +330,12 @@ namespace EweForum.Controllers
                 })
                 .FirstOrDefaultAsync();
 
-
+            ViewBag.Original = new
+            {
+                Content = commentWithReplies.Content,
+                Username = commentWithReplies.UserName,
+                CreatedOn = commentWithReplies.CreatedOn.ToLongDateString()
+            };
 
 
             var replies = commentWithReplies.Children
