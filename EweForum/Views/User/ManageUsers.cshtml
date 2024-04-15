@@ -26,9 +26,9 @@
 
                     <div id="pagination-form">
                         <div>
-                            <input asp-for="@Model.SearchTerm" class="form-input w-75" type="text" placeholder="search..." value="@Model.SearchTerm" />
+                            <input id="user-search" asp-for="@Model.SearchTerm" class="form-input w-75" type="text" placeholder="search..."  />
                             <input asp-for="@Model.PageIndex" type="hidden" value="@Model.PageIndex" />
-                            <button asp-route-pageSize="@Model.PageSize" asp-route-page="@Model.CurrentPageIndex" class="form-button"> Search </button>
+                            <button id="user-search-button" class="form-button"> Search </button>
                         </div>
                         @if (Model.Items.Count == 0)
                         {
@@ -68,45 +68,47 @@
                                                         <span class="badge bg-success">Active</span>
                                                     }
                                                 </td>
-                                                <td>@item.JoinedTopics</td>
-                                                <td>@item.RepliesCount</td>
-                                                <td>@item.PostsCount</td>
-                                                <td>@item.Country</td>
-                                                <td>
+                                                <td class="text-center">@item.JoinedTopics</td>
+                                                <td class="text-center">@item.RepliesCount</td>
+                                                <td class="text-center">@item.PostsCount</td>
+                                                <td class="text-center">@item.Country</td>
+                                                <td class="text-center">
                                                     <span class="badge bg-danger">Delete</span>
-                                                    <span class="badge bg-info">View Profile</span>
-                                                </td>
+                                                <a href="@Url.Action("ViewProfile","User", new {
+                                                    Username = item.Username
+                                                })"><span class="badge bg-info">View Profile</span></a>
+                                            </td>
                                             </tr>
                                         }
                                     </tbody>
                                 </table>
                                 @if (Model.PageCount > 1)
                                 {
-                                    <div class="table-pagination">
+                                <div class="pagination-form table-pagination">
                                         <span>Sorting: </span>
-                                        <select asp-for="@Model.Order" asp-items="@ViewBag.SortingOrderList" id="pagination-select-order" class="pagination-select"></select>
+                                        <select asp-for="@Model.Order" asp-items="@ViewBag.SortingOrderList" id="user-order" class="pagination-select"></select>
                                         <span>Page size: </span>
-                                        <select asp-for="@Model.PageSize" asp-items="@ViewBag.PageSizeList" id="pagination-select-rows" class="pagination-select"></select>
+                                        <select asp-for="@Model.PageSize" asp-items="@ViewBag.PageSizeList" id="user-rows" class="pagination-select"></select>
 
 
                                         @if (Model.CurrentPageIndex != 1)
                                         {
 
-                                            <a href="@Url.Action("ManageUsers","User", new { page = 1, pageSize = Model.PageSize, searchTerm = Model.SearchTerm, order = Model.Order})">
+                                            <a href="@Url.Action("ManageUsers","User", new { page = 1, pageSize = Model.PageSize, searchTerm = Model.SearchTerm, sort = Model.Order})">
                                                 <button>First</button>
                                             </a>
                                         }
-                                    @if (Model.CurrentPageIndex != 1 && Model.PageCount >= Model.CurrentPageIndex)
-                                    {
-                                           <a href="@Url.Action("ManageUsers","User", new { page = Model.CurrentPageIndex-1, pageSize = Model.PageSize, searchTerm = Model.SearchTerm, order = Model.Order})">
-                                                <button>Previous</button>
-                                           </a>
+                                        @if (Model.CurrentPageIndex != 1 && Model.PageCount >= Model.CurrentPageIndex)
+                                        {
+                                               <a href="@Url.Action("ManageUsers","User", new { page = Model.CurrentPageIndex-1, pageSize = Model.PageSize, searchTerm = Model.SearchTerm, sort = Model.Order})">
+                                                    <button>Previous</button>
+                                               </a>
                                         }
                                         @for (int i = Model.CurrentPageIndex; i <= Model.CurrentPageIndex + 5; ++i)
                                         {
                                             if (i == Model.CurrentPageIndex)
                                             {
-                                                <a href="@Url.Action("ManageUsers","User", new { page = i, pageSize = Model.PageSize, searchTerm = Model.SearchTerm, order = Model.Order})">
+                                                <a href="@Url.Action("ManageUsers","User", new { page = i, pageSize = Model.PageSize, searchTerm = Model.SearchTerm, sort = Model.Order})">
                                                 <button class="current-index-page">@i</button>
                                                 </a>
                                             }
@@ -116,20 +118,20 @@
                                             }
                                             else
                                             {
-                                               <a href="@Url.Action("ManageUsers","User", new { page = i, pageSize = Model.PageSize, searchTerm = Model.SearchTerm, order = Model.Order})">
+                                               <a href="@Url.Action("ManageUsers","User", new { page = i, pageSize = Model.PageSize, searchTerm = Model.SearchTerm, sort = Model.Order})">
                                                     <button>@i</button>
                                                </a>
                                             }
                                         }
                                         @if (Model.CurrentPageIndex < Model.PageCount)
                                         {
-                                            <a href="@Url.Action("ManageUsers","User", new { page = Model.CurrentPageIndex+1, pageSize = Model.PageSize, searchTerm = Model.SearchTerm, order = Model.Order})">
+                                            <a href="@Url.Action("ManageUsers","User", new { page = Model.CurrentPageIndex+1, pageSize = Model.PageSize, searchTerm = Model.SearchTerm, sort = Model.Order})">
                                                    <button>Next</button>
                                             </a>
                                         }
                                         @if (Model.CurrentPageIndex != 1 && Model.PageIndex != Model.PageCount)
                                         {
-                                            <a href="@Url.Action("ManageUsers","User", new { page = Model.PageCount, pageSize = Model.PageSize, searchTerm = Model.SearchTerm, order = Model.Order})">
+                                            <a href="@Url.Action("ManageUsers","User", new { page = Model.PageCount, pageSize = Model.PageSize, searchTerm = Model.SearchTerm, sort = Model.Order})">
                                                 <button>Last</button>
                                             </a>
                                         }

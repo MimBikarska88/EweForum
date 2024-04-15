@@ -81,3 +81,43 @@ $('.parent').on('click', function (e) {
    
    
 })
+
+$('#user-order').on('change', function () {
+    const order = $(this).val();
+    const pageSize = $('#user-rows').val();
+    const search = $('#user-search').val();
+    if (search == null || search.trim() == '') {
+        window.location = window.location.origin + `/User/ManageUsers?page=1&pageSize=${pageSize}&sort=${order}`;
+      
+    } else {
+        window.location = window.location.origin + `/User/ManageUsers?page=1&pageSize=${pageSize}&sort=${order}&searchTerm=${search}`;
+        
+    }
+   
+})
+
+$('#user-rows').on('change', function () {
+    const pageSize = $(this).val()
+    const order = $('#user-order').val();
+    const search = $('#user-search').val();
+    if (search == null || search.trim() == '') {
+        window.location = window.location.origin + `/User/ManageUsers?page=1&pageSize=${pageSize}&sort=${order}`;
+
+    } else {
+        window.location = window.location.origin + `/User/ManageUsers?page=1&pageSize=${pageSize}&sort=${order}&searchTerm=${search}`;
+
+    }
+})
+
+$('#user-search-button').on('click', function () {
+    const pageSize = $('#user-rows').val();
+    const order = $('#user-order').val();
+    const search = $('#user-search').val();
+    if (search == null || search.trim() == '') {
+        window.location = window.location.origin + `/User/ManageUsers?page=1&pageSize=${pageSize}&sort=${order}`;
+
+    } else {
+        window.location = window.location.origin + `/User/ManageUsers?page=1&pageSize=${pageSize}&sort=${order}&searchTerm=${search}`;
+
+    }
+})

@@ -138,9 +138,10 @@ namespace EweForum.Controllers
                 {
                     size = pageSize;
                     pagesToSkip = 0;
-                    TempData["userPageSize"] = pageSize;
+                   
 
                 }
+                TempData["userPageSize"] = pageSize;
             }
             if (TempData["userSearchTerm"] == null)
             {
@@ -159,8 +160,9 @@ namespace EweForum.Controllers
                 {
                     search = searchTerm;
                     pagesToSkip = 0;
-                    TempData["userSearchTerm"] = searchTerm;
+                   
                 }
+                TempData["userSearchTerm"] = searchTerm;
             }
             if (TempData["userOrder"] == null)
             {
@@ -221,7 +223,7 @@ namespace EweForum.Controllers
                                             || u.Country.Id.Contains(search)
                                 
                                 )
-                                .Skip(pagesToSkip)
+                                .Skip(pagesToSkip*size)
                                 .Take(size)
                                 .Select(u => new UserProfileViewModel{
                                     Username = u.UserName,
@@ -263,7 +265,7 @@ namespace EweForum.Controllers
 
                                )
                                .OrderBy(u => u.UserName)
-                               .Skip(pagesToSkip)
+                               .Skip(pagesToSkip*size)
                                .Take(size)
                                .Select(u => new UserProfileViewModel
                                {
@@ -307,7 +309,7 @@ namespace EweForum.Controllers
 
                                )
                                .OrderByDescending(u => u.Posts.Count())
-                               .Skip(pagesToSkip)
+                               .Skip(pagesToSkip * size)
                                .Take(size)
                                .Select(u => new UserProfileViewModel
                                {
@@ -353,7 +355,7 @@ namespace EweForum.Controllers
 
                                )
                                .OrderByDescending(u => u.PostsReplies.Count())
-                               .Skip(pagesToSkip)
+                               .Skip(pagesToSkip * size)
                                .Take(size)
                                .Select(u => new UserProfileViewModel
                                {
@@ -398,7 +400,7 @@ namespace EweForum.Controllers
 
                                )
                                .OrderBy(u => u.UserName)
-                               .Skip(pagesToSkip)
+                               .Skip(pagesToSkip * size)
                                .Take(size)
                                .Select(u => new UserProfileViewModel
                                {
@@ -441,7 +443,7 @@ namespace EweForum.Controllers
                                            || u.Country.Id.Contains(search)
 
                                ).OrderByDescending(u => u.JoinedTopics.Count())
-                               .Skip(pagesToSkip)
+                               .Skip(pagesToSkip * size)
                                .Take(size)
                                .Select(u => new UserProfileViewModel
                                {
@@ -475,7 +477,7 @@ namespace EweForum.Controllers
                                 .Include(u => u.Posts)
                                 .Include(u => u.PostsReplies)
                                 .Include(u => u.Country)
-                                .Skip(pagesToSkip)
+                                .Skip(pagesToSkip * size)
                                 .Take(size)
                                 .Select(u => new UserProfileViewModel
                                 {
@@ -499,7 +501,7 @@ namespace EweForum.Controllers
                                .Include(u => u.PostsReplies)
                                .Include(u => u.Country)
                                .OrderBy(u => u.UserName)
-                               .Skip(pagesToSkip)
+                               .Skip(pagesToSkip * size)
                                .Take(size)
                                .Select(u => new UserProfileViewModel
                                {
@@ -523,7 +525,7 @@ namespace EweForum.Controllers
                                .Include(u => u.PostsReplies)
                                .Include(u => u.Country)
                                .OrderByDescending(u => u.Posts.Count())
-                               .Skip(pagesToSkip)
+                               .Skip(pagesToSkip * size)
                                .Take(size)
                                .Select(u => new UserProfileViewModel
                                {
@@ -547,7 +549,7 @@ namespace EweForum.Controllers
                                .Include(u => u.PostsReplies)
                                .Include(u => u.Country)
                                .OrderByDescending(u => u.PostsReplies.Count())
-                               .Skip(pagesToSkip)
+                               .Skip(pagesToSkip * size)
                                .Take(size)
                                .Select(u => new UserProfileViewModel
                                {
@@ -571,7 +573,7 @@ namespace EweForum.Controllers
                                .Include(u => u.PostsReplies)
                                .Include(u => u.Country)
                                .OrderBy(u => u.UserName)
-                               .Skip(pagesToSkip)
+                               .Skip(pagesToSkip * size)
                                .Take(size)
                                .Select(u => new UserProfileViewModel
                                {
@@ -596,7 +598,7 @@ namespace EweForum.Controllers
                                .Include(u => u.PostsReplies)
                                .Include(u => u.Country)
                                .OrderByDescending(u => u.JoinedTopics.Count())
-                               .Skip(pagesToSkip)
+                               .Skip(pagesToSkip * size)
                                .Take(size)
                                .Select(u => new UserProfileViewModel
                                {
@@ -616,16 +618,20 @@ namespace EweForum.Controllers
                 }
             }
 
-
+            var pages = totalPages / size;
+            if(totalPages%size > 0)
+            {
+                pages++;
+            }
             PaginationModel<UserProfileViewModel> model = new PaginationModel<UserProfileViewModel>()
             {
-                PageCount = totalPages,
+                PageCount = pages ,
                 PageSize = size,
                 CurrentPageIndex = pagesToSkip+1,
                 PageIndex = pagesToSkip+1,
                 Items = users,
-                Order = (int) sortingOrder
-
+                Order = (int) sortingOrder,
+                SearchTerm = search
 
             };
 
