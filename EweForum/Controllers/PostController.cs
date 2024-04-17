@@ -31,6 +31,11 @@ namespace EweForum.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(PostViewModel model)
         {
+            Topic topic = await _context.Topics.FindAsync(model.TopicId);
+            if(topic == null)
+            {
+                return BadRequest("Topic doesn't exist");
+            }
             if(!Enum.IsDefined(typeof(PostType), model.PostType))
             {
                 return BadRequest("There is no such type");
@@ -150,9 +155,10 @@ namespace EweForum.Controllers
             }
             post.CreatedOn = DateTime.Now;
             post.ModifiedOn = DateTime.Now;
+            topic.UpdatedOn = DateTime.Now;
             _context.Posts.Add(post);
             await _context.SaveChangesAsync();
-            return RedirectToAction("View", "Topic", new { topicId = model.TopicId });
+            return RedirectToAction("View", "Topic", new { topicId = model.TopicId, page=1 });
         }
 
         [HttpGet]
