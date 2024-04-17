@@ -55,6 +55,7 @@ public class EweForumContext : IdentityDbContext<IdentityUser>
         builder.SeedTopics();
         builder.SeedUsers();
         builder.SeedJoinedTopics();
+        builder.SeedPosts();
     }
     public DbSet<Post> Posts { get; set; }
     public DbSet<Country> Countries { get; set; }
