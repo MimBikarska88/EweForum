@@ -50,12 +50,11 @@ Since the Admin user is configured, not created by the end user these credential
             </li>
             <li class="list-group-item">Redirect to error page in case of 500, 404 and 401 status codes configured in Program.cs</li>
             <li class="list-group-item">Model state validations wherever possible</li>
-            <li class="list-group-item disabled">Deployment</li>
-            <li class="list-group-item disabled">Using external storage such as Redis or Dropbox </li>
-            <li class="list-group-item disabled">65% Test Coverage - NONE </li>
-            <li class="list-group-item disabled">HTML escape characters testing - none</li>
-            <li class="list-group-item disabled">CRSF Token and further security</li>
-            
+            <li class="list-group-item disabled"><s>Deployment</s>s></li>
+            <li class="list-group-item disabled"><s>Using external storage such as Redis or Dropbox</s></li>
+            <li class="list-group-item disabled"><s>65% Test Coverage - NONE </s>s></li>
+            <li class="list-group-item disabled"><s>HTML escape characters testing - none</s>s></li>
+            <li class="list-group-item disabled"><s>CRSF Token and further security</s></li>
         </ul>
     </div>
     
