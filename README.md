@@ -1,14 +1,15 @@
 # EweForum
 
 This is my course project for C# Web Module 2024. I used the MVC design pattern, and in order to be able to make the UI a little more user-friendly used also some JQuery and Bootstrap. The configuration for the admin is put in user secrets file with the following contents:
+<pre><code>
 {
   "Admin": {
     "email": "admin@eweforum.com",
     "password": "test_p@$$w0rd",
     "username": "Admin"
   }
-  
 }
+</pre></code>
 Since the Admin user is configured, not created by the end user these credentials are used for its creation. I did not manage to finish the whole project on time and there are functionalities that are not implemented and no tests.
 
 <sectio>
@@ -50,10 +51,10 @@ Since the Admin user is configured, not created by the end user these credential
             </li>
             <li class="list-group-item">Redirect to error page in case of 500, 404 and 401 status codes configured in Program.cs</li>
             <li class="list-group-item">Model state validations wherever possible</li>
-            <li class="list-group-item disabled"><s>Deployment</s>s></li>
+            <li class="list-group-item disabled"><s>Deployment</s></li>
             <li class="list-group-item disabled"><s>Using external storage such as Redis or Dropbox</s></li>
-            <li class="list-group-item disabled"><s>65% Test Coverage - NONE </s>s></li>
-            <li class="list-group-item disabled"><s>HTML escape characters testing - none</s>s></li>
+            <li class="list-group-item disabled"><s>65% Test Coverage - NONE </s></li>
+            <li class="list-group-item disabled"><s>HTML escape characters testing - none</s></li>
             <li class="list-group-item disabled"><s>CRSF Token and further security</s></li>
         </ul>
     </div>
